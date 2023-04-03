@@ -1,34 +1,24 @@
 public class TestStudentLab {
     // Eisagogi foititi sti thesi [pos] tou pinaka lab
-    static void insertStudent(StudentLab lab, Student st, int pos) {
+    //static void insertStudent(StudentLab lab, Student st, int pos) {
         //lab = new StudentLab(st);
-        lab.addEntryToLab(st);
-/*        lab.addEntryToLab(pos);
-        lab..setAM(st.getAM());
-        lab[pos].setFirstName(st.getFirstName());
-        lab[pos].setLastName(st.getLastName());
-        lab[pos].setArithmosApousion(st.getArithmosApousion());
-        lab[pos].setVathmosTheorias(st.getVathmosTheorias());
-        lab[pos].setVathmosErgastiriou(st.getVathmosErgastiriou());
-        lab[pos].setVathmosTheorias(st.getVathmosTheorias());
-
- */
-    }
+    //    lab.addEntryToLab(st);
+    //}
     // Emfanisi pinaka lab
-    static void displayLab(Student lab) {
+//    static void displayLab(Student lab) {
 //        for (int i =0; i < lab.length; i++)
 //            System.out.println(lab[i]);
-    }
+//    }
     // Ypologismos kai emfanisi ton foititon pou perasan
-// ASKISI 3 - TELOS
+// ASKISI 4 - TELOS
     public static void main(String[] args) {
         int n, i;
         Student tempStudent = new Student();
         System.out.print("Dose to megethos tou ergastiriou: ");
         n = UserInput.getInteger();
         StudentLab studLab = new StudentLab();
-/* */
-        for (i = 0; i < n; i++) {
+        // An o xristis dosei megethos pinaka megalytero apo to MAX_LAB tote h parakato epanallipsi stamataei molis ftasei to MAX_LAB
+        for (i = 0; (i < n && i < studLab.getMAX_LAB()) ; i++) {
             // Eisagogi stoixeion foititon apo ton xristi stin prosorini metavliti tempStudent
             System.out.print("Dose ton AM tou foititi " + i + ": ");
             tempStudent.setAM(UserInput.getString());
@@ -42,18 +32,21 @@ public class TestStudentLab {
             tempStudent.setVathmosErgastiriou(UserInput.getDouble());
             System.out.print("Dose to Vathmo Theorias tou foititi " + i + ": ");
             tempStudent.setVathmosTheorias(UserInput.getDouble());
-            // Eisagogi tou tempStudent sti thesi i tou pinaka lab
-            insertStudent(studLab, tempStudent, i);
+            // Eisagogi tou tempStudent stin epomeni elefhteri thesi  tou pinaka studLab
+            studLab.addEntryToLab(tempStudent);
             System.out.println();
         }
-        // Emfanisi foititon/trion tou ergastiriou
-//        displayLab(studLab);
-        System.out.println();
+        System.out.println("Ta stoixeia olon ton foititon tou ergastirioiu einai ta parakato:");
+        studLab.showLabStudents();
+        System.out.println("************************************");
         // Foitites/ries me vathmo megalytero h iso tou 5
-//        passed(lab);
+        studLab.passed();
+        System.out.println("************************************");
         // Mesos oros ton vathmologion tou ergastiriou
-//        avgStudents(lab);
-        System.out.println("O/H foititis/ria me ton megalytero vathmo einai: ");
-//        System.out.println(lab[bestStudent(lab)].toString());
+        studLab.avgStudents();
+        System.out.println("************************************");
+        // Emfanisi tis thesis tou kalyterou foititi ston pinaka Student Lab
+        System.out.println("O/H foititis/ria me ton megalytero vathmo einai: \n" + studLab.showStudentFromLab(studLab.findBestStudentPosition()));
+        System.out.println("************************************");
     }
 }

@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="82cec508-b7cc-4934-9b0e-547981ecc716" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Askisis/Ergastirio2(done_BUT)/Askisi1/Askisi1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Askisis/Ergastirio2(done_BUT)/Askisi2/Askisi2.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Askisis/Ergastirio2(done_BUT)/Askisi3/Askisi3.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Askisis/Ergastirio2(done_BUT)/Askisi4/Askisi4.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Askisis/Ergastirio3/Ergastirio3.iml" beforeDir="false" />
+    <list default="true" id="82cec508-b7cc-4934-9b0e-547981ecc716" name="Changes" comment=".">
+      <change afterPath="$PROJECT_DIR$/Askisis/Ergastirio2(done_BUT)/Askisi4/TestStudentLab/StudentLab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Askisis/Ergastirio2(done_BUT)/Askisi4/Askisi4.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Askisis/Ergastirio2(done_BUT)/Askisi4/Askisi4.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Askisis/Ergastirio2(done_BUT)/Askisi4/TestStudent/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/Askisis/Ergastirio2(done_BUT)/Askisi4/TestStudentLab/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Askisis/Ergastirio2(done_BUT)/Askisi4/TestStudent/StudentLab.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Askisis/Ergastirio2(done_BUT)/Askisi4/TestStudent/TestStudentLab.java" beforeDir="false" afterPath="$PROJECT_DIR$/Askisis/Ergastirio2(done_BUT)/Askisi4/TestStudentLab/TestStudentLab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Askisis/Ergastirio2(done_BUT)/Askisi4/TestStudent/UserInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/Askisis/Ergastirio2(done_BUT)/Askisi4/TestStudentLab/UserInput.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +33,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

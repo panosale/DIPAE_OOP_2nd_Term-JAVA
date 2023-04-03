@@ -1,0 +1,47 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ergastirio3;
+
+public class Ergastirio3 {
+
+static int nParagontiko(int n) {
+   if (n <= 1)
+       return 1;
+   else
+       return n * (nParagontiko(n -1)); 
+}
+
+static int fibonacci(int f) {
+   if (f == 1 || f == 2)
+       return 1;
+   else
+       return fibonacci(f - 1) + fibonacci(f - 2);
+}
+
+static Boolean palindromos (String s) {
+    if (s.length() == 0 || s.length() == 1)
+        return true;
+    if (s.charAt(0) == s.charAt(s.length()-1))
+        return palindromos(s.substring(1, s.length()-1));
+    return false;
+}
+static int protosArithmos(int n) {
+    if (n ==1 )
+        System.out.println(1);
+    else //if (n % 2 == 0)
+        System.out.println(protosArithmos(n-1));
+    return n;
+}
+
+public static void main(String[] args) {
+        int nPar = 5;
+        System.out.println(nParagontiko(nPar));
+        int fibo = 4;
+        System.out.println(fibonacci(fibo));
+        String pal = "pasnap";
+        System.out.println(pal + " is palindromos: " + palindromos(pal));
+        protosArithmos(10);
+    }
+}

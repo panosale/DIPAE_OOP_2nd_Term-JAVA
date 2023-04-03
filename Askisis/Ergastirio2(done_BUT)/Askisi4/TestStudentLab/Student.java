@@ -96,8 +96,6 @@ public class Student {
     // Return final degree
     public double computeFinal()
     {
-        double tmp_telikosVathmos;
-        tmp_telikosVathmos = (this.VathmosErgastiriou * 0.30) + (this.VathmosTheorias * 0.70);
-        return tmp_telikosVathmos;
+        return (this.VathmosErgastiriou * 0.30) + (this.VathmosTheorias * 0.70);
     }
 }

@@ -1,16 +1,4 @@
 public class TestStudentLab {
-    // Eisagogi foititi sti thesi [pos] tou pinaka lab
-    //static void insertStudent(StudentLab lab, Student st, int pos) {
-        //lab = new StudentLab(st);
-    //    lab.addEntryToLab(st);
-    //}
-    // Emfanisi pinaka lab
-//    static void displayLab(Student lab) {
-//        for (int i =0; i < lab.length; i++)
-//            System.out.println(lab[i]);
-//    }
-    // Ypologismos kai emfanisi ton foititon pou perasan
-// ASKISI 4 - TELOS
     public static void main(String[] args) {
         int n, i;
         Student tempStudent = new Student();

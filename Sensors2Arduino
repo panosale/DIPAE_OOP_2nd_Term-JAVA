@@ -1,11 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2023-04-10T21:13:46.361Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/111.0" etag="thDS3rgr3JBD7eLF_931" version="21.1.5" type="github">
+<mxfile host="app.diagrams.net" modified="2023-04-10T21:16:00.932Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/111.0" etag="4n5iEPbXKqHsR3wYVhpR" version="21.1.5" type="github">
   <diagram name="Page-1" id="9f46799a-70d6-7492-0946-bef42562c5a5">
     <mxGraphModel dx="2534" dy="884" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="SQt8SeRDYO58n7OLLira-2" value="Soil_Moisture_Sensor1  (ID: 1)" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;strokeColor=#6D1F00;fontSize=16;fillColor=#a0522d;fontColor=#ffffff;" vertex="1" parent="1">
-          <mxGeometry x="-80" y="90" width="250" height="100" as="geometry" />
+          <mxGeometry x="-100" y="140" width="250" height="100" as="geometry" />
         </mxCell>
         <mxCell id="SQt8SeRDYO58n7OLLira-3" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;strokeColor=inherit;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=16;" vertex="1" parent="SQt8SeRDYO58n7OLLira-2">
           <mxGeometry y="30" width="250" height="30" as="geometry" />
@@ -59,7 +59,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="SQt8SeRDYO58n7OLLira-44" value="Temperature&amp;Humidity_Sensor1 (ID:3 &amp; 4)" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;strokeColor=#006EAF;fontSize=16;fillColor=#1ba1e2;fontColor=#ffffff;" vertex="1" parent="1">
-          <mxGeometry x="-160" y="550" width="430" height="80" as="geometry" />
+          <mxGeometry x="-100" y="530" width="430" height="80" as="geometry" />
         </mxCell>
         <mxCell id="SQt8SeRDYO58n7OLLira-45" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;strokeColor=inherit;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=16;" vertex="1" parent="SQt8SeRDYO58n7OLLira-44">
           <mxGeometry y="30" width="430" height="30" as="geometry" />
@@ -287,9 +287,9 @@
         <mxCell id="SQt8SeRDYO58n7OLLira-108" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="SQt8SeRDYO58n7OLLira-47" target="SQt8SeRDYO58n7OLLira-86">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="290" y="620" />
-              <mxPoint x="290" y="520" />
-              <mxPoint x="210" y="520" />
+              <mxPoint x="360" y="600" />
+              <mxPoint x="360" y="480" />
+              <mxPoint x="210" y="480" />
               <mxPoint x="210" y="420" />
             </Array>
           </mxGeometry>
@@ -297,7 +297,7 @@
         <mxCell id="SQt8SeRDYO58n7OLLira-109" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="SQt8SeRDYO58n7OLLira-11" target="SQt8SeRDYO58n7OLLira-90">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="210" y="180" />
+              <mxPoint x="210" y="230" />
               <mxPoint x="210" y="380" />
             </Array>
           </mxGeometry>
@@ -305,7 +305,7 @@
         <mxCell id="SQt8SeRDYO58n7OLLira-110" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="SQt8SeRDYO58n7OLLira-7" target="SQt8SeRDYO58n7OLLira-65">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="240" y="160" />
+              <mxPoint x="240" y="210" />
               <mxPoint x="240" y="300" />
             </Array>
           </mxGeometry>
@@ -313,8 +313,8 @@
         <mxCell id="SQt8SeRDYO58n7OLLira-111" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="SQt8SeRDYO58n7OLLira-30" target="SQt8SeRDYO58n7OLLira-74">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="730" y="170" />
-              <mxPoint x="730" y="320" />
+              <mxPoint x="720" y="170" />
+              <mxPoint x="720" y="320" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -329,8 +329,8 @@
         <mxCell id="SQt8SeRDYO58n7OLLira-113" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="SQt8SeRDYO58n7OLLira-58" target="SQt8SeRDYO58n7OLLira-70">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="715" y="610" />
-              <mxPoint x="715" y="340" />
+              <mxPoint x="720" y="610" />
+              <mxPoint x="720" y="340" />
             </Array>
           </mxGeometry>
         </mxCell>

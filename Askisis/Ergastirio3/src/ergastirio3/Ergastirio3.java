@@ -10,6 +10,8 @@ static int nParagontiko(int n) {
 }
 
 static int fibonacci(int f) {
+    if (f == 0)
+        return 0;
    if (f == 1 || f == 2)
        return 1;
    else
@@ -24,27 +26,33 @@ static Boolean palindromos (String s) {
     return false;
 }
 static boolean protosArithmos(int start, int end) {
-    if (end % 2 ==0)
-        end--;
-    if (start % 2 == 0)
-        return protosArithmos(start + 1, end);
-    if (end % start == 0)
-        return protosArithmos(start +1, end);
-    else {
-        System.out.println("start: " + start + ", end: " + end);
-        return protosArithmos(1, start + 1);
+    System.out.print("_");
+    if (start == end) {
+        System.out.println(start + " = " + end);
+        return true;
     }
+    System.out.println(end + " % (" + start + ") = " + end % (start )); // Diorthosi edo
+    if (end % (start) != 0) { // Diorthosi edo
+        System.out.println(start + ",, " + end);
+        return protosArithmos(2, start); // Diorthosi edo
+    }
+    return false;
 }
 
 public static void main(String[] args) {
-        int nPar = 4;
-        System.out.println(nPar + "!: " + nParagontiko(nPar));
-        int fibo = 4;
-        System.out.println(fibo + " Fibonacci is: " + fibonacci(fibo));
-        String pal = "pasnap";
-        System.out.println(pal + " is palindromos: " + palindromos(pal));
-        System.out.println("Protoi arithmoi.");
-        //protoiNoRecursion(16);
-        System.out.println("Protoi: " + protosArithmos(1, 19));
+
+    int nPar = 10;
+    System.out.println(nPar + "!: " + nParagontiko(nPar) + "\n");
+    int fibo = 10;
+    System.out.println(fibo + " Fibonacci is: " + fibonacci(fibo) + "\n");
+    String pal = "pasnsap";
+    System.out.println(pal + " is palindromos: " + palindromos(pal) + "\n");
+    pal = "pasnap";
+    System.out.println(pal + " is palindromos: " + palindromos(pal) + "\n");
+    System.out.println("Protoi arithmoi.");
+    int prime = 20;
+    int i = 4;
+    for (i = 4; i < prime; i++)
+        System.out.println("Protoi: " + i + " is protos: " + protosArithmos(i, prime) + "\n-----");
     }
 }

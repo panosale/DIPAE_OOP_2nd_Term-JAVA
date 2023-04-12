@@ -1,114 +1,106 @@
 package ergastirio5;
 
 import java.io.*;
-public class UserInput
-{
-    static int getInteger(){
+
+public class UserInput {
+    static int getInteger() {
         String line;
-        InputStreamReader eisodosString = new InputStreamReader (System.in);
-        BufferedReader br = new BufferedReader (eisodosString);
-        try{
+        InputStreamReader eisodosString = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(eisodosString);
+        try {
             line = br.readLine();
-            int i = Integer.parseInt (line);
+            int i = Integer.parseInt(line);
             return i;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return -1;
         }
     }
 
-    static float getFloat(){
+    static float getFloat() {
         String line;
-        InputStreamReader eisodosString = new InputStreamReader (System.in);
-        BufferedReader br = new BufferedReader (eisodosString);
-        try{
+        InputStreamReader eisodosString = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(eisodosString);
+        try {
             line = br.readLine();
-            float i = Float.parseFloat (line);
+            float i = Float.parseFloat(line);
             return i;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return -1;
         }
     }
 
-    static double getDouble(){
+    static double getDouble() {
         String line;
-        InputStreamReader eisodosString = new InputStreamReader (System.in);
-        BufferedReader br = new BufferedReader (eisodosString);
-        try{
+        InputStreamReader eisodosString = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(eisodosString);
+        try {
             line = br.readLine();
-            double i = Double.parseDouble (line);
+            double i = Double.parseDouble(line);
             return i;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return -1;
         }
     }
 
-    static short getShort(){
+    static short getShort() {
         String line;
-        InputStreamReader eisodosString = new InputStreamReader (System.in);
-        BufferedReader br = new BufferedReader (eisodosString);
-        try{
+        InputStreamReader eisodosString = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(eisodosString);
+        try {
             line = br.readLine();
-            short i = Short.parseShort (line);
+            short i = Short.parseShort(line);
             return i;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return -1;
         }
     }
 
-    static long getLong(){
+    static long getLong() {
         String line;
-        InputStreamReader eisodosString = new InputStreamReader (System.in);
-        BufferedReader br = new BufferedReader (eisodosString);
-        try{
+        InputStreamReader eisodosString = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(eisodosString);
+        try {
             line = br.readLine();
-            long i = Long.parseLong (line);
+            long i = Long.parseLong(line);
             return i;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return -1;
         }
     }
 
-    static byte getByte(){
+    static byte getByte() {
         String line;
-        InputStreamReader eisodosString = new InputStreamReader (System.in);
-        BufferedReader br = new BufferedReader (eisodosString);
-        try{
+        InputStreamReader eisodosString = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(eisodosString);
+        try {
             line = br.readLine();
             byte i = Byte.parseByte(line);
             return i;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return -1;
         }
     }
 
-    public static char getChar(){
-        InputStreamReader eisodosString = new InputStreamReader (System.in);
-        BufferedReader br = new BufferedReader (eisodosString);
+    public static char getChar() {
+        InputStreamReader eisodosString = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(eisodosString);
         char c;
-        try{
-            c = (char)br.read();
+        try {
+            c = (char) br.read();
             return c;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return 'L';
         }
     }
 
-    public static String getString(){
+    public static String getString() {
         String line;
-        InputStreamReader eisodosString=new InputStreamReader (System.in);
-        BufferedReader br=new BufferedReader(eisodosString);
-        try{
-            line=br.readLine();
+        InputStreamReader eisodosString = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(eisodosString);
+        try {
+            line = br.readLine();
             return line;
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             return "Lathos";
         }
     }

@@ -39,17 +39,17 @@ public class TestShortUtils {
             tmpAM = UserInput.getShort();
             System.out.print("Dose to Etos Eisagogis tou foititi " + i + ": ");
             tmpEtosEisagogis = UserInput.getShort();
-            PinakasFoititon[i].setAM((short)tmpAM);
-            PinakasFoititon[i].setEtosEisagogis((short)tmpEtosEisagogis);
+            PinakasFoititon[i].setAM((short) tmpAM);
+            PinakasFoititon[i].setEtosEisagogis((short) tmpEtosEisagogis);
             System.out.println("*******");
             System.out.println(PinakasFoititon[i].toString());
             System.out.println("*******");
             MyUtils.insertSortAM(PinakasFoititon, PinakasFoititon[i]);
             System.out.println();
         }
-        
+
         // Emfanisi pinaka foititon
-        for (int i = 0; i < PinakasFoititon.length; i++) {            
+        for (int i = 0; i < PinakasFoititon.length; i++) {
             System.out.println(PinakasFoititon[i].toString());
             System.out.println();
         }
@@ -88,4 +88,4 @@ public class TestShortUtils {
         System.out.println();
     }
 */
-}
+    }

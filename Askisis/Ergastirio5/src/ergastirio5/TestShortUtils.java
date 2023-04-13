@@ -5,13 +5,13 @@ public class TestShortUtils {
 //      Arxikopoiisi pinaka foition me times
         int n = 7;
         Foititis[] PinakasFoititon = new Foititis[n];
-        PinakasFoititon[0] = new Foititis((short)25,"Panos", "Alevropoulos", (short)2022);
-        PinakasFoititon[1] = new Foititis((short)115,"Kostas", "Nikolaou", (short)2020);
-        PinakasFoititon[2] = new Foititis((short)6,"Eleni", "Georgiadou", (short)2019);
-        PinakasFoititon[3] = new Foititis((short)102,"Nikos", "Aliagas", (short)2018);
-        PinakasFoititon[4] = new Foititis((short)74,"Maria", "Dimitriadou", (short)2016);
-        PinakasFoititon[5] = new Foititis((short)93,"Petros", "Georgiou", (short)2019);
-        PinakasFoititon[6] = new Foititis((short)57,"Konstantina", "Papadopoulou", (short)2022);
+        PinakasFoititon[0] = new Foititis((short) 25, "Panos", "Alevropoulos", (short) 2022);
+        PinakasFoititon[1] = new Foititis((short) 115, "Kostas", "Nikolaou", (short) 2020);
+        PinakasFoititon[2] = new Foititis((short) 6, "Eleni", "Georgiadou", (short) 2019);
+        PinakasFoititon[3] = new Foititis((short) 102, "Nikos", "Aliagas", (short) 2018);
+        PinakasFoititon[4] = new Foititis((short) 74, "Maria", "Dimitriadou", (short) 2016);
+        PinakasFoititon[5] = new Foititis((short) 93, "Petros", "Georgiou", (short) 2019);
+        PinakasFoititon[6] = new Foititis((short) 57, "Konstantina", "Papadopoulou", (short) 2022);
 
 //      Eisagogi foititon ston pinaka apo ton xristi
 /*        int n;
@@ -46,17 +46,19 @@ public class TestShortUtils {
         // Insertion Sort
         MyUtils.insertSortAM(PinakasFoititon);
         System.out.println();
-        // Emfanisi pinaka foititon meta tin Insertion Sort
-        for (i = 0; i < PinakasFoititon.length; i++) {
-            System.out.println(PinakasFoititon[i].toString());
-            System.out.println();
-        // Selection Sort
-        MyUtils.selectSortEponymo(PinakasFoititon);
-        System.out.println();
-        // Emfanisi pinaka foititon meta tin Selection Sort
+        System.out.println("***** Emfanisi pinaka foititon meta tin Insertion Sort *****");
         for (i = 0; i < PinakasFoititon.length; i++) {
             System.out.println(PinakasFoititon[i].toString());
             System.out.println();
         }
+        // Selection Sort
+        MyUtils.selectSortEponymo(PinakasFoititon);
+        System.out.println();
+        System.out.println("\n***** Emfanisi pinaka foititon meta tin Selection Sort *****");
+        for (i = 0; i < PinakasFoititon.length; i++) {
+            System.out.println(PinakasFoititon[i].toString());
+            System.out.println();
+        }
+
     }
 }

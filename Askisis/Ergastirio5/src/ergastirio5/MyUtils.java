@@ -11,10 +11,10 @@ public class MyUtils {
         tmpLastName = foit1.getLastName();
         tmpEtosEisagogis = foit1.getEtosEisagogis();
 
-        foit1.setAM(foit2.getAM);
-        foit1.setFirstName(foit2.getFirstName);
-        foit1.setLastName(foit2.getLastName);
-        foit1.setEtosEisagogis(foit2.getEtosEisagogis);
+        foit1.setAM(foit2.getAM());
+        foit1.setFirstName(foit2.getFirstName());
+        foit1.setLastName(foit2.getLastName());
+        foit1.setEtosEisagogis(foit2.getEtosEisagogis());
 
         foit2.setAM(tmpAM);
         foit2.setFirstName(tmpFirstName);

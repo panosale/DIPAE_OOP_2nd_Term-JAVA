@@ -92,5 +92,19 @@ public class MyUtils {
             swapFoitites(foitArray[min], foitArray[i]);
         }
     }
+    public static void bubbleSortEE(Foititis[] foitArray) {
+        int i, j;
+        boolean found;
+        for (i = 1; i < foitArray.length; i++) {
+            found = true;
+            for (j = 0; j < foitArray.length - i; j++) {
+                if (foitArray[j].getEtosEisagogis() > foitArray[j + 1].getEtosEisagogis())
+                    swapFoitites(foitArray[j], foitArray[j + 1]);
+                found = false;
+            }
+            if (found)
+                return;;
+        }
+    }
 }
 

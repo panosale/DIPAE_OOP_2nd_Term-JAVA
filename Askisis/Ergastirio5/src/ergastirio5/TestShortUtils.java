@@ -59,6 +59,5 @@ public class TestShortUtils {
             System.out.println(PinakasFoititon[i].toString());
             System.out.println();
         }
-
     }
 }

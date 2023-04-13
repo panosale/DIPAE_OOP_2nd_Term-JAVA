@@ -3,7 +3,7 @@ package ergastirio5;
 public class TestShortUtils {
     public static void main(String[] args) {
 //      Arxikopoiisi pinaka foition me times
-/*        int n = 7;
+        int n = 7;
         Foititis[] PinakasFoititon = new Foititis[n];
         PinakasFoititon[0] = new Foititis((short)25,"Panos", "Alevropoulos", (short)2022);
         PinakasFoititon[1] = new Foititis((short)115,"Kostas", "Nikolaou", (short)2020);
@@ -12,9 +12,9 @@ public class TestShortUtils {
         PinakasFoititon[4] = new Foititis((short)74,"Maria", "Dimitriadou", (short)2016);
         PinakasFoititon[5] = new Foititis((short)93,"Petros", "Georgiou", (short)2019);
         PinakasFoititon[6] = new Foititis((short)57,"Konstantina", "Papadopoulou", (short)2022);
-*/
+
 //      Eisagogi foititon ston pinaka apo ton xristi
-        int n;
+/*        int n;
         short tmpAM, tmpEtosEisagogis;
         String tmpFirstName, tmpLastName;
         System.out.print("Dose to megethos tou pinaka foititon: ");
@@ -41,11 +41,20 @@ public class TestShortUtils {
             System.out.println(PinakasFoititon[i].toString());
             System.out.println("***********************************");
         }
+*/
+        int i;
+        // Insertion Sort
         MyUtils.insertSortAM(PinakasFoititon);
         System.out.println();
-
-        // Emfanisi pinaka foititon
-        for (int i = 0; i < PinakasFoititon.length; i++) {
+        // Emfanisi pinaka foititon meta tin Insertion Sort
+        for (i = 0; i < PinakasFoititon.length; i++) {
+            System.out.println(PinakasFoititon[i].toString());
+            System.out.println();
+        // Selection Sort
+        MyUtils.selectSortEponymo(PinakasFoititon);
+        System.out.println();
+        // Emfanisi pinaka foititon meta tin Selection Sort
+        for (i = 0; i < PinakasFoititon.length; i++) {
             System.out.println(PinakasFoititon[i].toString());
             System.out.println();
         }

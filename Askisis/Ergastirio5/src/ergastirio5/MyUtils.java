@@ -1,6 +1,26 @@
 package ergastirio5;
 
 public class MyUtils {
+    // Swap foititon
+    public static void swapFoitites(Foititis foit1, Foititis foit2) {
+        short tmpAM, tmpEtosEisagogis;
+        String tmpFirstName, tmpLastName;
+
+        tmpAM = foit1.getAM();
+        tmpFirstName = foit1.getFirstName();
+        tmpLastName = foit1.getLastName();
+        tmpEtosEisagogis = foit1.getEtosEisagogis();
+
+        foit1.setAM(foit2.getAM);
+        foit1.setFirstName(foit2.getFirstName);
+        foit1.setLastName(foit2.getLastName);
+        foit1.setEtosEisagogis(foit2.getEtosEisagogis);
+
+        foit2.setAM(tmpAM);
+        foit2.setFirstName(tmpFirstName);
+        foit2.setLastName(tmpLastName);
+        foit2.setEtosEisagogis(tmpEtosEisagogis);
+    }
     //1.  Seiriaki anazitisi
     public static int anazitisiMeEpwnymo(Foititis[] foitArray, String foit2Search) {
         for (int i = 0; i < foitArray.length; i++)
@@ -60,6 +80,16 @@ public class MyUtils {
             foitArray[position].setFirstName(tmpFirstNama);
             foitArray[position].setLastName(tmpLastName);
             foitArray[position].setEtosEisagogis(tmpEtosEisagogis);
+        }
+    }
+    public static void selectSortEponymo(Foititis[] foitArray) {
+        int i, j, min;
+        for (i = 0; i < foitArray.length; i++) {
+            min = i;
+            for (j = i + 1; j < foitArray.length; j++)
+                if (foitArray[j].getLastName().compareTo(foitArray[min].getLastName()) < 0)
+                    min = j;
+            swapFoitites(foitArray[min], foitArray[i]);
         }
     }
 }

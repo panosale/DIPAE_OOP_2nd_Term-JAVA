@@ -33,7 +33,7 @@ public class TestShortUtils {
 /*            System.out.println("***** ARXIKA STOIXEIA FOITITI *****");
             System.out.println(PinakasFoititon[i].toString());
             System.out.println("***********************************");
- */
+*/
             System.out.print("Dose ton AM tou foititi " + tmpLastName + " " + tmpFirstName + ": ");
             tmpAM = UserInput.getShort();
             System.out.print("Dose to Etos Eisagogis tou foititi "  + tmpLastName + " " + tmpFirstName + ": ");

@@ -37,20 +37,30 @@ public class MyUtils {
         else
             return mid;
     }
-
-    public static void insertSortAM(Foititis[] foitArray, Foititis newFoit) {
-        int i, j;
-        Foititis tmpFoititis = new Foititis();
-        for (i = 0; i < foitArray.length; i++) {
-            if (newFoit.getAM() < foitArray[i].getAM()) {
-                for (j = i - foitArray.length; j > i; j--) {
-                    tmpFoititis = foitArray[j];
-                    foitArray[j] = foitArray[j + 1];
-                    foitArray[j + 1] = tmpFoititis;
-                }
-                foitArray[i] = newFoit;
+    public static void insertSortAM(Foititis[] foitArray) {
+        int i, position;
+        short currentAM, tmpEtosEisagogis;
+        String tmpFirstNama, tmpLastName;
+        for (i = 1; i < foitArray.length; i++) {
+            // Apothikefsi timon se prosorines metavlites gia xrisi parakto
+            currentAM = foitArray[i].getAM();
+            tmpFirstNama = foitArray[i].getFirstName();
+            tmpLastName = foitArray[i].getLastName();
+            tmpEtosEisagogis = foitArray[i].getEtosEisagogis();
+            position = i;
+            while (position > 0 && foitArray[position - 1].getAM() > currentAM) {
+                foitArray[position].setAM(foitArray[position - 1].getAM());
+                foitArray[position].setFirstName(foitArray[position - 1].getFirstName());
+                foitArray[position].setLastName(foitArray[position - 1].getLastName());
+                foitArray[position].setEtosEisagogis(foitArray[position - 1].getEtosEisagogis());
+                position--;
             }
+            // Xrisi ton prososrinon metavliton gia kataxorisi tous sti nea tous thesi ston pinaka (position)
+            foitArray[position].setAM(currentAM);
+            foitArray[position].setFirstName(tmpFirstNama);
+            foitArray[position].setLastName(tmpLastName);
+            foitArray[position].setEtosEisagogis(tmpEtosEisagogis);
         }
-
     }
 }
+

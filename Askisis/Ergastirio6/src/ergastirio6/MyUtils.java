@@ -110,23 +110,23 @@ public class MyUtils {
         }
     }
     // Ergastirio 6.1 Quick sort
-    public static void quickSortAM(Foititis[] foitArray) {
+    public static void quickSortAM(Foititis foitArray[]) {
         quickSort(foitArray, 0, foitArray.length - 1);
     }
-    public static void quickSort(Foititis[] foitArray, int first, int last) {
+    public static void quickSort(Foititis foitArray[], int first, int last) {
         if (last - first > 0) {
             int pivotIndex = partition(foitArray, first, last);
             quickSort(foitArray, first, pivotIndex - 1);
-            quickSort(foitArray, pivotIndex - 1, last);
+            quickSort(foitArray, pivotIndex + 1, last);
         }
     }
-    public static void int partition(Foititis[] foitArray, int first, int last) {
+    public static int partition(Foititis foitArray[], int first, int last) {
         int retValue = 0;
         int lowerLimit = first;
         int mid = (first + last) / 2;
         swapFoitites(foitArray[first], foitArray[mid]); // ????
         short pivot = foitArray[first].getAM();
-        f++;
+        first++;
         while (first < last) {
             while (foitArray[first].getAM() <= pivot && first < last)
                 first++;
@@ -136,13 +136,13 @@ public class MyUtils {
                 swapFoitites(foitArray[first], foitArray[last]);
         }
         if (pivot > foitArray[first].getAM()) {
-            swapFoitites(foitArray[first], foitArray[lowerLimit]
+            swapFoitites(foitArray[first], foitArray[lowerLimit]);
             retValue = first;
         }
         else {
             if (pivot >= foitArray[last].getAM()) {
                 swapFoitites(foitArray[last], foitArray[lowerLimit]);
-                retValue = 1;
+                retValue = last;
             }
         }
         return retValue;

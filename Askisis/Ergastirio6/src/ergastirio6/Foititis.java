@@ -22,6 +22,13 @@ public class Foititis {
         this.LastName = new_lastName;
         this.EtosEisagogis = new_etosEisagogis;
     }
+    // Methodos gia ton orismo olon ton attributes tou antikeimenou meso parametron
+    public void setAllValuesToFoititis(short new_arMitroou, String new_firstName, String new_lastName, short new_etosEisagogis) {
+        this.AM = new_arMitroou;
+        this.FirstName = new_firstName;
+        this.LastName = new_lastName;
+        this.EtosEisagogis = new_etosEisagogis;
+    }
 
     // Get-Set AM
     public short getAM() {

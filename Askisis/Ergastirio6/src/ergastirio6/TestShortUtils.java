@@ -58,7 +58,7 @@ public class TestShortUtils {
             System.out.println();
         }
         // Merge Sort
-/*        MyUtils.mergeSortEponymo(PinakasFoititon);
+        MyUtils.mergeSortEponymo(PinakasFoititon);
         System.out.println();
         System.out.println("***** Emfanisi pinaka foititon meta tin Merge Sort *****");
         System.out.println("***** Merge sort by Eponymo *****");
@@ -66,6 +66,5 @@ public class TestShortUtils {
             System.out.println(PinakasFoititon[i].toString());
             System.out.println();
         }
-*/
     }
 }

@@ -21,6 +21,7 @@ public class MyUtils {
         foit2.setLastName(tmpLastName);
         foit2.setEtosEisagogis(tmpEtosEisagogis);
     }
+
     //Ergastirio 4.1 Seiriaki anazitisi
     public static int anazitisiMeEpwnymo(Foititis[] foitArray, String foit2Search) {
         for (int i = 0; i < foitArray.length; i++)
@@ -28,6 +29,7 @@ public class MyUtils {
                 return i;
         return -1;
     }
+
     //Ergastirio 4.2 Dyadiki anazitisi
     public static int diadikiAnazitisiMeAM(Foititis[] foitArray, short amFoit2Search) {
         int pos = -1;
@@ -45,6 +47,7 @@ public class MyUtils {
         }
         return pos;
     }
+
     //Ergastirio 4.3 Anadromiki dyadiki anazitisi
     public static int anadromikiDiadikiAnazitisiMeAM(Foititis[] foitArray, short amFoit2Search, int start, int end) {
         if (start > end)
@@ -57,6 +60,7 @@ public class MyUtils {
         else
             return mid;
     }
+
     //Ergastirio 5.1 Taksinomisi me Eisagogi
     public static void insertSortAM(Foititis[] foitArray) {
         int i, position;
@@ -83,6 +87,7 @@ public class MyUtils {
             foitArray[position].setEtosEisagogis(tmpEtosEisagogis);
         }
     }
+
     //Ergastirio 5.2 Taksinomisi me Epilogi
     public static void selectSortEponymo(Foititis[] foitArray) {
         int i, j, min;
@@ -94,6 +99,7 @@ public class MyUtils {
             swapFoitites(foitArray[min], foitArray[i]);
         }
     }
+
     //Ergastirio 5.3 Taksinomisi Fysalidas (Bubblesort)
     public static void bubbleSortEE(Foititis[] foitArray) {
         int i, j;
@@ -106,21 +112,25 @@ public class MyUtils {
                 found = false;
             }
             if (found)
-                return;;
+                return;
+            ;
         }
     }
+
     // Ergastirio 6.1 Quick sort
-    public static void quickSortAM(Foititis foitArray[]) {
+    public static void quickSortAM(Foititis[] foitArray) {
         quickSort(foitArray, 0, foitArray.length - 1);
     }
-    public static void quickSort(Foititis foitArray[], int first, int last) {
+
+    public static void quickSort(Foititis[] foitArray, int first, int last) {
         if (last - first > 0) {
             int pivotIndex = partition(foitArray, first, last);
             quickSort(foitArray, first, pivotIndex - 1);
             quickSort(foitArray, pivotIndex + 1, last);
         }
     }
-    public static int partition(Foititis foitArray[], int first, int last) {
+
+    public static int partition(Foititis[] foitArray, int first, int last) {
         int retValue = 0;
         int lowerLimit = first;
         int mid = (first + last) / 2;
@@ -138,8 +148,7 @@ public class MyUtils {
         if (pivot > foitArray[first].getAM()) {
             swapFoitites(foitArray[first], foitArray[lowerLimit]);
             retValue = first;
-        }
-        else {
+        } else {
             if (pivot >= foitArray[last].getAM()) {
                 swapFoitites(foitArray[last], foitArray[lowerLimit]);
                 retValue = last;
@@ -147,8 +156,56 @@ public class MyUtils {
         }
         return retValue;
     }
+
     // Ergastirio 6.2 Merge sort
     public static void mergeSortEponymo(Foititis[] foitArray) {
+        mSort(foitArray, 0, foitArray.length - 1);
+    }
+
+    public static void mSort(Foititis A[], int first, int last) {
+        if (first == last)
+            return;
+        int mid = (first + last) / 2;
+        mSort(A, first, mid);
+        mSort(A, mid + 1, last);
+        merge(A, first, last, mid);
+    }
+
+    public static void merge(Foititis[] A, int first, int last, int mid) {
+        int n = last - first + 1;
+        System.out.println("n= " + n); // GIA DOKIMES
+        Foititis[] tmpArray = new Foititis[n]; // Prosorinos pinakas Foititon
+        for (int i = 0; i < n; i++)
+            tmpArray[i] = new Foititis();
+        int i1 = first, i2 = mid + 1, j = 0;
+        while (i1 <= mid && i2 <= last) {// A.length && i2 <= B.length) {
+            System.out.println("j= " + j); // GIA DOKIMES
+            if (A[i1].getLastName().compareTo(A[i2].getLastName()) < 0) {
+                tmpArray[j].setAllValuesToFoititis(A[i1].getAM(), A[i1].getFirstName(), A[i1].getLastName(), A[i1].getEtosEisagogis());
+                //C[j].setAllValuesToFoititis(A[i1].getAM(), A[i1].getFirstName(), A[i1].getLastName(), A[i1].getEtosEisagogis());
+                i1++;
+            } else {
+                tmpArray[j].setAllValuesToFoititis(A[i2].getAM(), A[i2].getFirstName(), A[i2].getLastName(), A[i2].getEtosEisagogis());
+                //C[j].setAllValuesToFoititis(B[i2].getAM(), B[i2].getFirstName(), B[i2].getLastName(), B[i2].getEtosEisagogis());
+                i2++;
+            }
+            j++;
+        }
+        while (i1 <= mid) {//A.length) {
+            tmpArray[j].setAllValuesToFoititis(A[i1].getAM(), A[i1].getFirstName(), A[i1].getLastName(), A[i1].getEtosEisagogis());
+            //C[j].setAllValuesToFoititis(A[i1].getAM(), A[i1].getFirstName(), A[i1].getLastName(), A[i1].getEtosEisagogis());
+            i1++;
+            j++;
+        }
+        while (i2 < last) {
+            tmpArray[j].setAllValuesToFoititis(A[i2].getAM(), A[i2].getFirstName(), A[i2].getLastName(), A[i2].getEtosEisagogis());
+            //C[j].setAllValuesToFoititis(B[i2].getAM(), B[i2].getFirstName(), B[i2].getLastName(), B[i2].getEtosEisagogis());
+            i2++;
+            j++;
+        }
+        for (j = 0; j < n; j++) {
+            A[first + j].setAllValuesToFoititis(tmpArray[j].getAM(), tmpArray[j].getFirstName(), tmpArray[j].getLastName(), tmpArray[j].getEtosEisagogis());
+        }
     }
 }
 

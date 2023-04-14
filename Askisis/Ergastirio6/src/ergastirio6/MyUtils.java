@@ -1,7 +1,7 @@
 package ergastirio6;
 
 public class MyUtils {
-    // Swap foititon
+    // Veltiomeni ekdosi tis Swap foititon
     public static void swapFoitites(Foititis foit1, Foititis foit2) {
         short tmpAM, tmpEtosEisagogis;
         String tmpFirstName, tmpLastName;
@@ -11,15 +11,17 @@ public class MyUtils {
         tmpLastName = foit1.getLastName();
         tmpEtosEisagogis = foit1.getEtosEisagogis();
 
-        foit1.setAM(foit2.getAM());
-        foit1.setFirstName(foit2.getFirstName());
-        foit1.setLastName(foit2.getLastName());
-        foit1.setEtosEisagogis(foit2.getEtosEisagogis());
+        foit1.setAllValuesToFoititis(foit2.getAM(), foit2.getFirstName(), foit2.getLastName(), foit2.getEtosEisagogis());
+//        foit1.setAM(foit2.getAM());
+//        foit1.setFirstName(foit2.getFirstName());
+//        foit1.setLastName(foit2.getLastName());
+//        foit1.setEtosEisagogis(foit2.getEtosEisagogis());
 
-        foit2.setAM(tmpAM);
-        foit2.setFirstName(tmpFirstName);
-        foit2.setLastName(tmpLastName);
-        foit2.setEtosEisagogis(tmpEtosEisagogis);
+        foit2.setAllValuesToFoititis(tmpAM, tmpFirstName, tmpLastName, tmpEtosEisagogis);
+//        foit2.setAM(tmpAM);
+//        foit2.setFirstName(tmpFirstName);
+//        foit2.setLastName(tmpLastName);
+//        foit2.setEtosEisagogis(tmpEtosEisagogis);
     }
 
     //Ergastirio 4.1 Seiriaki anazitisi
@@ -80,11 +82,14 @@ public class MyUtils {
                 foitArray[position].setEtosEisagogis(foitArray[position - 1].getEtosEisagogis());
                 position--;
             }
-            // Xrisi ton prososrinon metavliton gia kataxorisi tous sti nea tous thesi ston pinaka (position)
-            foitArray[position].setAM(currentAM);
-            foitArray[position].setFirstName(tmpFirstNama);
-            foitArray[position].setLastName(tmpLastName);
-            foitArray[position].setEtosEisagogis(tmpEtosEisagogis);
+            // Kataxorisi ton prososrinon metavliton sti nea tous thesi [position] ston pinaka
+            // Me ti xrisi tis methodou .setAllValuesToFoititis
+            foitArray[position].setAllValuesToFoititis(currentAM, tmpFirstNama, tmpLastName, tmpEtosEisagogis);
+            // Xoris ti methodo .setAllValuesToFoititis
+//            foitArray[position].setAM(currentAM);
+//            foitArray[position].setFirstName(tmpFirstNama);
+//            foitArray[position].setLastName(tmpLastName);
+//            foitArray[position].setEtosEisagogis(tmpEtosEisagogis);
         }
     }
 
@@ -161,7 +166,7 @@ public class MyUtils {
     public static void mergeSortEponymo(Foititis[] foitArray) {
         mSort(foitArray, 0, foitArray.length - 1);
     }
-
+    // Merge sort - Synexeia
     public static void mSort(Foititis[] A, int first, int last) {
         if (first == last)
             return;
@@ -170,35 +175,30 @@ public class MyUtils {
         mSort(A, mid + 1, last);
         merge(A, first, last, mid);
     }
-
+    // Merge sort - Synexeia
     public static void merge(Foititis[] A, int first, int last, int mid) {
         int i1 = first, i2 = mid + 1, j = 0;
         int tmpArraySize = last - first + 1;
         Foititis[] tmpArray = new Foititis[tmpArraySize]; // Prosorinos pinakas Foititon
         for (int i = 0; i < tmpArraySize; i++) // Arxikopoiisi antikeimenon prosorinou pinaka
             tmpArray[i] = new Foititis(); // Arxikopoiisi antikeimenon prosorinou pinaka
-        while (i1 <= mid && i2 <= last) {// A.length && i2 <= B.length) {
-            System.out.println("A.length= " + A.length + ", tmpArraySize= " + + tmpArraySize + ", j= " + j + ", a[i1]= " + A[i1].getLastName() + " i1= " + i1 + ", i2= " + i2); // GIA DOKIMES
+        while (i1 <= mid && i2 <= last) {
             if (A[i1].getLastName().compareTo(A[i2].getLastName()) < 0) {
                 tmpArray[j].setAllValuesToFoititis(A[i1].getAM(), A[i1].getFirstName(), A[i1].getLastName(), A[i1].getEtosEisagogis());
-                //C[j].setAllValuesToFoititis(A[i1].getAM(), A[i1].getFirstName(), A[i1].getLastName(), A[i1].getEtosEisagogis());
                 i1++;
             } else {
                 tmpArray[j].setAllValuesToFoititis(A[i2].getAM(), A[i2].getFirstName(), A[i2].getLastName(), A[i2].getEtosEisagogis());
-                //C[j].setAllValuesToFoititis(B[i2].getAM(), B[i2].getFirstName(), B[i2].getLastName(), B[i2].getEtosEisagogis());
                 i2++;
             }
             j++;
         }
         while (i1 <= mid) {
             tmpArray[j].setAllValuesToFoititis(A[i1].getAM(), A[i1].getFirstName(), A[i1].getLastName(), A[i1].getEtosEisagogis());
-            //C[j].setAllValuesToFoititis(A[i1].getAM(), A[i1].getFirstName(), A[i1].getLastName(), A[i1].getEtosEisagogis());
             i1++;
             j++;
         }
         while (i2 <= last) {
             tmpArray[j].setAllValuesToFoititis(A[i2].getAM(), A[i2].getFirstName(), A[i2].getLastName(), A[i2].getEtosEisagogis());
-            //C[j].setAllValuesToFoititis(B[i2].getAM(), B[i2].getFirstName(), B[i2].getLastName(), B[i2].getEtosEisagogis());
             i2++;
             j++;
         }
@@ -207,4 +207,3 @@ public class MyUtils {
         }
     }
 }
-

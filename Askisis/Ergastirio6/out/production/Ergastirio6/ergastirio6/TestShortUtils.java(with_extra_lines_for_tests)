@@ -2,27 +2,50 @@ package ergastirio6;
 
 public class TestShortUtils {
     public static void main(String[] args) {
+//      Arxikopoiisi pinaka foition me times gia dokimes
+/*        int n = 7;
+        Foititis[] PinakasFoititon = new Foititis[n];
+        PinakasFoititon[0] = new Foititis((short) 25, "Panagiotis", "Alevropoulos", (short) 2022);
+        PinakasFoititon[1] = new Foititis((short) 115, "Kostas", "Nikolaou", (short) 2020);
+        PinakasFoititon[2] = new Foititis((short) 6, "Eleni", "Georgiadou", (short) 2019);
+        PinakasFoititon[3] = new Foititis((short) 102, "Nikos", "Aliagas", (short) 2018);
+        PinakasFoititon[4] = new Foititis((short) 74, "Maria", "Dimitriadou", (short) 2016);
+        PinakasFoititon[5] = new Foititis((short) 93, "Petros", "Georgiou", (short) 2011);
+        PinakasFoititon[6] = new Foititis((short) 57, "Konstantina", "Papadopoulou", (short) 2021);
+*/
 //      Eisagogi foititon ston pinaka apo ton xristi
         short tmpAM, tmpEtosEisagogis;
         String tmpFirstName, tmpLastName;
-        int n = 7; // Zitoumeno ergastiriou
+        // int n = 7; // Zitoumeno ergastirioiu
+        int n; // GIA DOKIMI
+        System.out.print("Dose to megethos tou pinaka foititon: "); // GIA DOKIMI
+        n = UserInput.getInteger(); // GIA DOKIMI
         Foititis[] PinakasFoititon = new Foititis[n];
         for (int i = 0; i < n; i++) {
             System.out.println();
-            // Eisagogi onomateponimou i Foititi
+            // Eisagogi stoixeion i Foititis
             System.out.print("Dose to Onoma tou foititi " + i + ": ");
             tmpFirstName = UserInput.getString();
             System.out.print("Dose to Epitheto tou foititi " + i + ": ");
             tmpLastName = UserInput.getString();
-            // Arxikopoiisi eggrafis i antikeimenou Foititi
+            // Arxikopoiisi eggrafis i antikeimenou Foititis
             PinakasFoititon[i] = new Foititis(tmpFirstName, tmpLastName);
-            // Eisagogi ypoloipon stoixeion i Foititi
+            // Emfanisi arxikon stoixeion foititi gia dokimes
+            System.out.println("***** ARXIKA STOIXEIA FOITITI *****");
+            System.out.println(PinakasFoititon[i].toString());
+            System.out.println("***********************************");
+
             System.out.print("Dose ton AM tou foititi " + tmpLastName + " " + tmpFirstName + ": ");
             tmpAM = UserInput.getShort();
             System.out.print("Dose to Etos Eisagogis tou foititi "  + tmpLastName + " " + tmpFirstName + ": ");
             tmpEtosEisagogis = UserInput.getShort();
             PinakasFoititon[i].setAM((short)tmpAM);
             PinakasFoititon[i].setEtosEisagogis((short)tmpEtosEisagogis);
+            // Emfanisi telikon stoixeion foititi gia dokimes
+            System.out.println("***** TELIKA STOIXEIA FOITITI *****");
+            System.out.println(PinakasFoititon[i].toString());
+            System.out.println("***********************************");
+
         }
         int i;
         // Quick Sort

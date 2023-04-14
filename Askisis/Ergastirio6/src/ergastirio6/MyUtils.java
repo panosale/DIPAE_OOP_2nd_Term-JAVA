@@ -1,4 +1,4 @@
-package ergastirio5;
+package ergastirio6;
 
 public class MyUtils {
     // Swap foititon
@@ -21,14 +21,14 @@ public class MyUtils {
         foit2.setLastName(tmpLastName);
         foit2.setEtosEisagogis(tmpEtosEisagogis);
     }
-    //1.  Seiriaki anazitisi
+    //Ergastirio 4.1 Seiriaki anazitisi
     public static int anazitisiMeEpwnymo(Foititis[] foitArray, String foit2Search) {
         for (int i = 0; i < foitArray.length; i++)
             if (foitArray[i].getLastName().equals(foit2Search))
                 return i;
         return -1;
     }
-
+    //Ergastirio 4.2 Dyadiki anazitisi
     public static int diadikiAnazitisiMeAM(Foititis[] foitArray, short amFoit2Search) {
         int pos = -1;
         int start, mid, end;
@@ -45,7 +45,7 @@ public class MyUtils {
         }
         return pos;
     }
-
+    //Ergastirio 4.3 Anadromiki dyadiki anazitisi
     public static int anadromikiDiadikiAnazitisiMeAM(Foititis[] foitArray, short amFoit2Search, int start, int end) {
         if (start > end)
             return -1;
@@ -57,6 +57,7 @@ public class MyUtils {
         else
             return mid;
     }
+    //Ergastirio 5.1 Taksinomisi me Eisagogi
     public static void insertSortAM(Foititis[] foitArray) {
         int i, position;
         short currentAM, tmpEtosEisagogis;
@@ -82,6 +83,7 @@ public class MyUtils {
             foitArray[position].setEtosEisagogis(tmpEtosEisagogis);
         }
     }
+    //Ergastirio 5.2 Taksinomisi me Epilogi
     public static void selectSortEponymo(Foititis[] foitArray) {
         int i, j, min;
         for (i = 0; i < foitArray.length; i++) {
@@ -92,6 +94,7 @@ public class MyUtils {
             swapFoitites(foitArray[min], foitArray[i]);
         }
     }
+    //Ergastirio 5.3 Taksinomisi Fysalidas (Bubblesort)
     public static void bubbleSortEE(Foititis[] foitArray) {
         int i, j;
         boolean found;
@@ -106,11 +109,46 @@ public class MyUtils {
                 return;;
         }
     }
+    // Ergastirio 6.1 Quick sort
     public static void quickSortAM(Foititis[] foitArray) {
-
+        quickSort(foitArray, 0, foitArray.length - 1);
     }
+    public static void quickSort(Foititis[] foitArray, int first, int last) {
+        if (last - first > 0) {
+            int pivotIndex = partition(foitArray, first, last);
+            quickSort(foitArray, first, pivotIndex - 1);
+            quickSort(foitArray, pivotIndex - 1, last);
+        }
+    }
+    public static void int partition(Foititis[] foitArray, int first, int last) {
+        int retValue = 0;
+        int lowerLimit = first;
+        int mid = (first + last) / 2;
+        swapFoitites(foitArray[first], foitArray[mid]); // ????
+        short pivot = foitArray[first].getAM();
+        f++;
+        while (first < last) {
+            while (foitArray[first].getAM() <= pivot && first < last)
+                first++;
+            while (foitArray[last].getAM() >= pivot && first <= last)
+                last--;
+            if (first < last)
+                swapFoitites(foitArray[first], foitArray[last]);
+        }
+        if (pivot > foitArray[first].getAM()) {
+            swapFoitites(foitArray[first], foitArray[lowerLimit]
+            retValue = first;
+        }
+        else {
+            if (pivot >= foitArray[last].getAM()) {
+                swapFoitites(foitArray[last], foitArray[lowerLimit]);
+                retValue = 1;
+            }
+        }
+        return retValue;
+    }
+    // Ergastirio 6.2 Merge sort
     public static void mergeSortEponymo(Foititis[] foitArray) {
-
     }
 }
 

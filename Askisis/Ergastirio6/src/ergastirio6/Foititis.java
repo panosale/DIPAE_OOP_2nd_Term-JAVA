@@ -1,4 +1,4 @@
-package ergastirio5;
+package ergastirio6;
 
 public class Foititis {
     private short AM;

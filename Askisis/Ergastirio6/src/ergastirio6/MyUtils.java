@@ -162,7 +162,7 @@ public class MyUtils {
         mSort(foitArray, 0, foitArray.length - 1);
     }
 
-    public static void mSort(Foititis A[], int first, int last) {
+    public static void mSort(Foititis[] A, int first, int last) {
         if (first == last)
             return;
         int mid = (first + last) / 2;
@@ -172,14 +172,13 @@ public class MyUtils {
     }
 
     public static void merge(Foititis[] A, int first, int last, int mid) {
-        int n = last - first + 1;
-        System.out.println("n= " + n); // GIA DOKIMES
-        Foititis[] tmpArray = new Foititis[n]; // Prosorinos pinakas Foititon
-        for (int i = 0; i < n; i++)
-            tmpArray[i] = new Foititis();
         int i1 = first, i2 = mid + 1, j = 0;
+        int tmpArraySize = last - first + 1;
+        Foititis[] tmpArray = new Foititis[tmpArraySize]; // Prosorinos pinakas Foititon
+        for (int i = 0; i < tmpArraySize; i++) // Arxikopoiisi antikeimenon prosorinou pinaka
+            tmpArray[i] = new Foititis(); // Arxikopoiisi antikeimenon prosorinou pinaka
         while (i1 <= mid && i2 <= last) {// A.length && i2 <= B.length) {
-            System.out.println("j= " + j); // GIA DOKIMES
+            System.out.println("A.length= " + A.length + ", tmpArraySize= " + + tmpArraySize + ", j= " + j + ", a[i1]= " + A[i1].getLastName() + " i1= " + i1 + ", i2= " + i2); // GIA DOKIMES
             if (A[i1].getLastName().compareTo(A[i2].getLastName()) < 0) {
                 tmpArray[j].setAllValuesToFoititis(A[i1].getAM(), A[i1].getFirstName(), A[i1].getLastName(), A[i1].getEtosEisagogis());
                 //C[j].setAllValuesToFoititis(A[i1].getAM(), A[i1].getFirstName(), A[i1].getLastName(), A[i1].getEtosEisagogis());
@@ -191,19 +190,19 @@ public class MyUtils {
             }
             j++;
         }
-        while (i1 <= mid) {//A.length) {
+        while (i1 <= mid) {
             tmpArray[j].setAllValuesToFoititis(A[i1].getAM(), A[i1].getFirstName(), A[i1].getLastName(), A[i1].getEtosEisagogis());
             //C[j].setAllValuesToFoititis(A[i1].getAM(), A[i1].getFirstName(), A[i1].getLastName(), A[i1].getEtosEisagogis());
             i1++;
             j++;
         }
-        while (i2 < last) {
+        while (i2 <= last) {
             tmpArray[j].setAllValuesToFoititis(A[i2].getAM(), A[i2].getFirstName(), A[i2].getLastName(), A[i2].getEtosEisagogis());
             //C[j].setAllValuesToFoititis(B[i2].getAM(), B[i2].getFirstName(), B[i2].getLastName(), B[i2].getEtosEisagogis());
             i2++;
             j++;
         }
-        for (j = 0; j < n; j++) {
+        for (j = 0; j < tmpArraySize; j++) {
             A[first + j].setAllValuesToFoititis(tmpArray[j].getAM(), tmpArray[j].getFirstName(), tmpArray[j].getLastName(), tmpArray[j].getEtosEisagogis());
         }
     }

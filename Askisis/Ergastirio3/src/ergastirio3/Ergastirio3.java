@@ -33,24 +33,13 @@ static Boolean palindromoString(String s) {
         return palindromoString(s.substring(1, s.length()-1));
     return false;
 }
-/*
-static boolean protosArithmos(int start, int end) {
-    System.out.println("_ " + start + " - " + end);
-    if (start % 2 == 0 && start > 2) {// || start % 3 == 0 || start % 5 == 0 ) {
-        return false;
-    }
-    if (start == end) {
-        System.out.println(start + " = " + end);
+static boolean protosArithmos(int n, int d) {
+    if (d <= 1)
         return true;
-    }
-//    System.out.println(end + " % (" + start + "+1) = " + end % (start +1)); // Diorthosi edo
-    if (end % (start) != 0) { // Diorthosi edo
-//        System.out.println(start + ",, " + end);
-        return protosArithmos(1, end - 1); // Diorthosi edo
-    }
-    return true;
+    if (n % d == 0)
+        return false;
+    return protosArithmos(n, d - 1);
 }
-*/
 public static void main(String[] args) {
 
     int nPar = 10;
@@ -73,12 +62,12 @@ public static void main(String[] args) {
     System.out.println(palStr + " einai palindromo: " + palindromoString(palStr) + "\n");
     palStr = "Anna";
     System.out.println(palStr + " einai palindromo: " + palindromoString(palStr) + "\n");
-//    System.out.println("Protoi arithmoi.");
-//    int prime = 21;
-//    int i;
-//    for (i = 1; i <= prime; i++)
-//        if (protosArithmos(i, prime))
-//            System.out.println("To " + i + " einai protos arithmos.\n");
-//        System.out.println("Protoi: " + i + " is protos: " + protosArithmos(i, prime));// + "\n-----");
+    System.out.println("Protoi arithmoi.");
+    int prime = 50;
+    int i;
+    System.out.println("Apo to " + 1 + " eos to " + prime + " oi parakato arithmoi einai Protoi:");
+    for (i = 1; i <= prime; i++)
+        if (protosArithmos(i, i - 1))
+            System.out.print(i + ", ");
     }
 }

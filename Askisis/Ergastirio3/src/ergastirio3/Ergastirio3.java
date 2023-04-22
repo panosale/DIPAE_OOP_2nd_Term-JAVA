@@ -33,6 +33,7 @@ static Boolean palindromoString(String s) {
         return palindromoString(s.substring(1, s.length()-1));
     return false;
 }
+/*
 static boolean protosArithmos(int start, int end) {
     System.out.println("_ " + start + " - " + end);
     if (start % 2 == 0 && start > 2) {// || start % 3 == 0 || start % 5 == 0 ) {
@@ -49,7 +50,7 @@ static boolean protosArithmos(int start, int end) {
     }
     return true;
 }
-
+*/
 public static void main(String[] args) {
 
     int nPar = 10;

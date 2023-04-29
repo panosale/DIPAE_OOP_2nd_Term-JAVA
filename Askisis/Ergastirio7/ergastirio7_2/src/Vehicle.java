@@ -1,5 +1,5 @@
 // Synthesi - Composition
-package ergastirio7.2;
+package ergastirio7_2;
 
 public class Vehicle {
     private String idioktitis;
@@ -15,19 +15,19 @@ public class Vehicle {
     // Initialize object with some given values
     public Vehicle(String new_idioktitis, String new_arKykloforias) {
         this(new_idioktitis, new_arKykloforias);
-		new this.sysdief;
-		new this.eng;
+        ergastirio7_2.SystimaDieythynsis = new sysdief;
+        ergastirio7_2.Mihani = new eng;
     }
 
     // Initialize object with full given values *** GIA ELEGXO & DIORTHOSI
-    public Vehicle(String new_idioktitis, String new_arKykloforias, new_etosKat) {
+    public Vehicle(String new_idioktitis, String new_arKykloforias, int new_etosKat) {
         this.idioktitis = new_idioktitis;
         this.arKykloforias = new_arKykloforias;
         this.etosKat = new_etosKat;
     }
 
     // Methodos gia ton orismo olon ton attributes tou antikeimenou meso parametron *** GIA ELEGXO & DIORTHOSI
-    public void setAllValuesToVehicle(String new_idioktitis, String new_arKykloforias, new_etosKat) {
+    public void setAllValuesToVehicle(String new_idioktitis, String new_arKykloforias, int new_etosKat) {
         this.idioktitis = new_idioktitis;
         this.arKykloforias = new_arKykloforias;
         this.etosKat = new_etosKat;

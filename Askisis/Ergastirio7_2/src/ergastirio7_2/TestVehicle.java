@@ -25,6 +25,7 @@ public class TestVehicle {
         oxima[2].setEtosKat(2002);
         oxima[2].eng.setKyvismos(1900); // *** GIA ELEGXO
         oxima[2].eng.setIppodynami(150); // *** GIA ELEGXO
+        // Provoli apotelesmaton
         int thesi;
         do {
             System.out.print("Dose tin thesi tou oximatos ston pinaka gia emfanisi tou Kyvismou:  ");

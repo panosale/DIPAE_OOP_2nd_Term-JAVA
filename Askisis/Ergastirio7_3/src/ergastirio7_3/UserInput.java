@@ -1,4 +1,4 @@
-package ergastirio7;
+package ergastirio7_3;
 
 import java.io.*;
 

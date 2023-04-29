@@ -1,3 +1,4 @@
+package ergastirio7_3;
 public class TestEmployee {
     static void displayStaff(Employee emp[]) {
         for (int i = 0; i < emp.length; i++)
@@ -14,15 +15,11 @@ public class TestEmployee {
             System.out.print("Dose ton AM tou ypallilou " + i + ": ");
             staff[i].setAM(UserInput.getString());
             System.out.print("Dose to Onoma tou ypallilou " + i + ": ");
-            staff[i].setFirstName(UserInput.getString());
-            System.out.print("Dose to Epitheto tou ypallilou " + i + ": ");
-            staff[i].setLastName(UserInput.getString());
+            staff[i].setName(UserInput.getString());
+            System.out.print("Dose tin Eidikotita tou ypallilou " + i + ": ");
+            staff[i].setEidikotita(UserInput.getString());
             System.out.print("Dose ta Eti Apasxolisis tou ypallilou " + i + ": ");
-            staff[i].setEtiApasxolisis(UserInput.getInteger());
-            System.out.print("Dose ton Vasiko Mistho tou ypallilou " + i + ": ");
-            staff[i].setVasikosMisthos(UserInput.getDouble());
-            System.out.print("Dose to Bonus tou ypallilou " + i + ": ");
-            staff[i].setBonus(UserInput.getDouble());
+            staff[i].setDiefthinsiKatoikias(UserInput.getString());
             System.out.println();
         }
         displayStaff(staff);

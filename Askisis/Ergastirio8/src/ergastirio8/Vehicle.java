@@ -1,6 +1,5 @@
 // Synthesi - Composition
 package ergastirio8;
-
 public class Vehicle {
     private String idioktitis;
     private String arKykloforias;

@@ -6,12 +6,14 @@ public class Mihani {
 	private int kyvismos;
 	private int ippodynami;
 
-    // Initialize object with null values
+    // Default Constructor. Initialize object with null values
     public Mihani() {
     }
-    // Initialize object with given values
-    public Mihani(String new_kyvismos, String new_ippodynami) {
-        this(new_kyvismos, new_ippodynami);
+    // Full Constructor. Initialize object with given values
+    public Mihani(int new_kyvismos, int new_ippodynami) {
+
+        this.kyvismos = new_kyvismos;
+        this.ippodynami = new_ippodynami;
     }
 
     public void leitourgia() {

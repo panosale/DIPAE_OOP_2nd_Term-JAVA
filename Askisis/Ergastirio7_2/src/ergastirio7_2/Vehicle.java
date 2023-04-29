@@ -5,25 +5,29 @@ public class Vehicle {
     private String idioktitis;
     private String arKykloforias;
     private int etosKat;
-	private SystimaDieythynsis sysdief;
-	private Mihani eng;
+    protected SystimaDieythynsis sysdief;
+    protected Mihani eng;
 	
-    // Initialize object with null values
+    // Default Constructor. Initialize object with null values
     public Vehicle() {
+        this.eng = new Mihani(); // *** GIA ELEGXO
+        this.sysdief = new SystimaDieythynsis(); // *** GIA ELEGXO
     }
 
     // Initialize object with some given values
     public Vehicle(String new_idioktitis, String new_arKykloforias) {
-        this(new_idioktitis, new_arKykloforias);
-        ergastirio7_2.SystimaDieythynsis = new sysdief;
-        ergastirio7_2.Mihani = new eng;
+        this(new_idioktitis, new_arKykloforias, 0);
+        this.eng = new Mihani(); // *** GIA ELEGXO
+        this.sysdief = new SystimaDieythynsis(); // *** GIA ELEGXO
     }
 
-    // Initialize object with full given values *** GIA ELEGXO & DIORTHOSI
+    // Full Constructor. Initialize object with full given values *** GIA ELEGXO & DIORTHOSI
     public Vehicle(String new_idioktitis, String new_arKykloforias, int new_etosKat) {
         this.idioktitis = new_idioktitis;
         this.arKykloforias = new_arKykloforias;
         this.etosKat = new_etosKat;
+        this.eng = new Mihani(); // *** GIA ELEGXO
+        this.sysdief = new SystimaDieythynsis(); // *** GIA ELEGXO
     }
 
     // Methodos gia ton orismo olon ton attributes tou antikeimenou meso parametron *** GIA ELEGXO & DIORTHOSI
@@ -56,6 +60,21 @@ public class Vehicle {
     public void setEtosKat(int new_etosKat) {
         this.etosKat = new_etosKat;
     }
+
+    // Get-Set Kyvismo *** GIA ELEGXO
+//    public int getEngKyvismos() {
+//        return eng.getKyvismos();
+//    }
+//    public void setEngKyvismos(int new_Kyvismos) {
+//        eng.setKyvismos(new_Kyvismos);
+//    }
+    // Get-Set Ippodynami *** GIA ELEGXO
+//    public int getEngIppodynami() {
+//        return eng.getIppodynami();
+//    }
+//    public void setEngIppodynami(int new_ippodynami) {
+//        eng.setIppodynami(new_ippodynami);
+//    }
 
     // Convert all attributes to Sting *** GIA ELEGXO & DIORTHOSI
     public String toString() {

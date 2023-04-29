@@ -26,14 +26,23 @@ public class TestVehicle {
         oxima[2].eng.setKyvismos(1900); // *** GIA ELEGXO
         oxima[2].eng.setIppodynami(150); // *** GIA ELEGXO
         int thesi;
-        System.out.print("Dose tin thesi tou oximatos ston pinaka gia emfanisi tou Kyvismou:  ");
-        thesi = UserInput.getInteger();
+        do {
+            System.out.print("Dose tin thesi tou oximatos ston pinaka gia emfanisi tou Kyvismou:  ");
+            thesi = UserInput.getInteger();
+        }
+        while (thesi < 0 || thesi > n);
         System.out.println("To oxima sti thesi [" + thesi + "] exei Kyvismo: " + oxima[thesi].eng.getKyvismos()); // *** GIA ELEGXO
-        System.out.print("Dose tin thesi tou oximatos ston pinaka gia emfanisi tis Ippodynamis:  ");
-        thesi = UserInput.getInteger();
+        do {
+            System.out.print("Dose tin thesi tou oximatos ston pinaka gia emfanisi tis Ippodynamis:  ");
+            thesi = UserInput.getInteger();
+        }
+        while (thesi < 0 || thesi > n);
         System.out.println("To oxima sti thesi [" + thesi + "] exei Ippodynamis: " + oxima[thesi].eng.getIppodynami()); // *** GIA ELEGXO
-        System.out.print("Dose tin thesi tou oximatos ston pinaka gia emfanisi tou onomatos idioktiti kai tou etous kataskevis:  ");
-        thesi = UserInput.getInteger();
+        do {
+            System.out.print("Dose tin thesi tou oximatos ston pinaka gia emfanisi tou onomatos idioktiti kai tou etous kataskevis:  ");
+            thesi = UserInput.getInteger();
+        }
+        while (thesi < 0 || thesi > n);
         System.out.println("To oxima sti thesi [" + thesi + "] exei Idioktitii '" + oxima[thesi].getIdioktitis() + "' kei etos kataskevis to " + oxima[thesi].getEtosKat()); // *** GIA ELEGXO
     }
 }

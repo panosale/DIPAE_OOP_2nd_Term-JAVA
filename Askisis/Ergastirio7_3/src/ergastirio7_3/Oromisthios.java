@@ -1,7 +1,9 @@
 // Klironomikotita - Eidikefsi
 package ergastirio7_3;
-public class Oromisthios extends Employee{
+public class Oromisthios extends Ypallilos{
     private int oresErgasias;
+    private short amiviOras = 7;
+    private short epidomaParagogikotitas = 6;
     // Default constructor
     public Oromisthios() {
         super();
@@ -12,17 +14,31 @@ public class Oromisthios extends Employee{
         this.oresErgasias = new_oresErgasias;
     }
     // Set-Get Ores Ergasias;
-    public void setOresErgasias(int new_oresErgasias) {
+    public void setOresErgasias(short new_oresErgasias) {
         this.oresErgasias = new_oresErgasias;
     }
     public int getOresErgasias() {
         return this.oresErgasias;
     }
+    // Set-Get Amivi Oras;
+    public void setAmiviOras(short new_amiviOras) {
+        this.amiviOras = new_amiviOras;
+    }
+    public short getAmiviOras() {
+        return this.amiviOras;
+    }
+    // Set-Get Epidoma Paragogikotitas;
+    public void setEpidomaParagogikotitas(short new_epidomaParagogikotitas) {
+        this.epidomaParagogikotitas = new_epidomaParagogikotitas;
+    }
+    public short getEpidomaParagogikotitas() {
+        return this.epidomaParagogikotitas;
+    }
     // Calculate salary Oromisthiou
     public double amoiviOromisthiou() {
         double  telikosMisthos;
-        telikosMisthos = this.oresErgasias * 7;
-        telikosMisthos = telikosMisthos + (telikosMisthos * 0.06)
+        telikosMisthos = this.oresErgasias * amiviOras;
+        telikosMisthos = telikosMisthos + (telikosMisthos * ((float)epidomaParagogikotitas / 100));
         return telikosMisthos;
     }
 }

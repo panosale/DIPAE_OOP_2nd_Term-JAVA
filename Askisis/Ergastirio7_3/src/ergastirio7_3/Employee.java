@@ -32,7 +32,7 @@ public class Employee {
     }
     // Set-Get name
     public void setName(String new_name) {
-        this.name = name;
+        this.name = new_name;
     }
     public String getName() {
         return this.name;

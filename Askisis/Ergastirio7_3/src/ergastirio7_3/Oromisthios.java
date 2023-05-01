@@ -1,12 +1,13 @@
 // Klironomikotita - Eidikefsi
 package ergastirio7_3;
+
 public class Oromisthios extends Ypallilos{
     private int oresErgasias;
     private short amiviOras = 7;
     private short epidomaParagogikotitas = 6;
     // Default constructor
     public Oromisthios() {
-        super();
+        super(); // GIA EROTISI
     }
     // Full constructor
     public Oromisthios(String new_AM, String new_name, String new_eidikotita, String new_diefthinsiKatoikias, int new_oresErgasias) {

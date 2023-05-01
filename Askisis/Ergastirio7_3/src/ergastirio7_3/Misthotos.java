@@ -1,5 +1,6 @@
 // Klironomikotita - Eidikefsi
 package ergastirio7_3;
+
 public class Misthotos extends Ypallilos{
     private short etiProypiresias;
     private short arithmosTeknon;
@@ -9,7 +10,7 @@ public class Misthotos extends Ypallilos{
     private short xronoEpidoma = 10;
     // Default constructor
     public Misthotos() {
-        super();
+        super(); // GIA EROTISI
     }
     // Constructor xoris ta eti proypiresias & ton arithmo ton teknon
     public Misthotos(String new_AM, String new_name, String new_eidikotita, String new_diefthinsiKatoikias) {

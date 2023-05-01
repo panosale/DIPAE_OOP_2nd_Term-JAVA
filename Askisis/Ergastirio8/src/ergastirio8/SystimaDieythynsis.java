@@ -1,4 +1,4 @@
-// Synthesi - Composition
+// Genikefsi - Polymorfismos
 package ergastirio8;
 
 public class SystimaDieythynsis {

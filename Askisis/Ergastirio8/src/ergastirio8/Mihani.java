@@ -1,4 +1,4 @@
-// Synthesi - Composition
+// Genikefsi - Polymorfismos
 package ergastirio8;
 
 public class Mihani {
@@ -11,7 +11,6 @@ public class Mihani {
     }
     // Full Constructor. Initialize object with given values
     public Mihani(int new_kyvismos, int new_ippodynami) {
-
         this.kyvismos = new_kyvismos;
         this.ippodynami = new_ippodynami;
     }

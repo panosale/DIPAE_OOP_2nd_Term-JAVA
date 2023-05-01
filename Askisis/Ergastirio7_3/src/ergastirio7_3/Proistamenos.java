@@ -1,11 +1,12 @@
 // Klironomikotita - Eidikefsi
 package ergastirio7_3;
+
 public class Proistamenos extends Misthotos{
     // STATHERES TIMES. SPANIA ALLAZOUN.
     private short epidomaProistamenou = 10;
     // Default constructor
     public Proistamenos() {
-        super();
+        super(); // GIA EROTISI
     }
     // Constructor xoris ta eti proypiresias & ton arithmo ton teknon
     public Proistamenos(String new_AM, String new_name, String new_eidikotita, String new_diefthinsiKatoikias) {

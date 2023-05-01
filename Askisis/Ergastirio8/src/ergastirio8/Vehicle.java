@@ -1,4 +1,4 @@
-// Synthesi - Composition
+// Genikefsi - Polymorfismos
 package ergastirio8;
 public class Vehicle {
     private String idioktitis;
@@ -36,6 +36,11 @@ public class Vehicle {
         this.etosKat = new_etosKat;
     }
 
+    public void transferOwnership(String new_idioktitis) {
+        System.out.println("Ownership is transferred from " + this.getIdioktitis() + " to " + new_idioktitis + ".");
+        this.setIdioktitis(new_idioktitis);
+    }
+
     // Get-Set Idioktitis
     public String getIdioktitis() {
         return this.idioktitis;
@@ -60,7 +65,7 @@ public class Vehicle {
         this.etosKat = new_etosKat;
     }
 
-    // Get-Set Kyvismo *** GIA ELEGXO
+    // Get-Set Kyvismo *** GIA ELEGXO, AFOU YPARXEI PROSVASI STIN eng DEN XREIAZONTAI OI PARAKATO GRAMMES
 //    public int getEngKyvismos() {
 //        return eng.getKyvismos();
 //    }

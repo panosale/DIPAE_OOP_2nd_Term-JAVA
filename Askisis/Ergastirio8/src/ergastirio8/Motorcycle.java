@@ -14,7 +14,7 @@ public class Motorcycle extends Vehicle{
     }
 
     // Full Constructor. Initialize object with full given values *** GIA ELEGXO & DIORTHOSI
-    public Truck(String new_idioktitis, String new_arKykloforias, int new_etosKat, boolean new_diatheteiPlainoOxima) {
+    public Motorcycle(String new_idioktitis, String new_arKykloforias, int new_etosKat, boolean new_diatheteiPlainoOxima) {
         this.setIdioktitis(new_idioktitis); // GIA EROTISI. this H super?
         this.setArKykloforias(new_arKykloforias);  // GIA EROTISI. this H super?
         this.setEtosKat(new_etosKat); // GIA EROTISI. this H super?

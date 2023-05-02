@@ -43,4 +43,8 @@ public class Mihani {
         this.ippodynami = new_ippodynami;
     }
 
+    // Convert all attributes to Sting *** GIA ELEGXO & DIORTHOSI
+    public String toString() {
+        return "Kyvismos: " + this.kyvismos + ". Ippodynami: " + this.ippodynami + ".";
+    }
 }

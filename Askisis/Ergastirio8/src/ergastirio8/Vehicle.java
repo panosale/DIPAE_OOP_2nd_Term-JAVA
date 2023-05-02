@@ -1,6 +1,6 @@
 // Genikefsi - Polymorfismos
 package ergastirio8;
-public class Vehicle {
+abstract class Vehicle {
     private String idioktitis;
     private String arKykloforias;
     private int etosKat;

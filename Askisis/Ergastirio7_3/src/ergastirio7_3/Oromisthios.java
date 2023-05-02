@@ -7,9 +7,10 @@ public class Oromisthios extends Ypallilos{
     private short epidomaParagogikotitas = 6;
     // Default constructor
     public Oromisthios() {
-        super(); // GIA EROTISI
+        super();
     }
     // Full constructor
+    // GIA DIORTHOSI. H EIDIKOTITA NA EINAI PROEPILEGMENI GI AFTI TIN KLASI
     public Oromisthios(String new_AM, String new_name, String new_eidikotita, String new_diefthinsiKatoikias, int new_oresErgasias) {
         super(new_AM, new_name, new_eidikotita, new_diefthinsiKatoikias);
         this.oresErgasias = new_oresErgasias;
@@ -41,5 +42,10 @@ public class Oromisthios extends Ypallilos{
         telikosMisthos = this.oresErgasias * amiviOras;
         telikosMisthos = telikosMisthos + (telikosMisthos * ((float)epidomaParagogikotitas / 100));
         return telikosMisthos;
+    }
+    public String toString() {
+        return ("AM: " + super.getAM() + "\nOnoma: " + super.getName() + "\nEidikotia: " + super.getEidikotita() +
+                "\nDiefthinsi Katoikias: " + super.getDiefthinsiKatoikias() +
+                "\nOres ergasias: " + this.oresErgasias + "\nAmoivi: " + this.amoiviOromisthiou());
     }
 }

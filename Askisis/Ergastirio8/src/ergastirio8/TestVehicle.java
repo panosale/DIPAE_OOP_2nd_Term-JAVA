@@ -2,14 +2,18 @@
 package ergastirio8;
 public class TestVehicle {
     public static void main(String[] args) {
-        // To megethos tou pinaka dinetai apo tin askisi
-        int n = 3;
+        // To megethos tou pinaka zititai apo ton xristi
+        int n;
+        System.out.print("Dose to megethos tou pinaka oximaton: ");
+        UserInput.getInteger(n);
         // Arxikopoiisi pinaka oximaton
         Vehicle[] oxima = new Vehicle[n];
         for (int i = 0; i < n; i++)
             oxima[i] = new Vehicle();
+    }
+}
         // Oxima 1
-        oxima[0].setIdioktitis("Panos");
+/*        oxima[0].setIdioktitis("Panos");
         oxima[0].setArKykloforias("HJD2701");
         oxima[0].setEtosKat(2015);
         oxima[0].eng.setKyvismos(1600); // *** GIA ELEGXO

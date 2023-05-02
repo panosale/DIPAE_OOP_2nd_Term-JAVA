@@ -55,10 +55,4 @@ public class Ypallilos {
     public String toString() {
         return ("AM: " + this.AM + "\nOnoma: " + this.name + "\nEidikotia: " + this.eidikotita + "\nDiefthinsi Katoikias: " + this.diefthinsiKatoikias);
     }
-    // Calculate salary
-//    public double Salary() {
-//        double  telikosMisthos;
-//        telikosMisthos = this.vasikosMisthos + this.etiApasxolisis * 10 + this.bonus;
-//        return telikosMisthos;
-//    }
 }

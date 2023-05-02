@@ -3,13 +3,30 @@ package ergastirio8;
 public class TestVehicle {
     public static void main(String[] args) {
         // To megethos tou pinaka zititai apo ton xristi
-        int n;
+        int n, tmp_eidosOximatos;
         System.out.print("Dose to megethos tou pinaka oximaton: ");
-        UserInput.getInteger(n);
+        n = UserInput.getInteger();
         // Arxikopoiisi pinaka oximaton
         Vehicle[] oxima = new Vehicle[n];
-        for (int i = 0; i < n; i++)
-            oxima[i] = new Vehicle();
+        for (int i = 0; i < n; i++) {
+            do {
+                System.out.print("Dose to Eidos tou oximatos (1 = Car, 2 = Truck, 3 = Motorcycle) [" + i + "]: ");
+                tmp_eidosOximatos = UserInput.getShort();
+            } while (tmp_eidosOximatos < 1 || tmp_eidosOximatos > 3);
+            switch (tmp_eidosOximatos) { // OLES OI EISAGOGES THA GINOYN MESA STIN switch
+                case 1:
+                    oxima[i] = new Car();
+                    break;
+                case 2:
+                    oxima[i] = new Truck();
+                    break;
+                case 3:
+                    oxima[i] = new Motorcycle();
+                    break;
+            }
+//            oxima[i] = new Car();
+
+        }
     }
 }
         // Oxima 1

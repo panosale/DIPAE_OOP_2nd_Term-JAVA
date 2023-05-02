@@ -10,7 +10,6 @@ public class TestEmployee {
         int i, n = 6; // To megethos tou pinaka dinetai apo tin askisi
         short tmp_eidikotita;
         Ypallilos[] staff = new Ypallilos[n];
-
         for (i = 0; i < n; i++) {
             staff[i] = new Ypallilos();
             System.out.print("Dose ton AM tou ypallilou " + i + ": ");
@@ -21,11 +20,14 @@ public class TestEmployee {
                 System.out.print("Dose tin Eidikotita tou ypallilou (1 = Oromisthios, 2 = Misthotos, 3 = Proistamenos)" + i + ": ");
                 tmp_eidikotita = UserInput.getShort();
             } while (tmp_eidikotita < 1 || tmp_eidikotita > 3);
-            switch (tmp_eidikotita)
-                case (1): staff[i].setEidikotita(UserInput.getString());
-
-
-
+            switch (tmp_eidikotita) {
+                case 1: staff[i].setEidikotita("Oromisthios");
+                break;
+                case 2: staff[i].setEidikotita("Misthotos");
+                break;
+                case 3: staff[i].setEidikotita("Proistamenos");
+                break;
+            }
             System.out.print("Dose ta Eti Apasxolisis tou ypallilou " + i + ": ");
             staff[i].setDiefthinsiKatoikias(UserInput.getString());
             System.out.println();

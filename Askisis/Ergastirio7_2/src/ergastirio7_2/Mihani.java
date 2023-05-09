@@ -11,7 +11,6 @@ public class Mihani {
     }
     // Full Constructor. Initialize object with given values
     public Mihani(int new_kyvismos, int new_ippodynami) {
-
         this.kyvismos = new_kyvismos;
         this.ippodynami = new_ippodynami;
     }
@@ -43,7 +42,7 @@ public class Mihani {
         this.ippodynami = new_ippodynami;
     }
 
-    // Convert all attributes to Sting *** GIA ELEGXO & DIORTHOSI
+    // Convert all attributes to Sting
     public String toString() {
         return "Kyvismos: " + this.kyvismos + ". Ippodynami: " + this.ippodynami + ".";
     }

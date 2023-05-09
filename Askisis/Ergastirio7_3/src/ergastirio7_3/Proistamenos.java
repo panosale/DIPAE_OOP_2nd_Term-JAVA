@@ -1,36 +1,54 @@
 // Klironomikotita - Eidikefsi
 package ergastirio7_3;
 
+import java.text.DecimalFormat;
+
 public class Proistamenos extends Misthotos{
     private short epidomaProistamenou = 10; // STATHERES TIMES. SPANIA ALLAZOUN.
+
     // Default constructor
     public Proistamenos() {
         super();
     }
+
     // Constructor xoris ta eti proypiresias & ton arithmo ton teknon
-    // GIA DIORTHOSI. H EIDIKOTITA NA EINAI PROEPILEGMENI GI AFTI TIN KLASI
-    public Proistamenos(String new_AM, String new_name, String new_eidikotita, String new_diefthinsiKatoikias) {
-        this(new_AM, new_name, new_eidikotita, new_diefthinsiKatoikias, (short)0, (short)0);
+    // GIA DIORTHOSI. H EIDIKOTITA NA EINAI PROEPILEGMENI GI AFTI TIN KLASI -> done
+    public Proistamenos(String new_AM, String new_name, String new_diefthinsiKatoikias) {
+        this(new_AM, new_name, new_diefthinsiKatoikias, (short)0, (short)0);
     }
+
     // Full constructor
-    // GIA DIORTHOSI. H EIDIKOTITA NA EINAI PROEPILEGMENI GI AFTI TIN KLASI
-    public Proistamenos(String new_AM, String new_name, String new_eidikotita, String new_diefthinsiKatoikias, short new_etiProypiresias, short new_arithmosTeknon) {
-        super(new_AM, new_name, new_eidikotita, new_diefthinsiKatoikias);
-        super.setEtiProypiresias(new_etiProypiresias);
-        super.setArithmosTeknon(new_arithmosTeknon);
+    // GIA DIORTHOSI. H EIDIKOTITA NA EINAI "PROISTAMENOS" GI AFTI TIN KLASI -> done
+    public Proistamenos(String new_AM, String new_name, String new_diefthinsiKatoikias, short new_etiProypiresias, short new_arithmosTeknon) {
+        this.setAM(new_AM);
+        this.setName(new_name);
+        this.setEidikotita("PROISTAMENOS");
+        this.setDiefthinsiKatoikias(new_diefthinsiKatoikias);
+        this.setEtiProypiresias(new_etiProypiresias);
+        this.setArithmosTeknon(new_arithmosTeknon);
     }
+
     // STATHERES TIMES. SPANIA ALLAZOUN.
     // Set-Get Epidoma Proistamenou;
     public void setEpidomaProistamenou(short new_epidomaProistamenou) {
         this.epidomaProistamenou = new_epidomaProistamenou;
     }
-    public short getEpidomaTeknon() {
+    public short getEpidomaProistamenou() {
         return this.epidomaProistamenou;
     }
+
     // Calculate salary Proistamenou
     public double amoiviProistamenou() {
-        double  telikosMisthos = super.amoiviMishotou();
+        double  telikosMisthos = this.amoiviMishotou();
         telikosMisthos = telikosMisthos + (telikosMisthos * ((float)epidomaProistamenou / 100));
         return telikosMisthos;
+    }
+    public String toString() {
+        DecimalFormat df = new DecimalFormat();
+        df.setMaximumFractionDigits(2);
+        return ("AM: " + this.getAM() + "\nOnoma: " + this.getName() + "\nEidikotia: " + this.getEidikotita() +
+                "\nDiefthinsi Katoikias: " + this.getDiefthinsiKatoikias() +
+                "\nEti proypiresias: " + this.getEtiProypiresias() + "\nArithmos teknon: " + this.getArithmosTeknon() +
+                "\nAmoivi: " + df.format(this.amoiviProistamenou()) + "€.");
     }
 }

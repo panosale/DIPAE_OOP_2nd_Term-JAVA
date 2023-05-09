@@ -21,16 +21,14 @@ public class Vehicle {
         this.sysdief = new SystimaDieythynsis(); // Prepei na ginontai new ta antikeimena pou perixontai stin klasi mas
     }
 
-    // Full Constructor. Initialize object with full given values *** GIA ELEGXO & DIORTHOSI
+    // Full Constructor. Initialize object with full given values
     public Vehicle(String new_idioktitis, String new_arKykloforias, int new_etosKat, int new_kyvismos, int new_ippodynami) {
         this.idioktitis = new_idioktitis;
         this.arKykloforias = new_arKykloforias;
         this.etosKat = new_etosKat;
-        this.eng = new Mihani(); // Prepei na ginontai new ta antikeimena pou perixontai stin klasi mas
+        this.eng = new Mihani(new_kyvismos, new_ippodynami); // Prepei na ginontai new ta antikeimena pou perixontai stin klasi mas
         this.sysdief = new SystimaDieythynsis(); // Prepei na ginontai new ta antikeimena pou perixontai stin klasi mas
-        eng.setKyvismos(new_kyvismos);
-        eng.setIppodynami(new_ippodynami);
-    }
+   }
 
     // Methodos gia ton orismo olon ton attributes tou antikeimenou meso parametron
     public void setAllValuesToVehicle(String new_idioktitis, String new_arKykloforias, int new_etosKat, int new_kyvismos, int new_ippodynami) {

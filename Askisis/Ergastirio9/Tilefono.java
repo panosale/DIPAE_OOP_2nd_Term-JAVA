@@ -4,23 +4,23 @@ package ergastirio9;
 public class Tilefono {
 	private String phoneNumber;
 	private int totalSecondsOnCalls;
-	private int secondsOnOutgoingCalls;
-	private float callCostPerSecond; // GIA ELEGXO
+	private int secondsOnOutgoingCalls; // GIA ELEGXO
+//	private float callCostPerSecond; // GIA ELEGXO
 	// Default constructor
     public Tilefono() {
     }
 	// Semi constructor
     public Tilefono(String new_phoneNumber) {
 		this.phoneNumber = new_phoneNumber;
-		callCostPerSecond = 0; // GIA ELEGXO
+//		callCostPerSecond = 0; // GIA ELEGXO
 		totalSecondsOnCalls  = 0;
 		secondsOnOutgoingCalls = 0;
     }	
-	public void dial(String numberToCall, int secondOnCall, boolean isOutgoing) {
+	public void dial(String numberToCall, int secondsOnCall, boolean isOutgoing // GIA ELEGXO) {
 		System.out.println("Klisi pros to <" + numberToCall + ">."); // apo to " + "[TYPOS ANTIKEIMENOU TILEFONOU]" + " tilefono " + this.phoneNumber + " pros to " + "[TYPOS ANTIKEIMENOU TILEFONOU]" + " mer arithmo.");
-		this.totalSecondsOnCalls = this.totalSecondsOnCalls + secondOnCall;
-		if (isOutgoing)
-			this.secondsOnOutgoingCalls = this.secondsOnOutgoingCalls + secondOnCall;
+		this.totalSecondsOnCalls = this.totalSecondsOnCalls + secondsOnCall;
+		if (isOutgoing) // GIA ELEGXO
+			this.secondsOnOutgoingCalls = this.secondsOnOutgoingCalls + secondsOnCall; // GIA ELEGXO
 	}
 
 	public float cost(String numberToCall) {
@@ -33,13 +33,15 @@ public class Tilefono {
     public String getPhoneNumber() {
         return this.phoneNumber;
     }
-    // Set-Get callCostPerSecond  // GIA ELEGXO
+    /*
+	// Set-Get callCostPerSecond  // GIA ELEGXO
     public void setCallCostPerSecond(int new_callCostPerSecond) { // GIA ELEGXO
         this.callCostPerSecond = new_callCostPerSecond; // GIA ELEGXO
     } // GIA ELEGXO
     public int getCallCostPerSecondCalls() { // GIA ELEGXO
         return this.callCostPerSecond; // GIA ELEGXO
     } // GIA ELEGXO
+	*/
     // Set-Get totalSecondsOnCalls
     public void setTotalSecondsOnCalls(int new_totalSecondsOnCalls) {
         this.totalSecondsOnCalls = new_totalSecondsOnCalls;

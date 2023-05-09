@@ -18,11 +18,11 @@ public class TestEmployee {
         Proistamenos proistamenos2 = new Proistamenos("102", "Papadopoulou Konstantina", "M. Aleksandrou 175", (short)8, (short)2);
 
         // Emfanisi stoixeion ypallhlon
-        System.out.println(oromisthios1.toString() + "\n------------------------");
-        System.out.println(oromisthios2.toString() + "\n------------------------");
-        System.out.println(misthotos1.toString() + "\n------------------------");
-        System.out.println(misthotos2.toString() + "\n------------------------");
-        System.out.println(proistamenos1.toString() + "\n------------------------");
-        System.out.println(proistamenos2.toString() + "\n------------------------");
+        System.out.println(oromisthios1 + "\n------------------------");
+        System.out.println(oromisthios2 + "\n------------------------");
+        System.out.println(misthotos1 + "\n------------------------");
+        System.out.println(misthotos2 + "\n------------------------");
+        System.out.println(proistamenos1 + "\n------------------------");
+        System.out.println(proistamenos2 + "\n------------------------");
     }
 }

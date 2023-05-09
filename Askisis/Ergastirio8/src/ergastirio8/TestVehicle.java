@@ -69,3 +69,5 @@ public class TestVehicle {
         System.out.println("To oxima sti thesi [" + thesi + "] exei Idioktitii '" + oxima[thesi].getIdioktitis() + "' kei etos kataskevis to " + oxima[thesi].getEtosKat()); // *** GIA ELEGXO
     }
 }
+
+ */

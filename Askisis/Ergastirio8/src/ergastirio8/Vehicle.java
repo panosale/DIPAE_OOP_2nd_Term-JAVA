@@ -9,8 +9,8 @@ abstract class Vehicle {
 	
     // Default Constructor. Initialize object with null values
     public Vehicle() {
-        this.eng = new Mihani(); // *** GIA ELEGXO
-        this.sysdief = new SystimaDieythynsis(); // *** GIA ELEGXO
+        this.eng = new Mihani();
+        this.sysdief = new SystimaDieythynsis();
     }
 
     // Initialize object with some given values

@@ -16,15 +16,15 @@ public class Mihani {
     }
 
     public void leitourgia() {
-        
+        System.out.println("Mihani > Leitourgia.");
     }
 
     public void kinisi() {
-        
+        System.out.println("Mihani > Kinisi.");
     }
 
     public void svysimo() {
-        
+        System.out.println("Mihani > Svysimo.");
     }
 
     // Get-Set Kyvismos

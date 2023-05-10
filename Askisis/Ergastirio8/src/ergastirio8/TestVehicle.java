@@ -17,19 +17,22 @@ public class TestVehicle {
                 case 1:
                     oxima[i] = new Car();
                     oxima[i].setEtosKat(1800);
+                    oxima[i].setIdioktitis("Idioktitis Oximatos " + i);
                     break;
                 case 2:
                     oxima[i] = new Truck();
                     oxima[i].setEtosKat(1900);
+                    oxima[i].setIdioktitis("Idioktitis Oximatos " + i);
                     break;
                 case 3:
                     oxima[i] = new Motorcycle();
                     oxima[i].setEtosKat(2000);
+                    oxima[i].setIdioktitis("Idioktitis Oximatos " + i);
                     break;
             }
         }
         for (int i = 0; i < n; i++) {
-            System.out.println("Oxima[" + i + "]:\n" + oxima[i]);
+            System.out.println("Einai klasis: " + oxima[i].getClass() + "\nOxima[" + i + "]:\n" + oxima[i]);
             oxima[i].drive();
             System.out.println("--------------------------");
         }

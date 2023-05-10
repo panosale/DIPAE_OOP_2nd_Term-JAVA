@@ -9,13 +9,11 @@ abstract class MyVehicle extends Vehicle{
 
     // Gia xrisi stin klasi Car
     abstract short getArithmosThyron();
-    abstract void setArithmosThyron();
+    abstract void setArithmosThyron(short new_arithmosThyron);
 
     abstract short getArithmosAksonon();
-    abstract void setArithmosAksonon();
+    abstract void setArithmosAksonon(short new_arithmosAksonon);
 
     abstract boolean getDiatheteiPlainoOxima();
-    abstract void setDiatheteiPlainoOxima();
+    abstract void setDiatheteiPlainoOxima(boolean new_diatheteiPlainoOxima);
     }
-
-}

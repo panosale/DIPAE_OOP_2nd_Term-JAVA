@@ -21,21 +21,22 @@ public class Car extends Vehicle{
         this.setEtosKat(new_etosKat);
         this.eng = new Mihani();
         this.sysdief = new SystimaDieythynsis();
-        this.setArithmosThyron(new_arithmosThyron);
+        this.arithmosThyron = new_arithmosThyron;
+        //this.setArithmosThyron(new_arithmosThyron);
     }
 
     public void drive() {
         System.out.println("You need a car driving license dear " + this.getIdioktitis());
     }
 
-    // Get-Set Arithmos Thyron
-    public short getArithmosThyron() {
+    // Get-Set Arithmos Thyron - DEN ZITITAI APO TIN ASKISI
+/*    public short getArithmosThyron() {
         return this.arithmosThyron;
     }
     public void setArithmosThyron(short new_arithmosThyron) {
         this.arithmosThyron = new_arithmosThyron;
     }
-
+*/
     // Convert all attributes to Sting
     public String toString() {
         return "Arithmos kykloforias: " + this.getArKykloforias() + ".\nOnoma Idioktiti: " + this.getIdioktitis() +

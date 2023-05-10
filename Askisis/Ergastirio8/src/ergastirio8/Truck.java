@@ -23,21 +23,22 @@ public class Truck extends Vehicle{
         this.setEtosKat(new_etosKat);
         this.eng = new Mihani();
         this.sysdief = new SystimaDieythynsis();
-        this.setArithmosAksonon(new_arithmosAksonon);
+        this.arithmosAksonon = new_arithmosAksonon;
+        //this.setArithmosAksonon(new_arithmosAksonon);
     }
 
     public void drive() {
-        System.out.println("You must be a professional driver. This is a " + this.getArithmosAksonon() + " axels truck Mr. " + this.getIdioktitis() + ".");
+        System.out.println("You must be a professional driver. This is a " + this.arithmosAksonon + " axels truck Mr. " + this.getIdioktitis() + ".");
     }
 
-    // Get-Set Arithmos Aksonon
-    public short getArithmosAksonon() {
+    // Get-Set Arithmos Aksonon - DEN ZITITAI APO TIN ASKISI
+/*    public short getArithmosAksonon() {
         return this.arithmosAksonon;
     }
     public void setArithmosAksonon(short new_arithmosAksonon) {
         this.arithmosAksonon = new_arithmosAksonon;
     }
-
+*/
     // Convert all attributes to Sting
     public String toString() {
         return "Arithmos kykloforias: " + this.getArKykloforias() + ".\nOnoma Idioktiti: " + this.getIdioktitis() +

@@ -29,6 +29,7 @@ abstract class Vehicle {
         this.sysdief = new SystimaDieythynsis();
     }
     abstract void drive();
+/* NO USE. FOR DELETE
     // Gia xrisi stin klasi Car
     abstract short getArithmosThyron();
     abstract void setArithmosThyron(short new_arithmosThyron);
@@ -38,7 +39,7 @@ abstract class Vehicle {
 
     abstract boolean getDiatheteiPlainoOxima();
     abstract void setDiatheteiPlainoOxima(boolean new_diatheteiPlainoOxima);
-
+*/
     // Gia xrisi stin klasi Car
     public void transferOwnership(String new_idioktitis) {
         System.out.println("Ownership is transferred from " + this.getIdioktitis() + " to " + new_idioktitis + ".");

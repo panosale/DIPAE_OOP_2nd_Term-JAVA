@@ -21,20 +21,22 @@ public class Motorcycle extends Vehicle{
         this.setEtosKat(new_etosKat);
         this.eng = new Mihani();
         this.sysdief = new SystimaDieythynsis();
-        this.setDiatheteiPlainoOxima(new_diatheteiPlainoOxima);
+        this.diatheteiPlainoOxima = new_diatheteiPlainoOxima;
+        //this.setDiatheteiPlainoOxima(new_diatheteiPlainoOxima);
     }
 
     public void drive() {
         System.out.println("Your car driving license is not enough. You need a special license dear " + this.getIdioktitis());
     }
-    // Get-Set Diathetei Plaino Oxima
-    public boolean getDiatheteiPlainoOxima() {
+
+    // Get-Set Diathetei Plaino Oxima - DEN ZITITAI APO TIN ASKISI
+/*    public boolean getDiatheteiPlainoOxima() {
         return this.diatheteiPlainoOxima;
     }
     public void setDiatheteiPlainoOxima(boolean new_diatheteiPlainoOxima) {
         this.diatheteiPlainoOxima = new_diatheteiPlainoOxima;
     }
-
+*/
     // Convert all attributes to Sting
     public String toString() {
         return "Arithmos kykloforias: " + this.getArKykloforias() + ".\nOnoma Idioktiti: " + this.getIdioktitis() +

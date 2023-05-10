@@ -1,0 +1,21 @@
+package ergastirio8;
+
+// Endiamesi klasi gia xrisi ton abstract methodon se diaforetikes ypoklasis
+abstract class MyVehicle extends Vehicle{
+
+    // Default Constructor
+    public MyVehicle() { super(); }
+    abstract void drive();
+
+    // Gia xrisi stin klasi Car
+    abstract short getArithmosThyron();
+    abstract void setArithmosThyron();
+
+    abstract short getArithmosAksonon();
+    abstract void setArithmosAksonon();
+
+    abstract boolean getDiatheteiPlainoOxima();
+    abstract void setDiatheteiPlainoOxima();
+    }
+
+}

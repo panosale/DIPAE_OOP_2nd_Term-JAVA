@@ -6,21 +6,21 @@ public class Motorcycle extends Vehicle{
 
     // Default Constructor
     public Motorcycle() {
-        super(); // GIA EROTISI
+        super();
     }
     public Motorcycle(String new_idioktitis, String new_arKykloforias) {
         this(new_idioktitis, new_arKykloforias, 0, false);
-        this.eng = new Mihani(); // GIA EROTISI. this H super? -> this.
-        this.sysdief = new SystimaDieythynsis(); // GIA EROTISI. this H super? -> this.
+        this.eng = new Mihani();
+        this.sysdief = new SystimaDieythynsis();
     }
 
-    // Full Constructor. Initialize object with full given values *** GIA ELEGXO & DIORTHOSI
+    // Full Constructor. Initialize object with full given values
     public Motorcycle(String new_idioktitis, String new_arKykloforias, int new_etosKat, boolean new_diatheteiPlainoOxima) {
-        this.setIdioktitis(new_idioktitis); // GIA EROTISI. this H super?
-        this.setArKykloforias(new_arKykloforias);  // GIA EROTISI. this H super?
-        this.setEtosKat(new_etosKat); // GIA EROTISI. this H super?
-        this.eng = new Mihani(); // // GIA EROTISI. this H super?
-        this.sysdief = new SystimaDieythynsis(); // // GIA EROTISI. this H super?
+        this.setIdioktitis(new_idioktitis);
+        this.setArKykloforias(new_arKykloforias);
+        this.setEtosKat(new_etosKat);
+        this.eng = new Mihani();
+        this.sysdief = new SystimaDieythynsis();
         this.setDiatheteiPlainoOxima(new_diatheteiPlainoOxima);
     }
 
@@ -35,4 +35,9 @@ public class Motorcycle extends Vehicle{
         this.diatheteiPlainoOxima = new_diatheteiPlainoOxima;
     }
 
+    // Convert all attributes to Sting
+    public String toString() {
+        return "Arithmos kykloforias: " + this.getArKykloforias() + ".\nOnoma Idioktiti: " + this.getIdioktitis() +
+                ".\nEtos eisagogis: " + this.getEtosKat() + "\nDiathetei plaino oxima: " + this.diatheteiPlainoOxima;
+    }
 }

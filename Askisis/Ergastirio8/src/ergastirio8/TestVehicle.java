@@ -18,19 +18,26 @@ public class TestVehicle {
                     oxima[i] = new Car();
                     oxima[i].setEtosKat(1800);
                     oxima[i].setIdioktitis("Idioktitis Oximatos " + i);
+                    oxima[i].setArKykloforias("Pinakida" + ((i+1) * 1000 + 1));
+                    oxima[i].setArithmosThyron((short)4);
                     break;
                 case 2:
                     oxima[i] = new Truck();
                     oxima[i].setEtosKat(1900);
                     oxima[i].setIdioktitis("Idioktitis Oximatos " + i);
+                    oxima[i].setArKykloforias("Pinakida" + ((i+1) * 1000 + 1));
+                    oxima[i].setArithmosAksonon((short)3);
                     break;
                 case 3:
                     oxima[i] = new Motorcycle();
                     oxima[i].setEtosKat(2000);
                     oxima[i].setIdioktitis("Idioktitis Oximatos " + i);
+                    oxima[i].setArKykloforias("Pinakida" + ((i+1) * 1000 + 1));
+                    oxima[i].setDiatheteiPlainoOxima(true);
                     break;
             }
         }
+        System.out.println(oxima[0].getArithmosThyron());
         for (int i = 0; i < n; i++) {
             System.out.println("Einai klasis: " + oxima[i].getClass() + "\nOxima[" + i + "]:\n" + oxima[i]);
             oxima[i].drive();

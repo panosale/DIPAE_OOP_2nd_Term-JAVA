@@ -29,18 +29,17 @@ abstract class Vehicle {
         this.sysdief = new SystimaDieythynsis();
     }
     abstract void drive();
-/* NO USE. FOR DELETE
+
     // Gia xrisi stin klasi Car
     abstract short getArithmosThyron();
     abstract void setArithmosThyron(short new_arithmosThyron);
-
+    // Gia xrisi stin klasi Truck
     abstract short getArithmosAksonon();
     abstract void setArithmosAksonon(short new_arithmosAksonon);
-
+    // Gia xrisi stin klasi Motorcycle
     abstract boolean getDiatheteiPlainoOxima();
     abstract void setDiatheteiPlainoOxima(boolean new_diatheteiPlainoOxima);
-*/
-    // Gia xrisi stin klasi Car
+
     public void transferOwnership(String new_idioktitis) {
         System.out.println("Ownership is transferred from " + this.getIdioktitis() + " to " + new_idioktitis + ".");
         this.setIdioktitis(new_idioktitis);
@@ -71,6 +70,6 @@ abstract class Vehicle {
 
     // Convert all attributes to Sting
     public String toString() {
-        return "Arithmos kykloforias: " + arKykloforias + ".\nOnoma Idioktiti: " + idioktitis + ".\nEtos eisagogis: " + etosKat;
+        return "Arithmos kykloforias: " + arKykloforias + ".\nOnoma Idioktiti: " + idioktitis + ".\nEtos kataskevis: " + etosKat;
     }
 }

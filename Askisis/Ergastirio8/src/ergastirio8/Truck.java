@@ -24,24 +24,37 @@ public class Truck extends Vehicle{
         this.eng = new Mihani();
         this.sysdief = new SystimaDieythynsis();
         this.arithmosAksonon = new_arithmosAksonon;
-        //this.setArithmosAksonon(new_arithmosAksonon);
+
+        this.setArithmosThyron((short) -1); // Dummy use just because is abstract in superclass
+        this.setDiatheteiPlainoOxima(false); // Dummy use just because is abstract in superclass
     }
 
     public void drive() {
         System.out.println("You must be a professional driver. This is a " + this.arithmosAksonon + " axels truck Mr. " + this.getIdioktitis() + ".");
     }
+    // Dummy use just because is abstract in superclass - START
+    public short getArithmosThyron() {
+        return -1;
+    }
+    public void setArithmosThyron(short new_arithmosThyron) {
+    }
+    public boolean getDiatheteiPlainoOxima() {
+        return false;
+    }
+    public void setDiatheteiPlainoOxima(boolean new_diatheteiPlainoOxima) {
+    }
+    // Dummy use just because is abstract in superclass - END
 
     // Get-Set Arithmos Aksonon - DEN ZITITAI APO TIN ASKISI
-/*    public short getArithmosAksonon() {
+    public short getArithmosAksonon() {
         return this.arithmosAksonon;
     }
     public void setArithmosAksonon(short new_arithmosAksonon) {
         this.arithmosAksonon = new_arithmosAksonon;
     }
-*/
     // Convert all attributes to Sting
     public String toString() {
         return "Arithmos kykloforias: " + this.getArKykloforias() + ".\nOnoma Idioktiti: " + this.getIdioktitis() +
-                ".\nEtos eisagogis: " + this.getEtosKat() + "\nArithmos aksonon: " + this.arithmosAksonon;
+                ".\nEtos kataskevis: " + this.getEtosKat() + "\nArithmos aksonon: " + this.arithmosAksonon;
     }
 }

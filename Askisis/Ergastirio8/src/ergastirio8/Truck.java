@@ -32,18 +32,16 @@ public class Truck extends Vehicle{
     public void drive() {
         System.out.println("You must be a professional driver. This is a " + this.arithmosAksonon + " axels truck Mr. " + this.getIdioktitis() + ".");
     }
-    // Dummy use just because is abstract in superclass - START
+    // ***** DUMMY METHODOI EPEIDI DILONONTAI STIN YPERKLASI - START *****
     public short getArithmosThyron() {
         return -1;
     }
-    public void setArithmosThyron(short new_arithmosThyron) {
-    }
+    public void setArithmosThyron(short new_arithmosThyron) { this.setArithmosThyron((short)-1); }
     public boolean getDiatheteiPlainoOxima() {
         return false;
     }
-    public void setDiatheteiPlainoOxima(boolean new_diatheteiPlainoOxima) {
-    }
-    // Dummy use just because is abstract in superclass - END
+    public void setDiatheteiPlainoOxima(boolean new_diatheteiPlainoOxima) { this.setDiatheteiPlainoOxima(false); }
+    // ***** DUMMY METHODOI EPEIDI DILONONTAI STIN YPERKLASI - END *****
 
     // Get-Set Arithmos Aksonon - DEN ZITITAI APO TIN ASKISI
     public short getArithmosAksonon() {

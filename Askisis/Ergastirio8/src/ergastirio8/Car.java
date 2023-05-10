@@ -38,18 +38,16 @@ public class Car extends Vehicle{
     public void setArithmosThyron(short new_arithmosThyron) {
         this.arithmosThyron = new_arithmosThyron;
     }
-    // Dummy use just because is abstract in superclass - START
+    // ***** DUMMY METHODOI EPEIDI DILONONTAI STIN YPERKLASI - START *****
     public short getArithmosAksonon() {
         return -1;
     };
-    public void setArithmosAksonon(short new_arithmosAksonon) {
-    }
+    public void setArithmosAksonon(short new_arithmosAksonon) { this.setArithmosAksonon((short)-1); }
     public boolean getDiatheteiPlainoOxima() {
         return false;
     }
-    public void setDiatheteiPlainoOxima(boolean new_diatheteiPlainoOxima) {
-    }
-    // Dummy use just because is abstract in superclass - END
+    public void setDiatheteiPlainoOxima(boolean new_diatheteiPlainoOxima) { this.setDiatheteiPlainoOxima(false); }
+    // ***** DUMMY METHODOI EPEIDI DILONONTAI STIN YPERKLASI - END *****
 
     // Convert all attributes to Sting
     public String toString() {

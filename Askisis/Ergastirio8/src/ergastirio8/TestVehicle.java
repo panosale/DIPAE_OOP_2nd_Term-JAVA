@@ -37,9 +37,8 @@ public class TestVehicle {
                     break;
             }
         }
-        System.out.println(oxima[0].getArithmosThyron());
         for (int i = 0; i < n; i++) {
-            System.out.println("Einai klasis: " + oxima[i].getClass() + "\nOxima[" + i + "]:\n" + oxima[i]);
+            System.out.println("To Oxima[" + i + "]" + " einai klasis: " + oxima[i].getClass() + "\n" + oxima[i]);
             oxima[i].drive();
             System.out.println("--------------------------");
         }

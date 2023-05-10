@@ -30,18 +30,14 @@ public class Motorcycle extends Vehicle{
     public void drive() {
         System.out.println("Your car driving license is not enough. You need a special license dear " + this.getIdioktitis());
     }
-    // Dummy use just because is abstract in superclass - START
-    public short getArithmosThyron() {
-        return -1;
-    }
-    public void setArithmosThyron(short new_arithmosThyron) {
-    }
+    // ***** DUMMY METHODOI EPEIDI DILONONTAI STIN YPERKLASI - START *****
+    public short getArithmosThyron() { return -1; }
+    public void setArithmosThyron(short new_arithmosThyron) { this.setArithmosThyron((short)-1); }
     public short getArithmosAksonon() {
         return -1;
     };
-    public void setArithmosAksonon(short new_arithmosAksonon) {
-    };
-    // Dummy use just because is abstract in superclass - END
+    public void setArithmosAksonon(short new_arithmosAksonon) { this.setArithmosAksonon((short)-1); };
+    // ***** DUMMY METHODOI EPEIDI DILONONTAI STIN YPERKLASI - END *****
 
     // Get-Set Diathetei Plaino Oxima - DEN ZITITAI APO TIN ASKISI
     public boolean getDiatheteiPlainoOxima() {

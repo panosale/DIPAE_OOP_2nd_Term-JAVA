@@ -5,26 +5,30 @@ public class TestVehicle {
         int n = 3;
         // Arxikopoiisi pinaka oximaton
         Vehicle[] oxima = new Vehicle[n];
-        for (int i = 0; i < n; i++)
-            oxima[i] = new Vehicle();
         // Oxima 1
-        oxima[0].setIdioktitis("Idioktitis 0");
-        oxima[0].setArKykloforias("HJD2701");
-        oxima[0].setEtosKat(2015);
-        oxima[0].eng.setKyvismos(1600);
-        oxima[0].eng.setIppodynami(120);
+        oxima[0] = new Vehicle("Idioktitis 0", "HJD2701", 2015, 1600, 120);;
+        // H enallaktika me tis parakato methodous Set
+//        oxima[0].setIdioktitis("Idioktitis 0");
+//        oxima[0].setArKykloforias("HJD2701");
+//        oxima[0].setEtosKat(2015);
+//        oxima[0].eng.setKyvismos(1600);
+//        oxima[0].eng.setIppodynami(120);
         // Oxima 2
-        oxima[1].setIdioktitis("Idioktitis 1");
-        oxima[1].setArKykloforias("FIW7612");
-        oxima[1].setEtosKat(1998);
-        oxima[1].eng.setKyvismos(1300);
-        oxima[1].eng.setIppodynami(83);
+        oxima[1] = new Vehicle("Idioktitis 1", "FIW7612", 1998, 1300, 83);;
+        // H enallaktika me tis parakato methodous Set
+//        oxima[1].setIdioktitis("Idioktitis 1");
+//        oxima[1].setArKykloforias("FIW7612");
+//        oxima[1].setEtosKat(1998);
+//        oxima[1].eng.setKyvismos(1300);
+//        oxima[1].eng.setIppodynami(83);
         // Oxima 3
-        oxima[2].setIdioktitis("Idioktitis 2");
-        oxima[2].setArKykloforias("sta2p101");
-        oxima[2].setEtosKat(2002);
-        oxima[2].eng.setKyvismos(1900);
-        oxima[2].eng.setIppodynami(150);
+        oxima[2] = new Vehicle("Idioktitis 2", "HJD2701", 2002, 1900, 150);;
+        // H enallaktika me tis parakato methodous Set
+//        oxima[2].setIdioktitis("Idioktitis 2");
+//        oxima[2].setArKykloforias("sta2p101");
+//        oxima[2].setEtosKat(2002);
+//        oxima[2].eng.setKyvismos(1900);
+//        oxima[2].eng.setIppodynami(150);
         // Provoli apotelesmaton
         int thesi;
         // Erotima 2.3.1

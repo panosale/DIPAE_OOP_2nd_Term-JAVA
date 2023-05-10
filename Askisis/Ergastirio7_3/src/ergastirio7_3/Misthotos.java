@@ -76,8 +76,9 @@ public class Misthotos extends Ypallilos{
     // Calculate salary Misthotou
     public double amoiviMishotou() {
         double  telikosMisthos;
+        int tmp_Trieties = this.etiProypiresias / 3;
         telikosMisthos = this.vasikosMisthos + ((this.vasikosMisthos * ((float)epidomaTeknon / 100)) * arithmosTeknon);
-        telikosMisthos = telikosMisthos + (this.vasikosMisthos * ((float)xronoEpidoma / 100));
+        telikosMisthos = telikosMisthos + ((this.vasikosMisthos * ((float)xronoEpidoma / 100)) * tmp_Trieties);
         return telikosMisthos;
     }
     public String toString() {

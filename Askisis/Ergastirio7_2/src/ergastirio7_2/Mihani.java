@@ -24,7 +24,7 @@ public class Mihani {
     }
 
     public void svysimo() {
-        System.out.println("Mihani > Svisimo.");
+        System.out.println("Mihani > Svysimo.");
     }
 
     // Get-Set Kyvismos

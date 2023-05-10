@@ -49,9 +49,9 @@ public class Oromisthios extends Ypallilos{
     // Calculate salary Oromisthiou
     public double amoiviOromisthiou() {
         double  telikosMisthos;
-        telikosMisthos = this.oresErgasias * amiviOras; // Se periptosi pou oi ores ergasias einai oi synolikes tou mina
-        //telikosMisthos = (this.oresErgasias * amiviOras) * 23; // Se periptosi pou oi ores ergasias einai ana imera
-        telikosMisthos = telikosMisthos + (telikosMisthos * ((float)epidomaParagogikotitas / 100));
+        telikosMisthos = this.oresErgasias * amiviOras; // Gia xrisi se periptosi pou oi ores ergasias einai oi synolikes tou mina
+        //telikosMisthos = (this.oresErgasias * amiviOras) * 25; // Gia xrisi se periptosi pou oi ores ergasias einai ana imera
+        telikosMisthos = telikosMisthos + (telikosMisthos * ((float)this.epidomaParagogikotitas / 100));
         return telikosMisthos;
     }
 

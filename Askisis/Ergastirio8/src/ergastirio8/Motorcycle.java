@@ -9,7 +9,7 @@ public class Motorcycle extends Vehicle{
         super();
     }
     public Motorcycle(String new_idioktitis, String new_arKykloforias) {
-        this(new_idioktitis, new_arKykloforias, 0, false);
+        this(new_idioktitis, new_arKykloforias, -1, false);
         this.eng = new Mihani();
         this.sysdief = new SystimaDieythynsis();
     }

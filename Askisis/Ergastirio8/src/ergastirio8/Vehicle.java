@@ -11,11 +11,12 @@ abstract class Vehicle {
     public Vehicle() {
         this.eng = new Mihani();
         this.sysdief = new SystimaDieythynsis();
+        this.etosKat = -1; // To etos kataskevis arxikopoieite me -1 oste na ginetai o elegxos kata ti dimourgia tou pinaka oximaton
     }
 
     // Initialize object with some given values
     public Vehicle(String new_idioktitis, String new_arKykloforias) {
-        this(new_idioktitis, new_arKykloforias, 0);
+        this(new_idioktitis, new_arKykloforias, -1);
         this.eng = new Mihani();
         this.sysdief = new SystimaDieythynsis();
     }

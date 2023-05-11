@@ -9,7 +9,7 @@ public class Car extends Vehicle{
         super();
     }
     public Car(String new_idioktitis, String new_arKykloforias) {
-        this(new_idioktitis, new_arKykloforias, 0, (short)0);
+        this(new_idioktitis, new_arKykloforias, -1, (short)0);
         this.eng = new Mihani();
         this.sysdief = new SystimaDieythynsis();
     }

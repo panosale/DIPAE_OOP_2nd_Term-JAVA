@@ -52,7 +52,9 @@ public class Truck extends Vehicle{
     }
     // Convert all attributes to Sting
     public String toString() {
-        return "Arithmos kykloforias: " + this.getArKykloforias() + ".\nOnoma Idioktiti: " + this.getIdioktitis() +
-                ".\nEtos kataskevis: " + this.getEtosKat() + "\nArithmos aksonon: " + this.arithmosAksonon;
+        return "Arithmos kykloforias: " + this.getArKykloforias() + ". Onoma Idioktiti: " + this.getIdioktitis() +
+                ". Etos kataskevis: " + this.getEtosKat() + ". Arithmos aksonon: " + this.arithmosAksonon + ".";
+//        return "Arithmos kykloforias: " + this.getArKykloforias() + ".\nOnoma Idioktiti: " + this.getIdioktitis() +
+//                ".\nEtos kataskevis: " + this.getEtosKat() + ".\nArithmos aksonon: " + this.arithmosAksonon + ".";
     }
 }

@@ -70,6 +70,7 @@ abstract class Vehicle {
 
     // Convert all attributes to Sting
     public String toString() {
-        return "Arithmos kykloforias: " + arKykloforias + ".\nOnoma Idioktiti: " + idioktitis + ".\nEtos kataskevis: " + etosKat;
+        return "Arithmos kykloforias: " + arKykloforias + ". Onoma Idioktiti: " + idioktitis + ". Etos kataskevis: " + etosKat;
+//        return "Arithmos kykloforias: " + arKykloforias + ".\nOnoma Idioktiti: " + idioktitis + ".\nEtos kataskevis: " + etosKat;
     }
 }

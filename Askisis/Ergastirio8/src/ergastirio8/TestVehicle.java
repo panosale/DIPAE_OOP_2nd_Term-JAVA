@@ -1,54 +1,109 @@
 // Genikefsi - Polymorfismos
 package ergastirio8;
+
+import java.lang.Math;
 public class TestVehicle {
     public static void main(String[] args) {
-        int n; // To megethos tou pinaka zititai apo ton xristi
+        int n, i; // To megethos tou pinaka zititai apo ton xristi
         short tmp_eidosOximatos; // Gia tin kataxorisi tou eidous tou oximatos. DEN THA XREIASTEI
         // Gia ton ypologismo ton pososton ton oximaton
-        int arithmosCars, arithmosTrucks, arithmosMotorcycles, tmp_Cars = 0, tmp_Trucks = 0, tmp_Motorcycles = 0;
-        int final posostoCars = 70;
-        int final posostoTrucks = 15;
-        int final posostoMotorcycles = 15;
+        int arithmosCars, arithmosTrucks, arithmosMotorcycles, tmp_thesi, tmp_Cars = 0, tmp_Trucks = 0, tmp_Motorcycles = 0, tmp_undefinedVehicles = 0;
+        final float posostoCars = 0.7f;
+        final float posostoTrucks = 0.15f;
+        final float posostoMotorcycles = 0.15f;
         System.out.print("Dose to megethos tou pinaka oximaton: ");
         n = UserInput.getInteger();
-        arihmosCars = n * (posostoCars / 100);
-        arihmosTrucks = n * (posostoTrucks / 100);
-        arihmosMotorcycles = n * (posostoMotorcycles / 100);
-        // Arxikopoiisi pinaka oximaton
+        // Ypologismos pososton oximaton analoga me to eidos tous
+        arithmosCars = (int)(n * posostoCars);
+        arithmosTrucks = (int)(n * posostoTrucks);
+        arithmosMotorcycles = (int)(n * posostoMotorcycles);
+        System.out.println("***** Cars to calculate: " + arithmosCars + ", Trucks to calculate: " + arithmosTrucks + ", Motorcycles to calculate: " + arithmosMotorcycles + ". *****\n");
+        // Arxikopoiisi pinaka antikeimenon oximaton - Vehicle()
         Vehicle[] oxima = new Vehicle[n];
-        for (int i = 0; i < n; i++) {
-            do { // DEN THA XREIASTEI
-                System.out.print("Dose to eidos (1 = Car, 2 = Truck, 3 = Motorcycle) tou oximatos [" + i + "]: "); // DEN THA XREIASTEI
-                tmp_eidosOximatos = UserInput.getShort(); // DEN THA XREIASTEI
-            } while (tmp_eidosOximatos < 1 || tmp_eidosOximatos > 3); // DEN THA XREIASTEI
-            switch (tmp_eidosOximatos) { // OLES OI EISAGOGES THA GINOYN MESA STIN switch
-                case 1:
-                    oxima[i] = new Car();
-                    oxima[i].setEtosKat(1800);
-                    oxima[i].setIdioktitis("Idioktitis Oximatos " + i);
-                    oxima[i].setArKykloforias("Pinakida" + ((i+1) * 1000 + 1));
-                    oxima[i].setArithmosThyron((short)4);
-                    break;
-                case 2:
-                    oxima[i] = new Truck();
-                    oxima[i].setEtosKat(1900);
-                    oxima[i].setIdioktitis("Idioktitis Oximatos " + i);
-                    oxima[i].setArKykloforias("Pinakida" + ((i+1) * 1000 + 1));
-                    oxima[i].setArithmosAksonon((short)3);
-                    break;
-                case 3:
-                    oxima[i] = new Motorcycle();
-                    oxima[i].setEtosKat(2000);
-                    oxima[i].setIdioktitis("Idioktitis Oximatos " + i);
-                    oxima[i].setArKykloforias("Pinakida" + ((i+1) * 1000 + 1));
-                    oxima[i].setDiatheteiPlainoOxima(true);
-                    break;
+        for (i = 0; i < n; i++) {
+            oxima[i] = new Vehicle() {
+                @Override
+                void drive() {}
+                @Override
+                short getArithmosThyron() { return 0; }
+                @Override
+                void setArithmosThyron(short new_arithmosThyron) { }
+                @Override
+                short getArithmosAksonon() { return 0; }
+                @Override
+                void setArithmosAksonon(short new_arithmosAksonon) { }
+                boolean getDiatheteiPlainoOxima() { return false;}
+                @Override
+                void setDiatheteiPlainoOxima(boolean new_diatheteiPlainoOxima) { }
+            };
+        }
+        // Eisagogi se tyxaies thesis ta oximata analoga me ta pososta tous
+        i = 0;
+        System.out.println("***** Calculating Cars. Please wait *****");
+        while (tmp_Cars < arithmosCars && i < n) {
+            tmp_thesi = (int) (Math.random() * n);
+            while (oxima[tmp_thesi].getEtosKat() == 0) {
+//                System.out.println("Calculating Cars. Please wait. [tmp_thesi = " + tmp_thesi + "], [i = " + i + "]."); // GIA ELEGXO
+                oxima[tmp_thesi] = new Car();
+                oxima[tmp_thesi].setEtosKat(1800);
+                oxima[tmp_thesi].setIdioktitis("Idioktitis Oximatos " + tmp_thesi);
+                oxima[tmp_thesi].setArKykloforias("Pinakida" + ((tmp_thesi + 1) * 1000 + 1));
+                oxima[tmp_thesi].setArithmosThyron((short) 4);
+                tmp_Cars++;
+                i++;
             }
         }
-        for (int i = 0; i < n; i++) {
-            System.out.println("To Oxima[" + i + "]" + " einai klasis: " + oxima[i].getClass() + "\n" + oxima[i]);
+        System.out.println("***** Cars calculation finished. Go on *****\n");
+        System.out.println("***** Calculating Trucks. Please wait *****");
+        while (tmp_Trucks < arithmosTrucks && i < n) {
+            tmp_thesi = (int)(Math.random() * n);
+            while (oxima[tmp_thesi].getEtosKat() == 0) {
+//                System.out.println("Calculating Trucks. Please wait. [tmp_thesi = " + tmp_thesi + "], [i = " + i + "]."); // GIA ELEGXO
+                oxima[tmp_thesi] = new Truck();
+                oxima[tmp_thesi].setEtosKat(1900);
+                oxima[tmp_thesi].setIdioktitis("Idioktitis Oximatos " + tmp_thesi);
+                oxima[tmp_thesi].setArKykloforias("Pinakida" + ((tmp_thesi + 1) * 1000 + 1));
+                oxima[tmp_thesi].setArithmosAksonon((short)3);
+                tmp_Trucks++;
+                i++;
+            }
+        }
+        System.out.println("***** Trucks calculation finished. Go on *****\n");
+        System.out.println("***** Calculating Motorcycles. Please wait *****");
+        while (tmp_Motorcycles < arithmosMotorcycles && i < n) {
+            tmp_thesi = (int)(Math.random() * n);
+            while (oxima[tmp_thesi].getEtosKat() == 0) {
+//                System.out.println("Calculating Motorcycles. Please wait. [tmp_thesi = " + tmp_thesi + "], [i = " + i + "]."); // GIA ELEGXO
+                oxima[tmp_thesi] = new Motorcycle();
+                oxima[tmp_thesi].setEtosKat(2000);
+                oxima[tmp_thesi].setIdioktitis("Idioktitis Oximatos " + tmp_thesi);
+                oxima[tmp_thesi].setArKykloforias("Pinakida" + ((tmp_thesi + 1) * 1000 + 1));
+                oxima[tmp_thesi].setDiatheteiPlainoOxima(true);
+                tmp_Motorcycles++;
+                i++;
+            }
+        }
+        System.out.println("***** Motorcycles calculation finished. Go on *****\n");
+        System.out.println("***************** O PINAKAS GEMISE *****************");
+        // Emfanisi apotelesmaton
+        tmp_Cars = 0;
+        tmp_Trucks = 0;
+        tmp_Motorcycles = 0;
+        for (i = 0; i < n; i++) {
+            if (oxima[i] instanceof Car)
+                tmp_Cars++;
+            else if ((oxima[i] instanceof Truck))
+                tmp_Trucks++;
+            else if ((oxima[i] instanceof Motorcycle))
+                tmp_Motorcycles++;
+            else tmp_undefinedVehicles++;
+            System.out.println("To Oxima[" + i + "]" + " einai klasis: " + oxima[i].getClass()); // GIA ELEGXO
+            System.out.println(oxima[i]);
             oxima[i].drive();
             System.out.println("--------------------------");
         }
+        // Emfanisi synolikou arithmou oximaton pou dimiourgithikan
+        System.out.println("***** Cars calculated: " + tmp_Cars + ", Trucks calculated: " + tmp_Trucks + ", Motorcyles calculated: " + tmp_Motorcycles + ", " +
+                "Undefined Vehicles calculated: " + tmp_undefinedVehicles + ". *****");
     }
 }

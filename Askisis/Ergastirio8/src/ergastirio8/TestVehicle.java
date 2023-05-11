@@ -2,10 +2,18 @@
 package ergastirio8;
 public class TestVehicle {
     public static void main(String[] args) {
-        // To megethos tou pinaka zititai apo ton xristi
-        int n, tmp_eidosOximatos;
+        int n; // To megethos tou pinaka zititai apo ton xristi
+        short tmp_eidosOximatos; // Gia tin kataxorisi tou eidous tou oximatos
+        // Gia ton ypologismo ton pososton ton oximaton
+        int arithmosCars, arithmosTrucks, arithmosMotorcycles, tmp_Cars = 0, tmp_Trucks = 0, tmp_Motorcycles = 0;
+        int final posostoCars = 70;
+        int final posostoTrucks = 15;
+        int final posostoMotorcycles = 15;
         System.out.print("Dose to megethos tou pinaka oximaton: ");
         n = UserInput.getInteger();
+        arihmosCars = n * (posostoCars / 100);
+        arihmosTrucks = n * (posostoTrucks / 100);
+        arihmosMotorcycles = n * (posostoMotorcycles / 100);
         // Arxikopoiisi pinaka oximaton
         Vehicle[] oxima = new Vehicle[n];
         for (int i = 0; i < n; i++) {

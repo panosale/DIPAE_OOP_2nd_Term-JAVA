@@ -21,6 +21,11 @@ public class Vehicle {
         this.sysdief = new SystimaDieythynsis(); // Prepei na ginontai new ta antikeimena pou perixontai stin klasi mas
     }
 
+    public Vehicle(Mihani new_mihani, SystimaDieythynsis new_sysdief) {
+        this.eng = new_mihani;
+        this.sysdief = new_sysdief;
+    }
+
     // Full Constructor. Initialize object with full given values
     public Vehicle(String new_idioktitis, String new_arKykloforias, int new_etosKat, int new_kyvismos, int new_ippodynami) {
         this.idioktitis = new_idioktitis;

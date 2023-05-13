@@ -9,15 +9,15 @@ public class TestVehicle {
         int arithmosCars, arithmosTrucks, arithmosMotorcycles, tmp_thesi, tmp_Cars = 0, tmp_Trucks = 0, tmp_Motorcycles = 0, tmp_undefinedVehicles = 0;
         final float posostoCars = 0.7f;
         final float posostoTrucks = 0.15f;
-        final float posostoMotorcycles = 0.15f;
+        final float posostoMotorcycles = 0.15f; // Den xreiazetai
         // To megethos tou pinaka zititai apo ton xristi
         System.out.print("Dose to megethos tou pinaka oximaton: ");
         n = UserInput.getInteger();
         // Ypologismos pososton oximaton analoga me to eidos tous. 70%=Cars, 15%=Trucks, 15%=Motorcycles
-        arithmosCars = (int)(n * posostoCars);
-        arithmosTrucks = (int)(n * posostoTrucks);
-        arithmosMotorcycles = (int)(n * posostoMotorcycles);
-        // Emfanisi oximaton ana pososto
+        arithmosCars = Math.round(n * posostoCars);
+        arithmosTrucks = Math.round(n * posostoTrucks);
+        arithmosMotorcycles = n - arithmosCars - arithmosTrucks; //Math.round(n * posostoMotorcycles); // Den xreiaetai
+        // Emfanisi oximaton ana pososto. Einai ektimisi
         System.out.println("***** Cars to calculate: " + arithmosCars + ", Trucks to calculate: " + arithmosTrucks + ", Motorcycles to calculate: " + arithmosMotorcycles + ". *****\n");
         // Arxikopoiisi pinaka [n] theseon antikeimenon tis superclass Vehicle()
         Vehicle[] oxima = new Vehicle[n];
@@ -37,16 +37,16 @@ public class TestVehicle {
                 @Override
                 void setDiatheteiPlainoOxima(boolean new_diatheteiPlainoOxima) { }
             };
-            System.out.println(oxima[i].getEtosKat());
         }
         // Eisagogi oximaton se tyxaies thesis tou pinaka analoga me ta pososta tous
         i = 0;
         System.out.println("***** Calculating Cars. Please wait *****");
+        Car tmpCar = new Car();
         while (tmp_Cars < arithmosCars && i < n) {
             tmp_thesi = (int) (Math.random() * n); // Evresi tixaias thesis gia kataxorisi tou antikeimenou <Car> ston pinaka
             while (oxima[tmp_thesi].getEtosKat() == -1) { // An to etos kataskevis einai -1 simainei oti h thesi [i] exei akoma to arxiko antikeimeno Vehicle kai oxi kapoio Oxima
 //                System.out.println("Calculating Cars. Please wait. [tmp_thesi = " + tmp_thesi + "], [i = " + i + "]."); // GIA ELEGXO
-                Car tmpCar = new Car(); // Upcasting
+                // Oi parakato grammes mporoun na allaxtoun oste na zitountai ta stoixeia tou oximatos
                 oxima[tmp_thesi] = tmpCar;
                 oxima[tmp_thesi].setEtosKat(1800);
                 oxima[tmp_thesi].setIdioktitis("Idioktitis Oximatos " + tmp_thesi);
@@ -58,11 +58,12 @@ public class TestVehicle {
         }
         System.out.println("***** Cars calculation finished. Go on *****\n");
         System.out.println("***** Calculating Trucks. Please wait *****");
+        Truck tmpTruck = new Truck();
         while (tmp_Trucks < arithmosTrucks && i < n) {
             tmp_thesi = (int)(Math.random() * n); // Evresi tixaias thesis gia kataxorisi tou antikeimenou <Truck> ston pinaka
             while (oxima[tmp_thesi].getEtosKat() == -1) { // An to etos kataskevis einai -1 simainei oti h thesi [i] exei akoma to arxiko antikeimeno Vehicle kai oxi kapoio Oxima
 //                System.out.println("Calculating Trucks. Please wait. [tmp_thesi = " + tmp_thesi + "], [i = " + i + "]."); // GIA ELEGXO
-                Truck tmpTruck = new Truck(); // Upcasting
+                // Oi parakato grammes mporoun na allaxtoun oste na zitountai ta stoixeia tou oximatos
                 oxima[tmp_thesi] = tmpTruck;
                 oxima[tmp_thesi].setEtosKat(1900);
                 oxima[tmp_thesi].setIdioktitis("Idioktitis Oximatos " + tmp_thesi);
@@ -74,11 +75,12 @@ public class TestVehicle {
         }
         System.out.println("***** Trucks calculation finished. Go on *****\n");
         System.out.println("***** Calculating Motorcycles. Please wait *****");
+        Motorcycle tmpMotorcycle = new Motorcycle();
         while (tmp_Motorcycles < arithmosMotorcycles && i < n) {
             tmp_thesi = (int)(Math.random() * n); // Evresi tixaias thesis gia kataxorisi tou antikeimenou <Motorcycle> ston pinaka
             while (oxima[tmp_thesi].getEtosKat() == -1) { // An to etos kataskevis einai -1 simainei oti h thesi [i] exei akoma to arxiko antikeimeno Vehicle kai oxi kapoio Oxima
 //                System.out.println("Calculating Motorcycles. Please wait. [tmp_thesi = " + tmp_thesi + "], [i = " + i + "]."); // GIA ELEGXO
-                Motorcycle tmpMotorcycle = new Motorcycle(); // Upcasting
+                // Oi parakato grammes mporoun na allaxtoun oste na zitountai ta stoixeia tou oximatos
                 oxima[tmp_thesi] = tmpMotorcycle;
                 oxima[tmp_thesi].setEtosKat(2000);
                 oxima[tmp_thesi].setIdioktitis("Idioktitis Oximatos " + tmp_thesi);

@@ -51,8 +51,9 @@ public class Car extends Vehicle{
 
     // Convert all attributes to Sting
     public String toString() {
-        return "Arithmos kykloforias: " + this.getArKykloforias() + ". Onoma Idioktiti: " + this.getIdioktitis() +
-                ". Etos kataskevis: " + this.getEtosKat() + ". Arithmos thyron: " + this.arithmosThyron + ".";
+        return super.toString() + ". Arithmos thyron: " + this.arithmosThyron + ".";
+//        return "Arithmos kykloforias: " + this.getArKykloforias() + ". Onoma Idioktiti: " + this.getIdioktitis() +
+//                ". Etos kataskevis: " + this.getEtosKat() + ". Arithmos thyron: " + this.arithmosThyron + ".";
 //        return "Arithmos kykloforias: " + this.getArKykloforias() + ".\nOnoma Idioktiti: " + this.getIdioktitis() +
 //                ".\nEtos kataskevis: " + this.getEtosKat() + "\n. Arithmos thyron: " + this.arithmosThyron;
     }

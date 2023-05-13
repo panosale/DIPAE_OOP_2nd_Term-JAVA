@@ -48,8 +48,9 @@ public class Motorcycle extends Vehicle{
     }
     // Convert all attributes to Sting
     public String toString() {
-        return "Arithmos kykloforias: " + this.getArKykloforias() + ". Onoma Idioktiti: " + this.getIdioktitis() +
-                ". Etos kataskevis: " + this.getEtosKat() + ". Diathetei plaino oxima: " + this.diatheteiPlainoOxima + ".";
+        return super.toString() + ". Diathetei plaino oxima: " + this.diatheteiPlainoOxima + ".";
+//        return "Arithmos kykloforias: " + this.getArKykloforias() + ". Onoma Idioktiti: " + this.getIdioktitis() +
+//                ". Etos kataskevis: " + this.getEtosKat() + ". Diathetei plaino oxima: " + this.diatheteiPlainoOxima + ".";
 //        return "Arithmos kykloforias: " + this.getArKykloforias() + ".\nOnoma Idioktiti: " + this.getIdioktitis() +
 //                ".\nEtos kataskevis: " + this.getEtosKat() + ".\nDiathetei plaino oxima: " + this.diatheteiPlainoOxima + ".";
     }

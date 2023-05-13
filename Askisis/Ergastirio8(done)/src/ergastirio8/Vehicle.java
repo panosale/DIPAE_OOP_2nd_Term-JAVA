@@ -20,14 +20,26 @@ abstract class Vehicle {
         this.eng = new Mihani();
         this.sysdief = new SystimaDieythynsis();
     }
-
-    // Full Constructor. Initialize object with full given values
+    public Vehicle(Mihani new_mihani, SystimaDieythynsis new_sysdief) {
+        this.eng = new_mihani;
+        this.sysdief = new_sysdief;
+    }
+    // Semi Constructor. Initialize object with some given values
     public Vehicle(String new_idioktitis, String new_arKykloforias, int new_etosKat) {
         this.idioktitis = new_idioktitis;
         this.arKykloforias = new_arKykloforias;
         this.etosKat = new_etosKat;
         this.eng = new Mihani();
         this.sysdief = new SystimaDieythynsis();
+    }
+
+    // Full Constructor. Initialize object with full given values
+    public Vehicle(String new_idioktitis, String new_arKykloforias, int new_etosKat, Mihani new_mihani, SystimaDieythynsis new_sysdief) {
+        this.idioktitis = new_idioktitis;
+        this.arKykloforias = new_arKykloforias;
+        this.etosKat = new_etosKat;
+        this.eng = new_mihani;
+        this.sysdief = new_sysdief;
     }
     abstract void drive();
 

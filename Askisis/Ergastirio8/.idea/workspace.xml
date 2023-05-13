@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52115621-05cb-481f-84f8-a5908afbfebe" name="Changes" comment="Almost completed Askisi 7.2">
-      <change beforePath="$PROJECT_DIR$/src/ergastirio8/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ergastirio8/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ergastirio8/Mihani.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ergastirio8/Mihani.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ergastirio8/Motorcycle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ergastirio8/Motorcycle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ergastirio8/SystimaDieythynsis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ergastirio8/SystimaDieythynsis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ergastirio8/TestVehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ergastirio8/TestVehicle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ergastirio8/Truck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ergastirio8/Truck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ergastirio8/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ergastirio8/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/DIPAE_OOP_2nd_Term-JAVA.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

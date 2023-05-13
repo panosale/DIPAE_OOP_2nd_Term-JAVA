@@ -11,19 +11,17 @@ public class Proistamenos extends Misthotos{
         super();
     }
 
-    // Constructor xoris ta eti proypiresias & ton arithmo ton teknon
-    // GIA DIORTHOSI. H EIDIKOTITA NA EINAI PROEPILEGMENI GI AFTI TIN KLASI -> done
+    // Constructor xoris tin eidkotitas, ta eti proypiresias & ton arithmo ton teknon
     public Proistamenos(String new_AM, String new_name, String new_diefthinsiKatoikias) {
-        this(new_AM, new_name, new_diefthinsiKatoikias, (short)0, (short)0);
+        this(new_AM, new_name, new_diefthinsiKatoikias, "", (short)0, (short)0);
     }
 
     // Full constructor
-    // GIA DIORTHOSI. H EIDIKOTITA NA EINAI "PROISTAMENOS" GI AFTI TIN KLASI -> done
-    public Proistamenos(String new_AM, String new_name, String new_diefthinsiKatoikias, short new_etiProypiresias, short new_arithmosTeknon) {
+   public Proistamenos(String new_AM, String new_name, String new_diefthinsiKatoikias, String new_eidikotita, short new_etiProypiresias, short new_arithmosTeknon) {
         this.setAM(new_AM);
         this.setName(new_name);
-        this.setEidikotita("PROISTAMENOS");
         this.setDiefthinsiKatoikias(new_diefthinsiKatoikias);
+        this.setEidikotita(new_eidikotita);
         this.setEtiProypiresias(new_etiProypiresias);
         this.setArithmosTeknon(new_arithmosTeknon);
     }
@@ -46,9 +44,11 @@ public class Proistamenos extends Misthotos{
     public String toString() {
         DecimalFormat df = new DecimalFormat();
         df.setMaximumFractionDigits(2);
-        return ("AM: " + this.getAM() + "\nOnoma: " + this.getName() + "\nEidikotia: " + this.getEidikotita() +
-                "\nDiefthinsi Katoikias: " + this.getDiefthinsiKatoikias() +
-                "\nEti proypiresias: " + this.getEtiProypiresias() + "\nArithmos teknon: " + this.getArithmosTeknon() +
+        return (super.toString() + this.getEtiProypiresias() + "\nArithmos teknon: " + this.getArithmosTeknon() +
                 "\nAmoivi: " + df.format(this.amoiviProistamenou()) + "€.");
+//        return ("AM: " + this.getAM() + "\nOnoma: " + this.getName() + "\nEidikotia: " + this.getEidikotita() +
+//                "\nDiefthinsi Katoikias: " + this.getDiefthinsiKatoikias() +
+//                "\nEti proypiresias: " + this.getEtiProypiresias() + "\nArithmos teknon: " + this.getArithmosTeknon() +
+//                "\nAmoivi: " + df.format(this.amoiviProistamenou()) + "€.");
     }
 }

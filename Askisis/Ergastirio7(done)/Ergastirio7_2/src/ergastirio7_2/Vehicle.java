@@ -26,7 +26,7 @@ public class Vehicle {
         this.sysdief = new_sysdief;
     }
 
-    // Full Constructor. Initialize object with full given values
+    // Full Constructor #1. Initialize object with full given values
     public Vehicle(String new_idioktitis, String new_arKykloforias, int new_etosKat, int new_kyvismos, int new_ippodynami) {
         this.idioktitis = new_idioktitis;
         this.arKykloforias = new_arKykloforias;
@@ -34,6 +34,14 @@ public class Vehicle {
         this.eng = new Mihani(new_kyvismos, new_ippodynami); // Prepei na ginontai new ta antikeimena pou perixontai stin klasi mas
         this.sysdief = new SystimaDieythynsis(); // Prepei na ginontai new ta antikeimena pou perixontai stin klasi mas
    }
+    // Full Constructor #2. Initialize object with full given values
+    public Vehicle(String new_idioktitis, String new_arKykloforias, int new_etosKat, Mihani new_mihani, SystimaDieythynsis new_sysdief) {
+        this.idioktitis = new_idioktitis;
+        this.arKykloforias = new_arKykloforias;
+        this.etosKat = new_etosKat;
+        this.eng = new_mihani;
+        this.sysdief = new_sysdief;
+    }
 
     // Methodos gia ton orismo olon ton attributes tou antikeimenou meso parametron
     public void setAllValuesToVehicle(String new_idioktitis, String new_arKykloforias, int new_etosKat, int new_kyvismos, int new_ippodynami) {

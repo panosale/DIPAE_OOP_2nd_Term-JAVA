@@ -11,14 +11,17 @@ public class Oromisthios extends Ypallilos{
     public Oromisthios() {
         super();
     }
+    // Constructor xoris tin eidkotitas tis ores ergasias
+    public Oromisthios(String new_AM, String new_name, String new_diefthinsiKatoikias) {
+        this(new_AM, new_name, new_diefthinsiKatoikias, "", 0);
+    }
+
     // Full constructor
-    // GIA DIORTHOSI. H EIDIKOTITA NA EINAI "OROMISTHIOS" GI AFTI TIN KLASI -> done
-    public Oromisthios(String new_AM, String new_name, String new_diefthinsiKatoikias, int new_oresErgasias) {
-        // super(new_AM, new_name, "OROMISTHIOS", new_diefthinsiKatoikias); // NO NEED
+    public Oromisthios(String new_AM, String new_name, String new_diefthinsiKatoikias, String new_eidikotita, int new_oresErgasias) {
         this.setAM(new_AM);
         this.setName(new_name);
-        this.setEidikotita("OROMISTHIOS");
         this.setDiefthinsiKatoikias(new_diefthinsiKatoikias);
+        this.setEidikotita(new_eidikotita);
         this.oresErgasias = new_oresErgasias;
     }
 
@@ -58,8 +61,9 @@ public class Oromisthios extends Ypallilos{
     public String toString() {
         DecimalFormat df = new DecimalFormat();
         df.setMaximumFractionDigits(2);
-        return ("AM: " + this.getAM() + "\nOnoma: " + this.getName() + "\nEidikotia: " + this.getEidikotita() +
-                "\nDiefthinsi Katoikias: " + this.getDiefthinsiKatoikias() +
-                "\nOres ergasias: " + this.oresErgasias + "\nAmoivi: " + df.format(this.amoiviOromisthiou()) + "€.");
+        return (super.toString() + this.oresErgasias + "\nAmoivi: " + df.format(this.amoiviOromisthiou()) + "€.");
+//        return ("AM: " + this.getAM() + "\nOnoma: " + this.getName() + "\nEidikotia: " + this.getEidikotita() +
+//                "\nDiefthinsi Katoikias: " + this.getDiefthinsiKatoikias() +
+//                "\nOres ergasias: " + this.oresErgasias + "\nAmoivi: " + df.format(this.amoiviOromisthiou()) + "€.");
     }
 }

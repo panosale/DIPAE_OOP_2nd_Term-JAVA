@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="510a7298-aacd-43ed-bf3f-b86e758660e7" name="Changes" comment="Finished Askisi 7.3">
+      <change beforePath="$PROJECT_DIR$/out/production/Ergastirio7_3/ergastirio7_3/TestEmployee.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ergastirio7_3/ergastirio7_3/TestEmployee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ergastirio7_3/TestEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ergastirio7_3/TestEmployee.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2P7VifcB7xD0v72Pftvbb6Kznyo" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Common/Programming/GitHub/DIPAE_OOP_2nd_Term-JAVA/Askisis/Ergastirio7_3&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Common\Programming\GitHub\DIPAE_OOP_2nd_Term-JAVA\Askisis\Ergastirio7_3\src\ergastirio7_3" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Common\Programming\GitHub\DIPAE_OOP_2nd_Term-JAVA\Askisis\Ergastirio7_3\src\ergastirio7_3" />
+      <recent name="D:\Common\Programming\GitHub\DIPAE_OOP_2nd_Term-JAVA\Askisis\Ergastirio7_3\src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="TestEmployee" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ergastirio7_3.TestEmployee" />
+      <module name="Ergastirio7_3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ergastirio7_3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TestEmployee" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="510a7298-aacd-43ed-bf3f-b86e758660e7" name="Changes" comment="" />
+      <created>1682808235448</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682808235448</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Finished Askisi 7.3">
+      <created>1683668755047</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683668755047</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Finished Askisi 7.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished Askisi 7.3" />
+  </component>
+</project>

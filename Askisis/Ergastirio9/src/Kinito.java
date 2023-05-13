@@ -13,7 +13,7 @@ public class Kinito extends Tilefono {
 		this.callToKinitoCostPerSecond = 0.07f; // GIA ELEGXO
     }	
 	public void dial(String numberToCall, int secondsOnCall, boolean isOutgoing) { // GIA ELEGXO, boolean seStathero)
-		System.out.println("Klisi pros to <" + numberToCall + ">."); // apo to " + "[TYPOS ANTIKEIMENOU TILEFONOU]" + " tilefono " + this.phoneNumber + " pros to " + "[TYPOS ANTIKEIMENOU TILEFONOU]" + " mer arithmo.");
+		System.out.println("Klisi pros to <" + numberToCall + ">.");
 		this.totalSecondsOnCalls = this.totalSecondsOnCalls + secondsOnCall;
 		if (isOutgoing) // GIA ELEGXO
 			this.secondsOnOutgoingCalls = this.secondsOnOutgoingCalls + secondsOnCall; // GIA ELEGXO

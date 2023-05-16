@@ -3,8 +3,12 @@
 import java.lang.Math;
 public class Tilefono {
 	private String arithmosTilefonou;
-	private int totalSecondsOnCalls;
-	private int secondsOnOutgoingCalls; // GIA ELEGXO
+    private float callToStatheroCostPerSecond; // GIA ELEGXO
+    private float callToKinitoCostPerSecond; // GIA ELEGXO
+    private int callsToStatheroTotalSeconds; // GIA ELEGXO
+    private int callsToKinitoTotalSeconds; // GIA ELEGXO
+	private int totalSecondsOnCall;
+//	private int secondsOnOutgoingCalls; // GIA ELEGXO
 //	private float callCostPerSecond; // GIA ELEGXO
 	// Default constructor
     public Tilefono() {
@@ -13,18 +17,21 @@ public class Tilefono {
     public Tilefono(String new_arithmosTilefonou) {
 		this.arithmosTilefonou = new_arithmosTilefonou;
 //		callCostPerSecond = 0; // GIA ELEGXO
-		this.totalSecondsOnCalls  = 0;
-		this.totalSecondsOnCalls = 0;
+        this.callToStatheroCostPerSecond = 0;
+        this.callToKinitoCostPerSecond = 0;
+        this.callsToStatheroTotalSeconds = 0;
+        this.callsToKinitoTotalSeconds = 0;
+		this.totalSecondsOnCall = 0;
     }	
-	public void dial(String numberToCall) { //, int secondsOnCall, boolean isOutgoing) { // GIA ELEGXO. DEN ZITOUNTAI APO TIN ASKISI.
-		System.out.println("Klisi apo to <" + this.arithmosTilefonou + "> pros to <" + numberToCall + ">."); // apo to " + "[TYPOS ANTIKEIMENOU TILEFONOU]" + " tilefono " + this.phoneNumber + " pros to " + "[TYPOS ANTIKEIMENOU TILEFONOU]" + " mer arithmo.");
-		this.totalSecondsOnCalls = this.totalSecondsOnCalls + (int) (Math.random() * 1000);
+	public void dial(Tilefono numberToCall) { //, int secondsOnCall, boolean isOutgoing) { // GIA ELEGXO. DEN ZITOUNTAI APO TIN ASKISI.
+		System.out.println("Klisi apo to <" + this.arithmosTilefonou + "> pros to <" + numberToCall.getPhoneNumber() + ">.");
+		this.totalSecondsOnCall = this.totalSecondsOnCall + (int) (Math.random() * 1000);
 		//if (isOutgoing) // GIA ELEGXO. DEN ZITITAI APO TIN ASKISI.
 		//	this.secondsOnOutgoingCalls = this.secondsOnOutgoingCalls + secondsOnCall; // GIA ELEGXO. DEN ZITITAI APO TIN ASKISI.
 	}
 
 	public float cost(String numberToCall) {
-		return -1; // GIA DIORTHOSI
+		return -1;
 	}
     // Set-Get phoneNumber
     public void setPhoneNumber(String new_phoneNumber) {
@@ -33,62 +40,50 @@ public class Tilefono {
     public String getPhoneNumber() {
         return this.arithmosTilefonou;
     }
-    /*
-	// Set-Get callCostPerSecond  // GIA ELEGXO
-    public void setCallCostPerSecond(int new_callCostPerSecond) { // GIA ELEGXO
-        this.callCostPerSecond = new_callCostPerSecond; // GIA ELEGXO
-    } // GIA ELEGXO
-    public int getCallCostPerSecondCalls() { // GIA ELEGXO
-        return this.callCostPerSecond; // GIA ELEGXO
-    } // GIA ELEGXO
-	*/
+	// Set-Get callCostPerSecond STATHERO
+    public void setCallToStatheroCostPerSecond(float new_callCostPerSecond) {
+        this.callToStatheroCostPerSecond = new_callCostPerSecond;
+    }
+    public float getCallToStatheroCostPerSecond() {
+        return this.callToStatheroCostPerSecond;
+    }
+    // Set-Get callCostPerSecond KINITO
+    public float getCallToKinitoCostPerSecond() {
+        return this.callToKinitoCostPerSecond;
+    }
+    public void setCallToKinitoCostPerSecond(float new_callCostPerSecond) {
+        this.callToKinitoCostPerSecond = new_callCostPerSecond;
+    }
+    // Set-Get callToStathroTotalSeconds STATHERO
+    public int getCallsToStatheroTotalSeconds() {
+        return this.callsToStatheroTotalSeconds;
+    }
+    public void setCallsToStatheroTotalSeconds(int new_callSeconds) {
+        this.callsToStatheroTotalSeconds = this.callsToStatheroTotalSeconds + new_callSeconds;
+    }
+    // Set-Get callToKinitoTotalSecond KINITO
+    public int getCallsToKinitoTotalSeconds() {
+        return this.callsToKinitoTotalSeconds;
+    }
+    public void setCallsToKinitoTotalSeconds(int new_callSeconds) {
+        this.callsToKinitoTotalSeconds = new_callSeconds;
+    }
     // Set-Get totalSecondsOnCalls
-    public void setTotalSecondsOnCalls(int new_totalSecondsOnCalls) {
-        this.totalSecondsOnCalls = new_totalSecondsOnCalls;
+    public void setTotalSecondsOnCalls(int new_totalSecondsOnCall) {
+        this.totalSecondsOnCall = new_totalSecondsOnCall;
     }
     public int getTotalSecondsOnCallsCalls() {
-        return this.totalSecondsOnCalls;
+        return this.totalSecondsOnCall;
     }
     // Set-Get secondsOnOutgoingCalls
-    public void setSecondsOnOutgoingCalls(int new_secondsOnOutgoingCalls) {
-        this.secondsOnOutgoingCalls = new_secondsOnOutgoingCalls;
-    }
-    public int getSecondsOnOutgoingCalls() {
-        return this.secondsOnOutgoingCalls;
-    }
-/*
-    // Set-Get first name
-    public void setFirstName(String new_firstName) {
-        this.firstName = new_firstName;
-    }
-    public String getFirstName() {
-        return this.firstName;
-    }
-    // Set-Get last name
-    public void setLastName(String new_lastName) {
-        this.lastName = new_lastName;
-    }
-    public String getLastName() {
-        return this.lastName;
-    }
-    // Set-Get Vasikos Misthos
-    public void setVasikosMisthos(double new_vasikosMisthos) {
-        this.vasikosMisthos = new_vasikosMisthos;
-    }
-    public double getVasikosMisthos() {
-        return this.vasikosMisthos;
-    }
-    // Set-Get Bonus
-    public void setBonus(double new_Bonus) {
-        this.bonus = new_Bonus;
-    }
-    public double getBonus() {
-        return this.bonus;
-    }
-*/
+//    public void setSecondsOnOutgoingCalls(int new_secondsOnOutgoingCalls) {
+//        this.secondsOnOutgoingCalls = new_secondsOnOutgoingCalls;
+//    }
+//    public int getSecondsOnOutgoingCalls() {
+//        return this.secondsOnOutgoingCalls;
+//    }
     // Return all attributes in one string
     public String toString() {
-        return (this.arithmosTilefonou + ", totalSecondsOnCalls = " + this.totalSecondsOnCalls + ", secondsOnOutgoingCalls = " + this.secondsOnOutgoingCalls);
+        return (this.arithmosTilefonou + ", totalSecondsOnCalls = " + this.totalSecondsOnCall + ", secondsOnOutgoingCalls = ");// + this.secondsOnOutgoingCalls);
     }
-
 }

@@ -28,5 +28,4 @@ public void dial(Tilefono numberToCall) {
     public String toString() {
         return (super.toString());
     }
-
 }

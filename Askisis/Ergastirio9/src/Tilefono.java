@@ -29,10 +29,22 @@ public class Tilefono {
 		//if (isOutgoing) // GIA ELEGXO. DEN ZITITAI APO TIN ASKISI.
 		//	this.secondsOnOutgoingCalls = this.secondsOnOutgoingCalls + secondsOnCall; // GIA ELEGXO. DEN ZITITAI APO TIN ASKISI.
 	}
-
-	public float cost(String numberToCall) {
-		return -1;
-	}
+	public float cost(Tilefono numberToCall) {
+        float tmp_callsCost;
+        int tmp_secondsOnCall = (int) Math.round(Math.random() * 1000);
+        switch (numberToCall.getPhoneNumber().charAt(0)) {
+            case '2':
+                tmp_callsCost = 0; // GIA SYNEXEIA
+                break;
+            case '6':
+                tmp_callsCost = 1; // GIA SYNEXEIA
+                break;
+            default:
+                tmp_callsCost = -1; // GIA SYNEXEIA
+                break;
+        }
+        return tmp_callsCost;
+    }
     // Set-Get phoneNumber
     public void setPhoneNumber(String new_phoneNumber) {
         this.arithmosTilefonou = new_phoneNumber;
@@ -75,15 +87,8 @@ public class Tilefono {
     public int getTotalSecondsOnCallsCalls() {
         return this.totalSecondsOnCall;
     }
-    // Set-Get secondsOnOutgoingCalls
-//    public void setSecondsOnOutgoingCalls(int new_secondsOnOutgoingCalls) {
-//        this.secondsOnOutgoingCalls = new_secondsOnOutgoingCalls;
-//    }
-//    public int getSecondsOnOutgoingCalls() {
-//        return this.secondsOnOutgoingCalls;
-//    }
     // Return all attributes in one string
     public String toString() {
-        return (this.arithmosTilefonou + ", totalSecondsOnCalls = " + this.totalSecondsOnCall + ", secondsOnOutgoingCalls = ");// + this.secondsOnOutgoingCalls);
+        return (this.arithmosTilefonou + ", totalSecondsOnCalls = " + this.totalSecondsOnCall + ".");
     }
 }

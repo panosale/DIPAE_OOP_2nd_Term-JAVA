@@ -1,7 +1,7 @@
 // Genikefsi - Polymorfismos #2
 // ergastirio 9
 import java.lang.Math;
-public class Tilefono {
+abstract class Tilefono {
 	private String arithmosTilefonou;
     private float callToStatheroCostPerSecond; // GIA ELEGXO
     private float callToKinitoCostPerSecond; // GIA ELEGXO
@@ -23,12 +23,9 @@ public class Tilefono {
         this.callsToKinitoTotalSeconds = 0;
 		this.totalSecondsOnCall = 0;
     }	
-	public void dial(Tilefono numberToCall) { //, int secondsOnCall, boolean isOutgoing) { // GIA ELEGXO. DEN ZITOUNTAI APO TIN ASKISI.
-		System.out.println("Klisi apo to <" + this.arithmosTilefonou + "> pros to <" + numberToCall.getPhoneNumber() + ">.");
-		this.totalSecondsOnCall = this.totalSecondsOnCall + (int) (Math.random() * 1000);
-		//if (isOutgoing) // GIA ELEGXO. DEN ZITITAI APO TIN ASKISI.
-		//	this.secondsOnOutgoingCalls = this.secondsOnOutgoingCalls + secondsOnCall; // GIA ELEGXO. DEN ZITITAI APO TIN ASKISI.
-	}
+	abstract void dial(String numberToCall);// {
+//		System.out.println("Klisi apo to <" + this.arithmosTilefonou + "> pros to <" + numberToCall + ">.");
+//	}
 	public float cost(Tilefono numberToCall) {
         float tmp_callsCost;
         int tmp_secondsOnCall = (int) Math.round(Math.random() * 1000);
@@ -84,7 +81,7 @@ public class Tilefono {
     public void setTotalSecondsOnCalls(int new_totalSecondsOnCall) {
         this.totalSecondsOnCall = new_totalSecondsOnCall;
     }
-    public int getTotalSecondsOnCallsCalls() {
+    public int getTotalSecondsOnCalls() {
         return this.totalSecondsOnCall;
     }
     // Return all attributes in one string

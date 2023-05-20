@@ -1,6 +1,5 @@
 // Genikefsi - Polymorfismos #2
 // ergastirio 9
-import java.lang.Math;
 abstract class Tilefono {
 	private String arithmosTilefonou;
     private float callToStatheroCostPerSecond; // GIA ELEGXO
@@ -8,25 +7,32 @@ abstract class Tilefono {
     private int callsToStatheroTotalSeconds; // GIA ELEGXO
     private int callsToKinitoTotalSeconds; // GIA ELEGXO
 	private int totalSecondsOnCall;
-//	private int secondsOnOutgoingCalls; // GIA ELEGXO
-//	private float callCostPerSecond; // GIA ELEGXO
 	// Default constructor
     public Tilefono() {
     }
 	// Semi constructor
     public Tilefono(String new_arithmosTilefonou) {
 		this.arithmosTilefonou = new_arithmosTilefonou;
-//		callCostPerSecond = 0; // GIA ELEGXO
         this.callToStatheroCostPerSecond = 0;
         this.callToKinitoCostPerSecond = 0;
         this.callsToStatheroTotalSeconds = 0;
         this.callsToKinitoTotalSeconds = 0;
 		this.totalSecondsOnCall = 0;
-    }	
-	abstract void dial(String numberToCall);// {
+    }
+    // Full Constructor
+    public Tilefono(String new_arithmosTilefonou, float new_callToStatheroCostPerSecond, float new_callToKinitoCostPerSecond) {
+        this.arithmosTilefonou = new_arithmosTilefonou;
+        this.callToStatheroCostPerSecond = new_callToStatheroCostPerSecond;
+        this.callToKinitoCostPerSecond = new_callToKinitoCostPerSecond;
+        this.callsToStatheroTotalSeconds = 0;
+        this.callsToKinitoTotalSeconds = 0;
+        this.totalSecondsOnCall = 0;
+    }
+	abstract void dial(String numberToCall, int tmp_dialDuration);// {
 //		System.out.println("Klisi apo to <" + this.arithmosTilefonou + "> pros to <" + numberToCall + ">.");
 //	}
-	public float cost(Tilefono numberToCall) {
+    abstract float cost(char phoneType);
+/*   {
         float tmp_callsCost;
         int tmp_secondsOnCall = (int) Math.round(Math.random() * 1000);
         switch (numberToCall.getPhoneNumber().charAt(0)) {
@@ -41,6 +47,14 @@ abstract class Tilefono {
                 break;
         }
         return tmp_callsCost;
+    }
+
+ */
+    public float calcCallsToStatheroTotalCost() {
+        return this.callsToStatheroTotalSeconds * this.callToStatheroCostPerSecond;
+    }
+    public float calcCallsToKinitoTotalCost() {
+        return this.callsToKinitoTotalSeconds * this.callToKinitoCostPerSecond;
     }
     // Set-Get phoneNumber
     public void setPhoneNumber(String new_phoneNumber) {

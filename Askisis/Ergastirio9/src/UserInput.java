@@ -1,5 +1,3 @@
-package ergastirio9;
-
 import java.io.*;
 
 public class UserInput {

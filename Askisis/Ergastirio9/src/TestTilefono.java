@@ -4,8 +4,19 @@
 public class TestTilefono {
     public static void main(String[] args) {
         // Dilosi metavliton
-        int tmp_secondsOnCall = 100;
+        int n, tmp_secondsOnCall;
+        // Gia ton ypologismo ton pososton ton oximaton
+        int arithmosStatheron, arithmosKiniton;
+        int tmp_thesi, tmp_Stathera = 0, tmp_Kiniita = 0, tmp_undefinedLines = 0;
+        final float posostoStatheron = 0.6f;
+        final float posostoKiniton = 0.4f;
+        System.out.print("Dose ton arithmo ton grammon tis epixeirisis: : ");
+        n = UserInput.getInteger();
+        arithmosStatheron = Math.round(n * posostoStatheron);
+        arithmosKiniton = n - arithmosStatheron;
+
         // Dilosi & arxikopoiisi antikeimenon
+        //tmp_secondsOnCall = (int)Math.round(Math.random() * 1000); // ZITITAI APO TIN ASKISI
 /*
         Stathero stath1 = new Stathero("2322222223"); // Kanoniki arxikopoiisi
         Kinito kin1 = new Kinito("6946666661"); // Kanoniki arxikopoiisi
@@ -23,7 +34,6 @@ public class TestTilefono {
         System.out.println("Stathero 2: " + stath2);
         System.out.println("Kinito 1: " + kin1);
         System.out.println("Kinito 2: " + kin2);
-        //tmp_secondsOnCall = (int)Math.round(Math.random() * 1000);
         System.out.println("Stahero 1:");
         stath1.dial("2621111333", tmp_secondsOnCall);
         stath1.dial("6921111125", tmp_secondsOnCall);

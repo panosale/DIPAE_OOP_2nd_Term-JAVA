@@ -55,7 +55,7 @@ abstract class Tilefono {
                 break;
 //                return -1; // FOR DELETE
         }
-        this.totalCallsCost = this.totalCallsCost + tmp_callsCost;
+//        this.totalCallsCost = this.totalCallsCost + tmp_callsCost;
         return tmp_callsCost;
     }
     public String showSecondsAndCost(char phoneType) { // ΕΙΝΑΙ ΙΔΙΑ ΓΙΑ ΟΛΕΣ ΤΙΣ ΥΠΟΚΛΑΣΕΙΣ
@@ -71,7 +71,8 @@ abstract class Tilefono {
                     "sec. Συνολικό κόστος κλήσεων προς ΚΙΝΗΤΑ: " + this.callsToKinitoTotalSeconds * this.callToKinitoCostPerSecond + "€.");//df.format(this.cost('6')) + "€.");
             case 'A':
                 return ("Συνολικός χρόνος κλήσεων προς ΟΛΑ: " + this.totalSecondsOnCall +
-                    "sec. Συνολικό κόστος κλήσεων προς ΟΛΑ: " + this.callsToStatheroTotalSeconds + this.callsToKinitoTotalSeconds + "€.");// +
+                    "sec. Συνολικό κόστος κλήσεων προς ΟΛΑ: " + ((this.callsToStatheroTotalSeconds * this.callToStatheroCostPerSecond) +
+                        (this.callsToKinitoTotalSeconds * this.callToKinitoCostPerSecond)) + "€.");// +
 
             default: return ("ΔΟΘΗΚΕ ΛΑΘΟΣ ΕΙΔΟΣ ΤΗΛΕΦΩΝΟΥ.");
         }

@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 // Genikefsi - Polymorfismos #2
 // ergastirio 9
 public class Stathero extends Tilefono {
@@ -34,7 +36,7 @@ public class Stathero extends Tilefono {
                 break;
         }
         if (!tmp_numTypeToCall.equals("ΑΠΡΟΣΔΙΟΡΙΣΤΟ"))
-            System.out.println("Κλήση από το <ΣΤΑΘΕΡΟ> <" + this.getPhoneNumber() + "> προς το <" + tmp_numTypeToCall + "> με αριθμό <" + numberToCall +
+            System.out.println("Κλήση από το <ΣΤΑΘΕΡΟ> τηλέφωνο <" + this.getPhoneNumber() + "> προς το <" + tmp_numTypeToCall + "> με αριθμό <" + numberToCall +
                     "> με διάρκεια " + new_dialDuration + "sec.");
     }
     // Return all attributes in one string

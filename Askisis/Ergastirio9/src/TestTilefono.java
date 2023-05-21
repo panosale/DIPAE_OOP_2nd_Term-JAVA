@@ -1,6 +1,8 @@
 // Genikefsi - Polymorfismos #2
 // ergastirio 9
 
+import java.text.DecimalFormat;
+
 public class TestTilefono {
     // Έυρεση prefix, 2 (για σταθερό), 6 (για κινητό) τυχαίου αριθμού
     // Δέχεται για παραμέτρους (2 για σταθερό, 6 για κινητό) και 0 για οποιοδήποτε μεταξύ των 2 και 6
@@ -30,18 +32,17 @@ public class TestTilefono {
     }
     public static void main(String[] args) {
         // Δήλωση μεταβλητών
+        DecimalFormat df = new DecimalFormat(); // Για στρογγυλοποίηση των δεκαδικών ψηφίων του float
+        df.setMaximumFractionDigits(2); // Για στρογγυλοποίηση των δεκαδικών ψηφίων του float
         int n, tmp_secondsOnCall, tmp_numOfRandomCalls;
-        // Για τον υπολογισμό των τηλεφώνων
-        int arithmosStatheron, arithmosKiniton;
-        int tmp_thesi, tmp_Stathera = 0, tmp_Kinita = 0, tmp_undefinedLines = 0;
+        int arithmosStatheron, arithmosKiniton; // Για τον υπολογισμό των τηλεφώνων
+        int tmp_thesi, tmp_Stathera = 0, tmp_Kinita = 0;
         final float posostoStatheron = 0.6f;
-//        final float posostoKiniton = 0.4f; // DEN XREIAZETAI
         System.out.print("Δώσε τον αριθμό των γραμμών της επιχείρησης: ");
         n = UserInput.getInteger();
         arithmosStatheron = Math.round(n * posostoStatheron);
         arithmosKiniton = n - arithmosStatheron;
         System.out.println("***** Σταθερά  για υπολογισμό: " + arithmosStatheron + ". Κινητά για υπολογισμό: " + arithmosKiniton + ". *****\n");
-
         // Δήλωση και αρχικοποίηση αντικειμένων
         // Αρχικοποίηση πίνακα [n] θέσεων αντικειμένων της υπερκλάσης Tilefono()
         Tilefono[] tilefona = new Tilefono[n];
@@ -77,150 +78,59 @@ public class TestTilefono {
         System.out.println("***************** Ο ΠΙΝΑΚΑΣ ΓΕΜΙΣΕ *****************");
         // Γέμισμα πίνακα με τυχαίες κλήσεις
         tmp_numOfRandomCalls = (int)Math.round(Math.random() * 1900) + 100; // Τυχαίος αριθμός κλήσεων από 100 έως 2000
-        for (int i = 100; i < tmp_numOfRandomCalls; i++) {
+        for (int i = 1; i < tmp_numOfRandomCalls; i++) {
             tmp_thesi = (int)Math.abs(Math.round(Math.random() * n - 1)); // Τυχαία θέση στον πίνακα τηλεφώνων για εξερχόμενη κλήση της γραμμής
             tmp_secondsOnCall = (int)Math.round(Math.random() * 595) + 5; // Τυχαία διάρκεια κλήσης από 5 έως 600 δευτερόλεπτα
+            System.out.print("Α/Α κλήσης: " + i + ": ");
             tilefona[tmp_thesi].dial(getRandomTelephoneNumber(0), tmp_secondsOnCall);
         }
+        System.out.println("***************** Ο ΠΙΝΑΚΑΣ ΓΕΜΙΣΕ ΜΕ [" + tmp_numOfRandomCalls + "] ΤΥΧΑΙΕΣ ΚΛΗΣΕΙΣ *****************");
         // Εμφάνιση αποτελεσμάτων - Ζητούμενα άσκησης
-        System.out.println("Σύνολο τυχαίων κλήσεων: " + tmp_numOfRandomCalls);
-        System.out.println("********************************************************************************");
-        System.out.println("***** Κατάλογος με τον αριθμό και το συνολικό κόστος κάθε τηλεφώνου *****"); // Ζητούμενο άσκησης i.
+        System.out.println("*********************************************************************************");
+        System.out.println("******************************* ΖΗΤΟΥΜΕΝΑ ΑΣΚΗΣΗΣ *******************************");
+        // Ζητούμενο άσκησης i.
+        System.out.println("***** i. Κατάλογος με τον αριθμό και το συνολικό κόστος κάθε τηλεφώνου **********");
         for (int i = 0; i < n; i++)
-            System.out.println(tilefona[i]);
-        System.out.println("********************************************************************************");
-        System.out.println("***** Σύνολο δευτερολέπτων και και κόστους κλήσεων των ΣΤΑΘΕΡΩΝ τηλεφώνων *****"); // Ζητούμενο άσκησης ii.
+            System.out.println("[" + i +"] " + tilefona[i]);
+        System.out.println("*********************************************************************************");
+        // Ζητούμενο άσκησης ii.
+        System.out.println("***** ii. Σύνολο δευτερολέπτων και κόστους κλήσεων των ΣΤΑΘΕΡΩΝ τηλεφώνων *******");
+        int tmp_callsSecondsFromStahera = 0;
+        float tmp_callsCostFromStahera = 0.0f;
         for (int i = 0; i < n; i++)
-            System.out.println(tilefona[i].showSecondsAndCost('2'));
-        System.out.println("********************************************************************************");
-        System.out.println("***** Σύνολο δευτερολέπτων και και κόστους κλήσεων των ΚΙΝΗΤΩΝ τηλεφώνων *****"); // Ζητούμενο άσκησης iii.
+            if (tilefona[i] instanceof Stathero) {
+                tmp_callsSecondsFromStahera = tmp_callsSecondsFromStahera + ((Stathero)tilefona[i]).getTotalSecondsOnCallFromLine();
+                tmp_callsCostFromStahera = tmp_callsCostFromStahera + ((Stathero)tilefona[i]).getTotalCostFromLine();
+            }
+        System.out.println(tmp_callsSecondsFromStahera + "sec. / " + df.format(tmp_callsCostFromStahera) + "€.");
+        System.out.println("*********************************************************************************");
+        // Ζητούμενο άσκησης iii.
+        System.out.println("***** iii. Σύνολο δευτερολέπτων και κόστους κλήσεων των ΚΙΝΗΤΩΝ τηλεφώνων *******");
+        int tmp_callsSecondsFromKinita = 0;
+        float tmp_callsCostFromKinita = 0.0f;
         for (int i = 0; i < n; i++)
-            System.out.println(tilefona[i].showSecondsAndCost('6'));
-        System.out.println("********************************************************************************");
-        System.out.println("***** Συνολικό κόστος κλήσεων προς ΣΤΑΘΕΡΑ *****"); // Ζητούμενο άσκησης iv.
+            if (tilefona[i] instanceof Kinito) {
+                tmp_callsSecondsFromKinita = tmp_callsSecondsFromKinita + ((Kinito)tilefona[i]).getTotalSecondsOnCallFromLine();
+                tmp_callsCostFromKinita = tmp_callsCostFromKinita + ((Kinito)tilefona[i]).getTotalCostFromLine();
+            }
+        System.out.println(tmp_callsSecondsFromKinita + "sec. / " + df.format(tmp_callsCostFromKinita) + "€.");
+        System.out.println("*********************************************************************************");
+        // Ζητούμενο άσκησης iv.
+        float tmp_sumOfCostToStathera = 0.0f;
+        System.out.print("***** iv. Συνολικό κόστος κλήσεων προς ΣΤΑΘΕΡΑ: ");
         for (int i = 0; i < n; i++)
-            System.out.println(tilefona[i].showSecondsAndCost('6'));
-/*          ΓΙΑ ΕΠΑΛΗΘΕΣΗ ΣΥΝΟΛΙΚΟΥ ΑΡΙΘΜΟΥ ΤΗΛΕΦΩΝΩΝ ΠΟΥ ΔΗΜΙΟΥΡΓΗΘΗΚΑΝ. ΔΕΝ ΧΡΕΙΑΖΕΤΑΙ
-            tmp_Kinita = 0;
-            tmp_Stathera = 0;
-            if (tilefona[i] instanceof Stathero)
-                tmp_Stathera++;
-            else if ((tilefona[i] instanceof Kinito))
-                tmp_Kinita++;
-            else tmp_undefinedLines++;
-
-*/
-/*          // ΓΙΑ ΕΛΕΓΧΟΥΣ. ΔΕΝ ΧΡΕΙΑΖΟΝΤΑΙ
-            System.out.println("To Τηλέφωνο[" + i + "]" + " είναι κλάσης: " + tilefona[i].getClass()); // GIA ELEGXO
-            System.out.println(tilefona[i]);
-            System.out.println("--------------------------");
-
-*/
-/*
-        // ΓΙΑ ΕΠΑΛΗΘΕΣΗ ΣΥΝΟΛΙΚΟΥ ΑΡΙΘΜΟΥ ΤΗΛΕΦΩΝΩΝ ΠΟΥ ΔΗΜΙΟΥΡΓΗΘΗΚΑΝ. ΔΕΝ ΧΡΕΙΑΖΕΤΑΙ
-        System.out.println("***** Υπολογισμένα ΣΤΑΘΕΡΑ: " + tmp_Stathera + ", Υπολογισμένα ΚΙΝΗΤΑ: " + tmp_Kinita +
-                ", Υπολογισμένα μη αναγνωρισμένα τηλέφωνα : " + tmp_undefinedLines + ". *****");
-
-*/
-
-/*      ΟΛΑ ΤΑ ΑΠΑΡΑΚΑΤΩ ΕΙΝΑΙ ΓΙΑ ΕΛΕΓΧΟΥΣ ΚΑΙ ΔΟΚΙΜΕΣ
-        Stathero stath1 = new Stathero(getRandomTelephoneNumber(2)); // Kanoniki arxikopoiisi
-        Kinito kin1 = new Kinito(getRandomTelephoneNumber(6)); // Kanoniki arxikopoiisi
-
-        Stathero stath2 = new Stathero(); // GIA DOKIMES
-        Kinito kin2 = new Kinito(); // GIA DOKIMES
-        stath2.setPhoneNumber(getRandomTelephoneNumber(2)); // GIA DOKIMES
-        kin2.setPhoneNumber(getRandomTelephoneNumber(6)); // GIA DOKIMES
-        kin2.setCallToStatheroCostPerSecond(0.06f); // GIA DOKIMES
-        kin2.setCallToKinitoCostPerSecond((0.07f)); // GIA DOKIMES
-        stath2.setCallToStatheroCostPerSecond(0.02f); // GIA DOKIMES
-        stath2.setCallToKinitoCostPerSecond(0.05f); // GIA DOKIMES
-
-        System.out.println("Σταθερό 1: (σύνολο) " + stath1);
-        System.out.println("Σταθερό 2: (σύνολο) " + stath2);
-        System.out.println("Κινητό 2 συνολο: " + kin1 );
-        System.out.println("Κινητό 2 συνολο: " + kin2 );
-        System.out.println("Stahero 1:");
-        stath1.dial("2621111333", tmp_secondsOnCall);
-        stath1.dial("6921111125", tmp_secondsOnCall);
-        System.out.println("Stahero 2:");
-        stath2.dial("2622222233", tmp_secondsOnCall);
-        stath2.dial("6922222225", tmp_secondsOnCall);
-        System.out.println("Κινητό 1:");
-        kin1.dial("2621111333", tmp_secondsOnCall);
-        kin1.dial("6921111125", tmp_secondsOnCall);
-        System.out.println("Κινητό 2:");
-        kin2.dial("2622222233", tmp_secondsOnCall);
-        kin2.dial("6922222225", tmp_secondsOnCall);
-        System.out.println("Σταθερό 1 πρός ΣΤΑΘΕΡΑ: " + stath1.cost('2') + "€.");
-        System.out.println("Σταθερό 1 πρός ΚΙΝΗΤΑ: " + stath1.cost('6') + "€.");
-//        System.out.println("Σταθερό 1 πρός ΟΛΑ: " + stath1.cost('A'));
-        System.out.println("Σταθερό 2 πρός ΣΤΑΘΕΡΑ: " + stath2.cost('2') + "€.");
-        System.out.println("Σταθερό 2 πρός ΚΙΝΗΤΑ: " + stath2.cost('6') + "€.");
-//        System.out.println("Σταθερό 2 πρός ΟΛΑ: " + stath2.cost('A'));
-        System.out.println("KINHTO 1 πρός ΣΤΑΘΕΡΑ: " + kin1.cost('2') + "€.");
-        System.out.println("KINHTO 1 πρός ΚΙΝΗΤΑ: " + kin1.cost('6') + "€.");
-//        System.out.println("KINHTO 1 πρός ΟΛΑ: " + kin1.cost('A'));
-        System.out.println("KINHTO 2 πρός ΣΤΑΘΕΡΑ: " + kin2.cost('2') + "€.");
-        System.out.println("KINHTO 2 πρός ΚΙΝΗΤΑ: " + kin2.cost('6') + "€.");
-//        System.out.println("KINHTO 2 πρός ΟΛΑ: " + kin2.cost('A'));
-        System.out.println("Σταθερό 1: (σύνολο) " + stath1 + "\n" + stath1.showSecondsAndCost(('2')));
-        System.out.println("Σταθερό 2: (σύνολο) " + stath2 + "\n" + stath2.showSecondsAndCost(('6')));
-        System.out.println("Κινητό 1: (σύνολο) " + kin1 + "\n" + kin1.showSecondsAndCost(('A')));
-        System.out.println("Κινητό 2: (σύνολο) " + kin2 + "\n" + kin2.showSecondsAndCost(('s')));
-        System.out.println();
-        System.out.println();
-        Kinito kin3 = new Kinito("398012398");
-        kin3.dial("699999999", 200);
-        System.out.println(kin3.showSecondsAndCost('A'));
-
-
-
-        Stathero stath1 = new Stathero(getRandomTelephoneNumber(0)); // Kanoniki arxikopoiisi
-        Kinito kin1 = new Kinito(getRandomTelephoneNumber(0)); // Kanoniki arxikopoiisi
-        System.out.println(stath1);
-        System.out.println(kin1);
-*/
-//      ΟΛΑ ΤΑ ΑΠΑΡΑΚΑΤΩ ΕΙΝΑΙ ΓΙΑ ΕΛΕΓΧΟΥΣ ΚΑΙ ΔΟΚΙΜΕΣ
-/*
-        System.out.println();
-        System.out.println();
-        System.out.println(tilefona[0]);
-        System.out.println("Με κόστος προς ΣΤΑΘΕΡΑ: " + tilefona[0].cost('2') + "€.");
-        System.out.println("Με κόστος προς ΚΙΝΗΤΑ: " + tilefona[0].cost('6') + "€.");
-        tilefona[0].dial("2222222222", 100);
-        tilefona[0].dial("6666666666", 100);
-        System.out.println("Με δευτερόλεπτα προς ΣΤΑΘΕΡΑ: " + tilefona[0].getCallsToStatheroTotalSeconds() + "sec.");
-        System.out.println("Με κόστος προς ΣΤΑΘΕΡΑ: " + tilefona[0].cost('2') + "€.");
-        System.out.println("Με δευτερόλεπτα προς ΚΙΝΗΤΑ: " + tilefona[0].getCallsToKinitoTotalSeconds() + "sec.");
-        System.out.println("Με κόστος προς ΚΙΝΗΤΑ: " + tilefona[0].cost('6') + "€.");
-        System.out.println(tilefona[0].showSecondsAndCost('A'));
-        System.out.println("ΕΠΑΝΑΛΗΨΗ ΚΛΗΣΗΣ cost.");
-        System.out.println("Με δευτερόλεπτα προς ΣΤΑΘΕΡΑ: " + tilefona[0].getCallsToStatheroTotalSeconds() + "sec.");
-        System.out.println("Με κόστος προς ΣΤΑΘΕΡΑ: " + tilefona[0].cost('2') + "€.");
-        System.out.println("Με δευτερόλεπτα προς ΚΙΝΗΤΑ: " + tilefona[0].getCallsToKinitoTotalSeconds() + "sec.");
-        System.out.println("Με κόστος προς ΚΙΝΗΤΑ: " + tilefona[0].cost('6') + "€.");
-        System.out.println(tilefona[0].showSecondsAndCost('A'));
-        System.out.println(tilefona[0]);
-        tilefona[0].dial("2222222222", 100);
-        tilefona[0].dial("6666666666", 100);
-        System.out.println("ΕΠΑΝΑΛΗΨΗ ΚΛΗΣΗΣ cost.");
-        System.out.println("Με δευτερόλεπτα προς ΣΤΑΘΕΡΑ: " + tilefona[0].getCallsToStatheroTotalSeconds() + "sec.");
-        System.out.println("Με κόστος προς ΣΤΑΘΕΡΑ: " + tilefona[0].cost('2') + "€.");
-        System.out.println("Με δευτερόλεπτα προς ΚΙΝΗΤΑ: " + tilefona[0].getCallsToKinitoTotalSeconds() + "sec.");
-        System.out.println("Με κόστος προς ΚΙΝΗΤΑ: " + tilefona[0].cost('6') + "€.");
-        System.out.println(tilefona[0].showSecondsAndCost('A'));
-        System.out.println(tilefona[0]);
-        System.out.println("ΕΠΑΝΑΛΗΨΗ ΚΛΗΣΗΣ cost.");
-        System.out.println("Με δευτερόλεπτα προς ΣΤΑΘΕΡΑ: " + tilefona[0].getCallsToStatheroTotalSeconds() + "sec.");
-        System.out.println("Με κόστος προς ΣΤΑΘΕΡΑ: " + tilefona[0].cost('2') + "€.");
-        System.out.println("Με δευτερόλεπτα προς ΚΙΝΗΤΑ: " + tilefona[0].getCallsToKinitoTotalSeconds() + "sec.");
-        System.out.println("Με κόστος προς ΚΙΝΗΤΑ: " + tilefona[0].cost('6') + "€.");
-        System.out.println(tilefona[0].showSecondsAndCost('A'));
-        System.out.println(tilefona[0]);
-        System.out.println(tilefona[0]);
-        System.out.println(tilefona[0]);
-
-*/
+            tmp_sumOfCostToStathera = tmp_sumOfCostToStathera + (tilefona[i].getCallsToStatheroTotalSeconds() * tilefona[i].getCallToStatheroCostPerSecond());
+        System.out.println(df.format(tmp_sumOfCostToStathera) + "€. *******************");
+        System.out.println("*********************************************************************************");
+        // Ζητούμενο άσκησης v.
+        float tmp_sumOfCostToKinita = 0.0f;
+        System.out.print("***** v. Συνολικό κόστος κλήσεων προς ΚΙΝΗΤΑ: ");
+        for (int i = 0; i < n; i++)
+            tmp_sumOfCostToKinita = tmp_sumOfCostToKinita + (tilefona[i].getCallsToKinitoTotalSeconds() * tilefona[i].getCallToKinitoCostPerSecond());
+        System.out.println(df.format(tmp_sumOfCostToKinita) + "€. *******************");
+        System.out.println("*********************************************************************************");
+        System.out.print("***** vi. Συνολικό κόστος κλήσεων της επιχείρησης: "); // Ζητούμενο άσκησης vi.
+        float tmp_totalSumOfCost = tmp_sumOfCostToStathera + tmp_sumOfCostToKinita;
+        System.out.println(df.format(tmp_totalSumOfCost) + "€. *******************");
     }
 }

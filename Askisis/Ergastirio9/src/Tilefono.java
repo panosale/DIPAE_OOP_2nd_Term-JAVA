@@ -49,9 +49,20 @@ abstract class Tilefono {
         this.totalCallsCost = (this.callsToStatheroTotalSeconds * this.callToStatheroCostPerSecond) + (this.callsToKinitoTotalSeconds * this.callToKinitoCostPerSecond);
         return tmp_callsCost;
     }
-    public String showSecondsAndCost(char phoneType) { // ΕΙΝΑΙ ΙΔΙΑ ΓΙΑ ΟΛΕΣ ΤΙΣ ΥΠΟΚΛΑΣΕΙΣ
-        DecimalFormat df = new DecimalFormat();
-        df.setMaximumFractionDigits(2);
+    public int getTotalSecondsOnCallFromLine() {
+        return this.getTotalSecondsOnCalls();
+    }
+    public float getTotalCostFromLine() {
+        return this.getTotalCallsCost();
+    }
+/*
+    abstract int getTotalSecondsOnCallFromLine();
+    abstract float getTotalCostFromLine();
+
+*/
+    public String showCallsSecondsAndCost(char phoneType) { // ΕΙΝΑΙ ΙΔΙΑ ΓΙΑ ΟΛΕΣ ΤΙΣ ΥΠΟΚΛΑΣΕΙΣ
+        DecimalFormat df = new DecimalFormat(); // Για στρογγυλοποίηση των δεκαδικών ψηφίων του float
+        df.setMaximumFractionDigits(2); // Για στρογγυλοποίηση των δεκαδικών ψηφίων του float
         switch (phoneType) {
             case '2':
                 return ("Γραμμή: " + this.getPhoneNumber() + ". Συνολικός χρόνος κλήσεων προς ΣΤΑΘΕΡΑ: " + this.callsToStatheroTotalSeconds + //getCallsToStatheroTotalSeconds() +
@@ -113,13 +124,13 @@ abstract class Tilefono {
         return this.totalCallsCost;
     }
     public void setTotalCallsCost(float new_totalCallsCost) {
-        this.totalCallsCost = this.cost('2') + this.cost('6');//this.totalCallsCost + new_totalCallsCost;
+        this.totalCallsCost = this.cost('2') + this.cost('6');
     }
     // Return all attributes in one string
     public String toString() {
         float dummy_totalCost = this.cost('2') + this.cost('6');
-        DecimalFormat df = new DecimalFormat();
-        df.setMaximumFractionDigits(2);
+        DecimalFormat df = new DecimalFormat(); // Για στρογγυλοποίηση των δεκαδικών ψηφίων του float
+        df.setMaximumFractionDigits(2); // Για στρογγυλοποίηση των δεκαδικών ψηφίων του float
         return ("Γραμμή: " + this.arithmosTilefonou + ". Σύνολο δευτερολέπτων σε κλήση: " + this.totalSecondsOnCall + ". Συνολικό κόστος κλήσεων: " + df.format(this.totalCallsCost) + "€.");
     }
 }

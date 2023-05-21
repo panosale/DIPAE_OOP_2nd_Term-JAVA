@@ -34,7 +34,7 @@ public class Kinito extends Tilefono {
 				break;
 		}
 		if (!tmp_numTypeToCall.equals("ΑΠΡΟΣΔΙΟΡΙΣΤΟ"))
-			System.out.println("Κλήση από το <ΚΙΝΗΤΟ> <" + this.getPhoneNumber() + "> προς το <" + tmp_numTypeToCall + "> με αριθμό <" + numberToCall +
+			System.out.println("Κλήση από το <ΚΙΝΗΤΟ> τηλέφωνο <" + this.getPhoneNumber() + "> προς το <" + tmp_numTypeToCall + "> με αριθμό <" + numberToCall +
 					"> με διάρκεια " + new_dialDuration + "sec.");
 	}
     // Return all attributes in one string

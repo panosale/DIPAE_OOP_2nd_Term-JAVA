@@ -32,65 +32,42 @@ abstract class Tilefono {
         this.totalSecondsOnCall = 0;
         this.totalCallsCost = 0;
     }
-	abstract void dial(String numberToCall, int tmp_dialDuration); // Υλοποιείται διαφορετικά σε κάθε είδος τηλέφώνου (ΣΤΑΘΕΡΟ/ΚΙΝΗΤΟ)
+	abstract void dial(String numberToCall, int tmp_dialDuration); // Υλοποιείται διαφορετικά σε κάθε είδος τηλεφώνου (ΣΤΑΘΕΡΟ/ΚΙΝΗΤΟ)
     public float cost(char phoneType) {
-        float tmp_callsCost = 0.0f;
+        float tmp_callsCost;
         DecimalFormat df = new DecimalFormat();
         df.setMaximumFractionDigits(2);
         switch (phoneType) {
-            case '2':
+            case '2': // ΚΟΣΤΟΣ ΚΛΗΣΕΩΝ ΠΡΟΣ ΣΤΑΘΕΡΑ
                 tmp_callsCost = this.callsToStatheroTotalSeconds * this.callToStatheroCostPerSecond;
-                //this.totalCallsCost = this.totalCallsCost + tmp_callsCost;
                 break;
-//                return this.callsToStatheroTotalSeconds * this.callToStatheroCostPerSecond; //this.calcCallsToStatheroTotalCost(); // FOR DELETE
-            case '6': // ΚΟΣΤΟΣ ΚΛΗΣΕΩΝ ΠΡΟΣ ΣΤΑΘΕΡΑ
+            case '6': // ΚΟΣΤΟΣ ΚΛΗΣΕΩΝ ΠΡΟΣ ΚΙΝΗΤΑ
                 tmp_callsCost = this.callsToKinitoTotalSeconds * this.callToKinitoCostPerSecond;
-                //this.totalCallsCost = this.totalCallsCost + tmp_callsCost;
                 break;
-//                return this.callsToKinitoTotalSeconds * this.callToKinitoCostPerSecond; //this.calcCallsToKinitoTotalCost(); // FOR DELETE
-//            case 'A': // ΚΟΣΤΟΣ ΚΛΗΣΕΩΝ ΠΡΟΣ ΟΛΑ // FOR DELETE
-//                tmp_callsCost = this.cost('A'); // FOR DELETE
-//                return (this.callsToStatheroTotalSeconds * this.callToStatheroCostPerSecond) + // FOR DELETE
-//                        (this.callsToKinitoTotalSeconds * this.callToKinitoCostPerSecond);//this.calcCallsToStatheroTotalCost() + this.calcCallsToKinitoTotalCost(); // FOR DELETE
             default:
                 tmp_callsCost = 0.0f;
                 break;
-//                return -1; // FOR DELETE
         }
         this.totalCallsCost = (this.callsToStatheroTotalSeconds * this.callToStatheroCostPerSecond) + (this.callsToKinitoTotalSeconds * this.callToKinitoCostPerSecond);
         return tmp_callsCost;
     }
     public String showSecondsAndCost(char phoneType) { // ΕΙΝΑΙ ΙΔΙΑ ΓΙΑ ΟΛΕΣ ΤΙΣ ΥΠΟΚΛΑΣΕΙΣ
-        //float tmp_totalCallsToStatheroCost = 0.0f, tmp_totalCallsToKinitoCost = 0; NO USE
         DecimalFormat df = new DecimalFormat();
         df.setMaximumFractionDigits(2);
         switch (phoneType) {
             case '2':
                 return ("Συνολικός χρόνος κλήσεων προς ΣΤΑΘΕΡΑ: " + this.callsToStatheroTotalSeconds + //getCallsToStatheroTotalSeconds() +
-                    "sec. Συνολικό κόστος κλήσεων προς ΣΤΑΘΕΡΑ: " + this.callsToStatheroTotalSeconds * this.callToStatheroCostPerSecond + "€.");// df.format(this.cost('2')) + "€.");
+                    "sec. Συνολικό κόστος κλήσεων προς ΣΤΑΘΕΡΑ: " + df.format(this.cost(phoneType)) + "€.");// df.format(this.cost('2')) + "€.");
             case '6':
                 return ("Συνολικός χρόνος κλήσεων προς ΚΙΝΗΤΑ: " + this.callsToKinitoTotalSeconds + // .getCallsToKinitoTotalSeconds() +
-                    "sec. Συνολικό κόστος κλήσεων προς ΚΙΝΗΤΑ: " + this.callsToKinitoTotalSeconds * this.callToKinitoCostPerSecond + "€.");//df.format(this.cost('6')) + "€.");
+                    "sec. Συνολικό κόστος κλήσεων προς ΚΙΝΗΤΑ: " + df.format(this.cost(phoneType)) + "€.");//df.format(this.cost('6')) + "€.");
             case 'A':
                 return ("Συνολικός χρόνος κλήσεων προς ΟΛΑ: " + this.totalSecondsOnCall +
-                    "sec. Συνολικό κόστος κλήσεων προς ΟΛΑ: " + ((this.callsToStatheroTotalSeconds * this.callToStatheroCostPerSecond) +
-                        (this.callsToKinitoTotalSeconds * this.callToKinitoCostPerSecond)) + "€.");// +
+                    "sec. Συνολικό κόστος κλήσεων προς ΟΛΑ: " + df.format((this.cost('2') + this.cost('6'))) + "€.");// +
 
             default: return ("ΔΟΘΗΚΕ ΛΑΘΟΣ ΕΙΔΟΣ ΤΗΛΕΦΩΝΟΥ.");
         }
     }
-/*
-    public float calcCallsToStatheroTotalCost() {
-        return this.callsToStatheroTotalSeconds * this.callToStatheroCostPerSecond;
-    }
-
-*/
-/*
-    public float calcCallsToKinitoTotalCost() {
-        return this.callsToKinitoTotalSeconds * this.callToKinitoCostPerSecond;
-    }
-
-*/
     // Set-Get phoneNumber
     public void setPhoneNumber(String new_phoneNumber) {
         this.arithmosTilefonou = new_phoneNumber;
@@ -138,10 +115,11 @@ abstract class Tilefono {
         return this.totalCallsCost;
     }
     public void setTotalCallsCost(float new_totalCallsCost) {
-        this.totalCallsCost = this.totalCallsCost + new_totalCallsCost;
+        this.totalCallsCost = this.cost('2') + this.cost('6');//this.totalCallsCost + new_totalCallsCost;
     }
     // Return all attributes in one string
     public String toString() {
+        float dummy_totalCost = this.cost('2') + this.cost('6');
         return ("Γραμμή: " + this.arithmosTilefonou + ". Σύνολο δευτερολέπτων σε κλήση: " + this.totalSecondsOnCall + ". Συνολικό κόστος κλήσεων: " + this.totalCallsCost + "€.");
     }
 }

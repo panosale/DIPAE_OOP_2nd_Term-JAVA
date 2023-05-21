@@ -35,9 +35,9 @@ public class TestTilefono {
         return tmp_num2str;
     }
     public static void main(String[] args) {
-        // Dilosi metavliton
+        // Δήλωση μεταβλητών
         int n, tmp_secondsOnCall;
-        // Gia ton ypologismo ton pososton ton oximaton
+        // Για τον υπολογισμό των τηλεφώνων
         int arithmosStatheron, arithmosKiniton;
         int tmp_thesi, tmp_Stathera = 0, tmp_Kinita = 0, tmp_undefinedLines = 0;
         final float posostoStatheron = 0.6f;
@@ -95,7 +95,7 @@ public class TestTilefono {
             System.out.println(tilefona[i]);
             System.out.println("--------------------------");
         }
-        // Emfanisi synolikou arithmou oximaton pou dimiourgithikan gia epalithefsi
+        // Εμφάνιση συνολικού αριθμού τηλεφώνων που δημιουργήθηκαν για επσλήθευση
         System.out.println("***** Υπολογισμένα σταθερά: " + tmp_Stathera + ", Υπολογισμένα κινητά: " + tmp_Kinita +
                 ", Υπολογισμένα μη αναγνωρισμένα τηλέφωνα : " + tmp_undefinedLines + ". *****");
 
@@ -157,7 +157,8 @@ public class TestTilefono {
         System.out.println(stath1);
         System.out.println(kin1);
 */
-/*      ΟΛΑ ΤΑ ΑΠΑΡΑΚΑΤΩ ΕΙΝΑΙ ΓΙΑ ΕΛΕΓΧΟΥΣ ΚΑΙ ΔΟΚΙΜΕΣ
+//      ΟΛΑ ΤΑ ΑΠΑΡΑΚΑΤΩ ΕΙΝΑΙ ΓΙΑ ΕΛΕΓΧΟΥΣ ΚΑΙ ΔΟΚΙΜΕΣ
+/*
         System.out.println();
         System.out.println();
         System.out.println(tilefona[0]);
@@ -169,11 +170,13 @@ public class TestTilefono {
         System.out.println("Με κόστος προς ΣΤΑΘΕΡΑ: " + tilefona[0].cost('2') + "€.");
         System.out.println("Με δευτερόλεπτα προς ΚΙΝΗΤΑ: " + tilefona[0].getCallsToKinitoTotalSeconds() + "sec.");
         System.out.println("Με κόστος προς ΚΙΝΗΤΑ: " + tilefona[0].cost('6') + "€.");
+        System.out.println(tilefona[0].showSecondsAndCost('A'));
         System.out.println("ΕΠΑΝΑΛΗΨΗ ΚΛΗΣΗΣ cost.");
         System.out.println("Με δευτερόλεπτα προς ΣΤΑΘΕΡΑ: " + tilefona[0].getCallsToStatheroTotalSeconds() + "sec.");
         System.out.println("Με κόστος προς ΣΤΑΘΕΡΑ: " + tilefona[0].cost('2') + "€.");
         System.out.println("Με δευτερόλεπτα προς ΚΙΝΗΤΑ: " + tilefona[0].getCallsToKinitoTotalSeconds() + "sec.");
         System.out.println("Με κόστος προς ΚΙΝΗΤΑ: " + tilefona[0].cost('6') + "€.");
+        System.out.println(tilefona[0].showSecondsAndCost('A'));
         System.out.println(tilefona[0]);
         tilefona[0].dial("2222222222", 100);
         tilefona[0].dial("6666666666", 100);
@@ -182,13 +185,18 @@ public class TestTilefono {
         System.out.println("Με κόστος προς ΣΤΑΘΕΡΑ: " + tilefona[0].cost('2') + "€.");
         System.out.println("Με δευτερόλεπτα προς ΚΙΝΗΤΑ: " + tilefona[0].getCallsToKinitoTotalSeconds() + "sec.");
         System.out.println("Με κόστος προς ΚΙΝΗΤΑ: " + tilefona[0].cost('6') + "€.");
+        System.out.println(tilefona[0].showSecondsAndCost('A'));
         System.out.println(tilefona[0]);
         System.out.println("ΕΠΑΝΑΛΗΨΗ ΚΛΗΣΗΣ cost.");
         System.out.println("Με δευτερόλεπτα προς ΣΤΑΘΕΡΑ: " + tilefona[0].getCallsToStatheroTotalSeconds() + "sec.");
         System.out.println("Με κόστος προς ΣΤΑΘΕΡΑ: " + tilefona[0].cost('2') + "€.");
         System.out.println("Με δευτερόλεπτα προς ΚΙΝΗΤΑ: " + tilefona[0].getCallsToKinitoTotalSeconds() + "sec.");
         System.out.println("Με κόστος προς ΚΙΝΗΤΑ: " + tilefona[0].cost('6') + "€.");
+        System.out.println(tilefona[0].showSecondsAndCost('A'));
         System.out.println(tilefona[0]);
+        System.out.println(tilefona[0]);
+        System.out.println(tilefona[0]);
+
 */
     }
 }

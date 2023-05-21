@@ -2,8 +2,8 @@
 // ergastirio 9
 
 public class TestTilefono {
-    // Έυρεση prefix 2 (για σταθερό), 6 (για κινητό) τυχαίου αριθμού
-    // Δέχεται για παραμέτρους 2 για σταθερό, 6 για κινητό και 0 για οποιοδήποτε μεταξύ των 2 και 6
+    // Έυρεση prefix, 2 (για σταθερό), 6 (για κινητό) τυχαίου αριθμού
+    // Δέχεται για παραμέτρους (2 για σταθερό, 6 για κινητό) και 0 για οποιοδήποτε μεταξύ των 2 και 6
     public static String getRandomTelephoneNumber(int new_prefix) {
         byte tmp_prefix;
         Long tmp_number;
@@ -80,7 +80,7 @@ public class TestTilefono {
             }
         }
         System.out.println("***** ΚΙΝΗΤΑ τηλέφωνα, υπολογίστηκαν. Συνεχίζουμε... *****\n");
-/*
+
         System.out.println("***************** Ο ΠΙΝΑΚΑΣ ΓΕΜΙΣΕ *****************");
         // Emfanisi apotelesmaton
         tmp_Kinita = 0;
@@ -99,9 +99,7 @@ public class TestTilefono {
         System.out.println("***** Υπολογισμένα σταθερά: " + tmp_Stathera + ", Υπολογισμένα κινητά: " + tmp_Kinita +
                 ", Υπολογισμένα μη αναγνωρισμένα τηλέφωνα : " + tmp_undefinedLines + ". *****");
 
-*/
-
-/*
+/*      ΟΛΑ ΤΑ ΑΠΑΡΑΚΑΤΩ ΕΙΝΑΙ ΓΙΑ ΕΛΕΓΧΟΥΣ ΚΑΙ ΔΟΚΙΜΕΣ
         Stathero stath1 = new Stathero(getRandomTelephoneNumber(2)); // Kanoniki arxikopoiisi
         Kinito kin1 = new Kinito(getRandomTelephoneNumber(6)); // Kanoniki arxikopoiisi
 
@@ -159,6 +157,7 @@ public class TestTilefono {
         System.out.println(stath1);
         System.out.println(kin1);
 */
+/*      ΟΛΑ ΤΑ ΑΠΑΡΑΚΑΤΩ ΕΙΝΑΙ ΓΙΑ ΕΛΕΓΧΟΥΣ ΚΑΙ ΔΟΚΙΜΕΣ
         System.out.println();
         System.out.println();
         System.out.println(tilefona[0]);
@@ -190,5 +189,6 @@ public class TestTilefono {
         System.out.println("Με δευτερόλεπτα προς ΚΙΝΗΤΑ: " + tilefona[0].getCallsToKinitoTotalSeconds() + "sec.");
         System.out.println("Με κόστος προς ΚΙΝΗΤΑ: " + tilefona[0].cost('6') + "€.");
         System.out.println(tilefona[0]);
+*/
     }
 }

@@ -40,10 +40,12 @@ abstract class Tilefono {
         switch (phoneType) {
             case '2':
                 tmp_callsCost = this.callsToStatheroTotalSeconds * this.callToStatheroCostPerSecond;
+                //this.totalCallsCost = this.totalCallsCost + tmp_callsCost;
                 break;
 //                return this.callsToStatheroTotalSeconds * this.callToStatheroCostPerSecond; //this.calcCallsToStatheroTotalCost(); // FOR DELETE
             case '6': // ΚΟΣΤΟΣ ΚΛΗΣΕΩΝ ΠΡΟΣ ΣΤΑΘΕΡΑ
                 tmp_callsCost = this.callsToKinitoTotalSeconds * this.callToKinitoCostPerSecond;
+                //this.totalCallsCost = this.totalCallsCost + tmp_callsCost;
                 break;
 //                return this.callsToKinitoTotalSeconds * this.callToKinitoCostPerSecond; //this.calcCallsToKinitoTotalCost(); // FOR DELETE
 //            case 'A': // ΚΟΣΤΟΣ ΚΛΗΣΕΩΝ ΠΡΟΣ ΟΛΑ // FOR DELETE
@@ -55,7 +57,7 @@ abstract class Tilefono {
                 break;
 //                return -1; // FOR DELETE
         }
-//        this.totalCallsCost = this.totalCallsCost + tmp_callsCost;
+        this.totalCallsCost = (this.callsToStatheroTotalSeconds * this.callToStatheroCostPerSecond) + (this.callsToKinitoTotalSeconds * this.callToKinitoCostPerSecond);
         return tmp_callsCost;
     }
     public String showSecondsAndCost(char phoneType) { // ΕΙΝΑΙ ΙΔΙΑ ΓΙΑ ΟΛΕΣ ΤΙΣ ΥΠΟΚΛΑΣΕΙΣ
@@ -122,21 +124,21 @@ abstract class Tilefono {
         return this.callsToKinitoTotalSeconds;
     }
     public void setCallsToKinitoTotalSeconds(int new_callSeconds) {
-        this.callsToKinitoTotalSeconds = new_callSeconds;
+        this.callsToKinitoTotalSeconds = this.callsToKinitoTotalSeconds + new_callSeconds;
     }
     // Set-Get totalSecondsOnCalls
-    public void setTotalSecondsOnCalls(int new_totalSecondsOnCall) {
-        this.totalSecondsOnCall = new_totalSecondsOnCall;
-    }
     public int getTotalSecondsOnCalls() {
         return this.totalSecondsOnCall;
     }
-    // Set-Get totalCallsCost
-    public void setTotalCallsCost(int new_totalCallsCost) {
-        this.totalCallsCost = new_totalCallsCost;
+    public void setTotalSecondsOnCalls(int new_totalSecondsOnCall) {
+        this.totalSecondsOnCall = this.totalSecondsOnCall +  new_totalSecondsOnCall;
     }
-    public float getTCallsCost() {
+    // Set-Get totalCallsCost
+    public float getTotalCallsCost() {
         return this.totalCallsCost;
+    }
+    public void setTotalCallsCost(float new_totalCallsCost) {
+        this.totalCallsCost = this.totalCallsCost + new_totalCallsCost;
     }
     // Return all attributes in one string
     public String toString() {

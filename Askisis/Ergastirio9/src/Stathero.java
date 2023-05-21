@@ -1,6 +1,5 @@
 // Genikefsi - Polymorfismos #2
 // ergastirio 9
-import java.text.DecimalFormat;
 public class Stathero extends Tilefono {
 	// Default constructor
     public Stathero() {
@@ -23,13 +22,13 @@ public class Stathero extends Tilefono {
     }
     public void dial(String numberToCall, int new_dialDuration) {
         String tmp_numTypeToCall;
-        this.setTotalSecondsOnCalls(this.getTotalSecondsOnCalls() + new_dialDuration);
+        this.setTotalSecondsOnCalls(new_dialDuration);
         switch (numberToCall.charAt(0)) {
             case '2': tmp_numTypeToCall = "ΣΤΑΘΕΡΟ";
-                this.setCallsToStatheroTotalSeconds(this.getCallsToStatheroTotalSeconds() + new_dialDuration);
+                this.setCallsToStatheroTotalSeconds(new_dialDuration);
                 break;
             case '6': tmp_numTypeToCall = "ΚΙΝΗΤΟ";
-                this.setCallsToKinitoTotalSeconds(this.getCallsToKinitoTotalSeconds() + new_dialDuration);
+                this.setCallsToKinitoTotalSeconds(new_dialDuration);
                 break;
             default: tmp_numTypeToCall = "ΑΠΡΟΣΔΙΟΡΙΣΤΟ";
                 break;

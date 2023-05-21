@@ -12,31 +12,25 @@ public class TestTilefono {
             do {
                 do {
                     tmp_prefix = (byte)Math.round(Math.random() * 10);
-                    //System.out.println("tmp_prefix: " + tmp_prefix); // ΓΙΑ ΕΛΕΓΧΟΥΣ. ΔΕΝ ΧΡΕΙΑΖΕΤΑΙ
                 } while (tmp_prefix != new_prefix);
                 tmp_number = Math.round(Math.random() * 1000000000); // Επιστρέφει 9ψήφιο αριθμό
                 tmp_num2str = tmp_prefix + tmp_number.toString(); // Προσθέτει το tmp_prefix ώστε να γίνει 10ψήφιος ο αριθμός
-                //System.out.println(tmp_number); // ΓΙΑ ΕΛΕΓΧΟΥΣ. ΔΕΝ ΧΡΕΙΑΖΕΤΑΙ
-                //System.out.println(tmp_num2str); // ΓΙΑ ΕΛΕΓΧΟΥΣ. ΔΕΝ ΧΡΕΙΑΖΕΤΑΙ
             } while (tmp_num2str.length() != 10);
         }
         else {
             do {
                 do {
                     tmp_prefix = (byte)Math.round(Math.random() * 10);
-                    //System.out.println("tmp_prefix: " + tmp_prefix); // ΓΙΑ ΕΛΕΓΧΟΥΣ. ΔΕΝ ΧΡΕΙΑΖΕΤΑΙ
                 } while (tmp_prefix != 2 && tmp_prefix != 6);
                 tmp_number = Math.round(Math.random() * 1000000000); // Επιστρέφει 9ψήφιο αριθμό
                 tmp_num2str = tmp_prefix + tmp_number.toString(); // Προσθέτει το tmp_prefix ώστε να γίνει 10ψήφιος ο αριθμός
-                //System.out.println(tmp_number); // ΓΙΑ ΕΛΕΓΧΟΥΣ. ΔΕΝ ΧΡΕΙΑΖΕΤΑΙ
-                //System.out.println(tmp_num2str); // ΓΙΑ ΕΛΕΓΧΟΥΣ. ΔΕΝ ΧΡΕΙΑΖΕΤΑΙ
             } while (tmp_num2str.length() != 10);
         }
         return tmp_num2str;
     }
     public static void main(String[] args) {
         // Δήλωση μεταβλητών
-        int n, tmp_secondsOnCall;
+        int n, tmp_secondsOnCall, tmp_numOfRandomCalls;
         // Για τον υπολογισμό των τηλεφώνων
         int arithmosStatheron, arithmosKiniton;
         int tmp_thesi, tmp_Stathera = 0, tmp_Kinita = 0, tmp_undefinedLines = 0;
@@ -56,12 +50,12 @@ public class TestTilefono {
         while (tmp_Stathera < arithmosStatheron) {
             tmp_thesi = (int) (Math.random() * n); // Εύρεση τυχαίας θέσης του αντικειμένου <Stathero> στον πίνακα
             //tmp_secondsOnCall = 200; // ΓΙΑ ΔΟΚΙΜΕΣ
-            tmp_secondsOnCall = (int)Math.round(Math.random() * 1000); // ΖΗΤΕΙΤΑΙ ΑΠΟ ΤΗΝ ΑΣΚΗΣΗ
+            //tmp_secondsOnCall = (int)Math.round(Math.random() * 1000); // ΖΗΤΕΙΤΑΙ ΑΠΟ ΤΗΝ ΑΣΚΗΣΗ. Χρησιμοποιείται παρακάτω
             if (tilefona[tmp_thesi] == null) { // Αν το τηλέφωνο στη θέση [tmp_thesi] είναι null σημαίνει ότι η θέση έχει ακόμα το αρχικό ανρκείμενο Tilefono άρα είναι ελεύθερη
                 Stathero tmpStathero = new Stathero(getRandomTelephoneNumber(2));
                 // Οι παρακάτω γραμμές μπορούνα να αλλαχτούν ώστε να ζητούνται από τον χρήστη τα στοιχεία της γραμμής
                 tilefona[tmp_thesi] = tmpStathero;
-                tilefona[tmp_thesi].dial(getRandomTelephoneNumber(0), tmp_secondsOnCall);
+                //tilefona[tmp_thesi].dial(getRandomTelephoneNumber(0), tmp_secondsOnCall); // // Χρησιμοποιείται παρακάτω
                 tmp_Stathera++;
             }
         }
@@ -70,34 +64,64 @@ public class TestTilefono {
         while (tmp_Kinita < arithmosKiniton) {
             tmp_thesi = (int)(Math.random() * n); // Εύρεση τυχαίας θέσης του αντικειμένου <Kinito> στον πίνακα
             //tmp_secondsOnCall = 200; // ΓΙΑ ΔΟΚΙΜΕΣ
-            tmp_secondsOnCall = (int)Math.round(Math.random() * 1000); // ΖΗΤΕΙΤΑΙ ΑΠΟ ΤΗΝ ΑΣΚΗΣΗ
+            //tmp_secondsOnCall = (int)Math.round(Math.random() * 1000); // ΖΗΤΕΙΤΑΙ ΑΠΟ ΤΗΝ ΑΣΚΗΣΗ. Χρησιμοποιείται παρακάτω
             if (tilefona[tmp_thesi] == null) { // Αν το τηλέφωνο στη θέση [tmp_thesi] είναι null σημαίνει ότι η θέση έχει ακόμα το αρχικό ανρκείμενο Tilefono άρα είναι ελεύθερη
                 Kinito tmpKinito = new Kinito(getRandomTelephoneNumber(6));
                 // Οι παρακάτω γραμμές μπορούνα να αλλαχτούν ώστε να ζητούνται από τον χρήστη τα στοιχεία της γραμμής
                 tilefona[tmp_thesi] = tmpKinito;
-                tilefona[tmp_thesi].dial(getRandomTelephoneNumber(0), tmp_secondsOnCall);
+                //tilefona[tmp_thesi].dial(getRandomTelephoneNumber(0), tmp_secondsOnCall); // Χρησιμοποιείται παρακάτω
                 tmp_Kinita++;
             }
         }
         System.out.println("***** ΚΙΝΗΤΑ τηλέφωνα, υπολογίστηκαν. Συνεχίζουμε... *****\n");
-
         System.out.println("***************** Ο ΠΙΝΑΚΑΣ ΓΕΜΙΣΕ *****************");
-        // Emfanisi apotelesmaton
-        tmp_Kinita = 0;
-        tmp_Stathera = 0;
-        for (int i = 0; i < n; i++) {
+        // Γέμισμα πίνακα με τυχαίες κλήσεις
+        tmp_numOfRandomCalls = (int)Math.round(Math.random() * 1900) + 100; // Τυχαίος αριθμός κλήσεων από 100 έως 2000
+        for (int i = 100; i < tmp_numOfRandomCalls; i++) {
+            tmp_thesi = (int)Math.abs(Math.round(Math.random() * n - 1)); // Τυχαία θέση στον πίνακα τηλεφώνων για εξερχόμενη κλήση της γραμμής
+            tmp_secondsOnCall = (int)Math.round(Math.random() * 595) + 5; // Τυχαία διάρκεια κλήσης από 5 έως 600 δευτερόλεπτα
+            tilefona[tmp_thesi].dial(getRandomTelephoneNumber(0), tmp_secondsOnCall);
+        }
+        // Εμφάνιση αποτελεσμάτων - Ζητούμενα άσκησης
+        System.out.println("Σύνολο τυχαίων κλήσεων: " + tmp_numOfRandomCalls);
+        System.out.println("********************************************************************************");
+        System.out.println("***** Κατάλογος με τον αριθμό και το συνολικό κόστος κάθε τηλεφώνου *****"); // Ζητούμενο άσκησης i.
+        for (int i = 0; i < n; i++)
+            System.out.println(tilefona[i]);
+        System.out.println("********************************************************************************");
+        System.out.println("***** Σύνολο δευτερολέπτων και και κόστους κλήσεων των ΣΤΑΘΕΡΩΝ τηλεφώνων *****"); // Ζητούμενο άσκησης ii.
+        for (int i = 0; i < n; i++)
+            System.out.println(tilefona[i].showSecondsAndCost('2'));
+        System.out.println("********************************************************************************");
+        System.out.println("***** Σύνολο δευτερολέπτων και και κόστους κλήσεων των ΚΙΝΗΤΩΝ τηλεφώνων *****"); // Ζητούμενο άσκησης iii.
+        for (int i = 0; i < n; i++)
+            System.out.println(tilefona[i].showSecondsAndCost('6'));
+        System.out.println("********************************************************************************");
+        System.out.println("***** Συνολικό κόστος κλήσεων προς ΣΤΑΘΕΡΑ *****"); // Ζητούμενο άσκησης iv.
+        for (int i = 0; i < n; i++)
+            System.out.println(tilefona[i].showSecondsAndCost('6'));
+/*          ΓΙΑ ΕΠΑΛΗΘΕΣΗ ΣΥΝΟΛΙΚΟΥ ΑΡΙΘΜΟΥ ΤΗΛΕΦΩΝΩΝ ΠΟΥ ΔΗΜΙΟΥΡΓΗΘΗΚΑΝ. ΔΕΝ ΧΡΕΙΑΖΕΤΑΙ
+            tmp_Kinita = 0;
+            tmp_Stathera = 0;
             if (tilefona[i] instanceof Stathero)
                 tmp_Stathera++;
             else if ((tilefona[i] instanceof Kinito))
                 tmp_Kinita++;
             else tmp_undefinedLines++;
+
+*/
+/*          // ΓΙΑ ΕΛΕΓΧΟΥΣ. ΔΕΝ ΧΡΕΙΑΖΟΝΤΑΙ
             System.out.println("To Τηλέφωνο[" + i + "]" + " είναι κλάσης: " + tilefona[i].getClass()); // GIA ELEGXO
             System.out.println(tilefona[i]);
             System.out.println("--------------------------");
-        }
-        // Εμφάνιση συνολικού αριθμού τηλεφώνων που δημιουργήθηκαν για επσλήθευση
-        System.out.println("***** Υπολογισμένα σταθερά: " + tmp_Stathera + ", Υπολογισμένα κινητά: " + tmp_Kinita +
+
+*/
+/*
+        // ΓΙΑ ΕΠΑΛΗΘΕΣΗ ΣΥΝΟΛΙΚΟΥ ΑΡΙΘΜΟΥ ΤΗΛΕΦΩΝΩΝ ΠΟΥ ΔΗΜΙΟΥΡΓΗΘΗΚΑΝ. ΔΕΝ ΧΡΕΙΑΖΕΤΑΙ
+        System.out.println("***** Υπολογισμένα ΣΤΑΘΕΡΑ: " + tmp_Stathera + ", Υπολογισμένα ΚΙΝΗΤΑ: " + tmp_Kinita +
                 ", Υπολογισμένα μη αναγνωρισμένα τηλέφωνα : " + tmp_undefinedLines + ". *****");
+
+*/
 
 /*      ΟΛΑ ΤΑ ΑΠΑΡΑΚΑΤΩ ΕΙΝΑΙ ΓΙΑ ΕΛΕΓΧΟΥΣ ΚΑΙ ΔΟΚΙΜΕΣ
         Stathero stath1 = new Stathero(getRandomTelephoneNumber(2)); // Kanoniki arxikopoiisi

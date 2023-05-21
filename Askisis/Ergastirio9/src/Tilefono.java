@@ -35,8 +35,6 @@ abstract class Tilefono {
 	abstract void dial(String numberToCall, int tmp_dialDuration); // Υλοποιείται διαφορετικά σε κάθε είδος τηλεφώνου (ΣΤΑΘΕΡΟ/ΚΙΝΗΤΟ)
     public float cost(char phoneType) {
         float tmp_callsCost;
-        DecimalFormat df = new DecimalFormat();
-        df.setMaximumFractionDigits(2);
         switch (phoneType) {
             case '2': // ΚΟΣΤΟΣ ΚΛΗΣΕΩΝ ΠΡΟΣ ΣΤΑΘΕΡΑ
                 tmp_callsCost = this.callsToStatheroTotalSeconds * this.callToStatheroCostPerSecond;
@@ -56,13 +54,13 @@ abstract class Tilefono {
         df.setMaximumFractionDigits(2);
         switch (phoneType) {
             case '2':
-                return ("Συνολικός χρόνος κλήσεων προς ΣΤΑΘΕΡΑ: " + this.callsToStatheroTotalSeconds + //getCallsToStatheroTotalSeconds() +
+                return ("Γραμμή: " + this.getPhoneNumber() + ". Συνολικός χρόνος κλήσεων προς ΣΤΑΘΕΡΑ: " + this.callsToStatheroTotalSeconds + //getCallsToStatheroTotalSeconds() +
                     "sec. Συνολικό κόστος κλήσεων προς ΣΤΑΘΕΡΑ: " + df.format(this.cost(phoneType)) + "€.");// df.format(this.cost('2')) + "€.");
             case '6':
-                return ("Συνολικός χρόνος κλήσεων προς ΚΙΝΗΤΑ: " + this.callsToKinitoTotalSeconds + // .getCallsToKinitoTotalSeconds() +
+                return ("Γραμμή: " + this.getPhoneNumber() + ". Συνολικός χρόνος κλήσεων προς ΚΙΝΗΤΑ: " + this.callsToKinitoTotalSeconds + // .getCallsToKinitoTotalSeconds() +
                     "sec. Συνολικό κόστος κλήσεων προς ΚΙΝΗΤΑ: " + df.format(this.cost(phoneType)) + "€.");//df.format(this.cost('6')) + "€.");
             case 'A':
-                return ("Συνολικός χρόνος κλήσεων προς ΟΛΑ: " + this.totalSecondsOnCall +
+                return ("Γραμμή: " + this.getPhoneNumber() + ". Συνολικός χρόνος κλήσεων προς ΟΛΑ: " + this.totalSecondsOnCall +
                     "sec. Συνολικό κόστος κλήσεων προς ΟΛΑ: " + df.format((this.cost('2') + this.cost('6'))) + "€.");// +
 
             default: return ("ΔΟΘΗΚΕ ΛΑΘΟΣ ΕΙΔΟΣ ΤΗΛΕΦΩΝΟΥ.");
@@ -120,6 +118,8 @@ abstract class Tilefono {
     // Return all attributes in one string
     public String toString() {
         float dummy_totalCost = this.cost('2') + this.cost('6');
-        return ("Γραμμή: " + this.arithmosTilefonou + ". Σύνολο δευτερολέπτων σε κλήση: " + this.totalSecondsOnCall + ". Συνολικό κόστος κλήσεων: " + this.totalCallsCost + "€.");
+        DecimalFormat df = new DecimalFormat();
+        df.setMaximumFractionDigits(2);
+        return ("Γραμμή: " + this.arithmosTilefonou + ". Σύνολο δευτερολέπτων σε κλήση: " + this.totalSecondsOnCall + ". Συνολικό κόστος κλήσεων: " + df.format(this.totalCallsCost) + "€.");
     }
 }

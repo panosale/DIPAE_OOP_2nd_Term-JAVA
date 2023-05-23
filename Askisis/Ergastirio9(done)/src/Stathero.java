@@ -1,5 +1,3 @@
-import java.text.DecimalFormat;
-
 // Genikefsi - Polymorfismos #2
 // ergastirio 9
 public class Stathero extends Tilefono {

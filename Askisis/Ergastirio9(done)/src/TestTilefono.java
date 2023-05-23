@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 
 public class TestTilefono {
     // Έυρεση prefix, 2 (για σταθερό), 6 (για κινητό) τυχαίου αριθμού
-    // Δέχεται για παραμέτρους (2 για σταθερό, 6 για κινητό) και 0 για οποιοδήποτε μεταξύ των 2 και 6
+    // Δέχεται για παραμέτρους: 2 για σταθερό, 6 για κινητό και 0 για οποιοδήποτε μεταξύ των 2 και 6
     public static String getRandomTelephoneNumber(int new_prefix) {
         byte tmp_prefix;
         Long tmp_number;
@@ -31,7 +31,7 @@ public class TestTilefono {
         return tmp_num2str;
     }
     public static void main(String[] args) {
-        // Δήλωση μεταβλητών
+        // Δήλωση και αρχικοποίηση μεταβλητών
         DecimalFormat df = new DecimalFormat(); // Για στρογγυλοποίηση των δεκαδικών ψηφίων του float
         df.setMaximumFractionDigits(2); // Για στρογγυλοποίηση των δεκαδικών ψηφίων του float
         int n, tmp_secondsOnCall, tmp_numOfRandomCalls;
@@ -46,17 +46,13 @@ public class TestTilefono {
         // Δήλωση και αρχικοποίηση αντικειμένων
         // Αρχικοποίηση πίνακα [n] θέσεων αντικειμένων της υπερκλάσης Tilefono()
         Tilefono[] tilefona = new Tilefono[n];
-        // Εισαγωγή τηλεφώνων σε τυχαίες θέσεις του πίνακα ανάλογα με τα ποσοστά τους
+        // Εισαγωγή τηλεφώνων σε τυχαίες θέσεις του πίνακα ανάλογα με τα ποσοστά τους - ΑΡΧΗ
         System.out.println("***** Υπολογισμός ΣΤΑΘΕΡΩΝ τηλεφώνων. Παρακαλώ περιμένετε *****");
         while (tmp_Stathera < arithmosStatheron) {
             tmp_thesi = (int) (Math.random() * n); // Εύρεση τυχαίας θέσης του αντικειμένου <Stathero> στον πίνακα
-            //tmp_secondsOnCall = 200; // ΓΙΑ ΔΟΚΙΜΕΣ
-            //tmp_secondsOnCall = (int)Math.round(Math.random() * 1000); // ΖΗΤΕΙΤΑΙ ΑΠΟ ΤΗΝ ΑΣΚΗΣΗ. Χρησιμοποιείται παρακάτω
             if (tilefona[tmp_thesi] == null) { // Αν το τηλέφωνο στη θέση [tmp_thesi] είναι null σημαίνει ότι η θέση έχει ακόμα το αρχικό ανρκείμενο Tilefono άρα είναι ελεύθερη
                 Stathero tmpStathero = new Stathero(getRandomTelephoneNumber(2));
-                // Οι παρακάτω γραμμές μπορούνα να αλλαχτούν ώστε να ζητούνται από τον χρήστη τα στοιχεία της γραμμής
                 tilefona[tmp_thesi] = tmpStathero;
-                //tilefona[tmp_thesi].dial(getRandomTelephoneNumber(0), tmp_secondsOnCall); // // Χρησιμοποιείται παρακάτω
                 tmp_Stathera++;
             }
         }
@@ -64,28 +60,26 @@ public class TestTilefono {
         System.out.println("***** Υπολογισμός ΚΙΝΗΤΩΝ τηλεφώνων. Παρακαλώ περιμένετε *****");
         while (tmp_Kinita < arithmosKiniton) {
             tmp_thesi = (int)(Math.random() * n); // Εύρεση τυχαίας θέσης του αντικειμένου <Kinito> στον πίνακα
-            //tmp_secondsOnCall = 200; // ΓΙΑ ΔΟΚΙΜΕΣ
-            //tmp_secondsOnCall = (int)Math.round(Math.random() * 1000); // ΖΗΤΕΙΤΑΙ ΑΠΟ ΤΗΝ ΑΣΚΗΣΗ. Χρησιμοποιείται παρακάτω
             if (tilefona[tmp_thesi] == null) { // Αν το τηλέφωνο στη θέση [tmp_thesi] είναι null σημαίνει ότι η θέση έχει ακόμα το αρχικό ανρκείμενο Tilefono άρα είναι ελεύθερη
                 Kinito tmpKinito = new Kinito(getRandomTelephoneNumber(6));
-                // Οι παρακάτω γραμμές μπορούνα να αλλαχτούν ώστε να ζητούνται από τον χρήστη τα στοιχεία της γραμμής
                 tilefona[tmp_thesi] = tmpKinito;
-                //tilefona[tmp_thesi].dial(getRandomTelephoneNumber(0), tmp_secondsOnCall); // Χρησιμοποιείται παρακάτω
                 tmp_Kinita++;
             }
         }
         System.out.println("***** ΚΙΝΗΤΑ τηλέφωνα, υπολογίστηκαν. Συνεχίζουμε... *****\n");
         System.out.println("***************** Ο ΠΙΝΑΚΑΣ ΓΕΜΙΣΕ *****************");
-        // Γέμισμα πίνακα με τυχαίες κλήσεις
+        // Εισαγωγή τηλεφώνων σε τυχαίες θέσεις του πίνακα ανάλογα με τα ποσοστά τους - ΤΕΛΟΣ
+        // Γέμισμα πίνακα με τυχαίες κλήσεις - ΑΡΧΗ
         tmp_numOfRandomCalls = (int)Math.round(Math.random() * 1900) + 100; // Τυχαίος αριθμός κλήσεων από 100 έως 2000
         for (int i = 1; i < tmp_numOfRandomCalls; i++) {
             tmp_thesi = (int)Math.abs(Math.round(Math.random() * n - 1)); // Τυχαία θέση στον πίνακα τηλεφώνων για εξερχόμενη κλήση της γραμμής
             tmp_secondsOnCall = (int)Math.round(Math.random() * 595) + 5; // Τυχαία διάρκεια κλήσης από 5 έως 600 δευτερόλεπτα
-            System.out.print("Α/Α κλήσης: " + i + ": ");
+            System.out.print("Α/Α κλήσης [" + i + "]: ");
             tilefona[tmp_thesi].dial(getRandomTelephoneNumber(0), tmp_secondsOnCall);
         }
         System.out.println("***************** Ο ΠΙΝΑΚΑΣ ΓΕΜΙΣΕ ΜΕ [" + tmp_numOfRandomCalls + "] ΤΥΧΑΙΕΣ ΚΛΗΣΕΙΣ *****************");
-        // Εμφάνιση αποτελεσμάτων - Ζητούμενα άσκησης
+        // Γέμισμα πίνακα με τυχαίες κλήσεις - ΤΕΛΟΣ
+        // Εμφάνιση αποτελεσμάτων - ΖΗΤΟΥΜΕΝΑ ΑΣΚΗΣΗΣ
         System.out.println("*********************************************************************************");
         System.out.println("******************************* ΖΗΤΟΥΜΕΝΑ ΑΣΚΗΣΗΣ *******************************");
         // Ζητούμενο άσκησης i.

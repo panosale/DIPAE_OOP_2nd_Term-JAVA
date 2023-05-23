@@ -3,12 +3,12 @@
 import java.text.DecimalFormat;
 abstract class Tilefono {
 	private String arithmosTilefonou;
-    private float callToStatheroCostPerSecond; // GIA ELEGXO
-    private float callToKinitoCostPerSecond; // GIA ELEGXO
-    private int callsToStatheroTotalSeconds; // GIA ELEGXO
-    private int callsToKinitoTotalSeconds; // GIA ELEGXO
+    private float callToStatheroCostPerSecond;
+    private float callToKinitoCostPerSecond;
+    private int callsToStatheroTotalSeconds;
+    private int callsToKinitoTotalSeconds;
 	private int totalSecondsOnCall;
-    private float totalCallsCost; // GIA ELEGXO
+    private float totalCallsCost;
 	// Default constructor
     public Tilefono() {
     }
@@ -55,21 +55,16 @@ abstract class Tilefono {
     public float getTotalCostFromLine() {
         return this.getTotalCallsCost();
     }
-/*
-    abstract int getTotalSecondsOnCallFromLine();
-    abstract float getTotalCostFromLine();
-
-*/
-    public String showCallsSecondsAndCost(char phoneType) { // ΕΙΝΑΙ ΙΔΙΑ ΓΙΑ ΟΛΕΣ ΤΙΣ ΥΠΟΚΛΑΣΕΙΣ
+    public String showCallsSecondsAndCost(char phoneType) { // Είναι ίδια για όλες τις κλάσεις
         DecimalFormat df = new DecimalFormat(); // Για στρογγυλοποίηση των δεκαδικών ψηφίων του float
         df.setMaximumFractionDigits(2); // Για στρογγυλοποίηση των δεκαδικών ψηφίων του float
         switch (phoneType) {
             case '2':
-                return ("Γραμμή: " + this.getPhoneNumber() + ". Συνολικός χρόνος κλήσεων προς ΣΤΑΘΕΡΑ: " + this.callsToStatheroTotalSeconds + //getCallsToStatheroTotalSeconds() +
-                    "sec. Συνολικό κόστος κλήσεων προς ΣΤΑΘΕΡΑ: " + df.format(this.cost(phoneType)) + "€.");// df.format(this.cost('2')) + "€.");
+                return ("Γραμμή: " + this.getPhoneNumber() + ". Συνολικός χρόνος κλήσεων προς ΣΤΑΘΕΡΑ: " + this.callsToStatheroTotalSeconds +
+                    "sec. Συνολικό κόστος κλήσεων προς ΣΤΑΘΕΡΑ: " + df.format(this.cost(phoneType)) + "€.");
             case '6':
-                return ("Γραμμή: " + this.getPhoneNumber() + ". Συνολικός χρόνος κλήσεων προς ΚΙΝΗΤΑ: " + this.callsToKinitoTotalSeconds + // .getCallsToKinitoTotalSeconds() +
-                    "sec. Συνολικό κόστος κλήσεων προς ΚΙΝΗΤΑ: " + df.format(this.cost(phoneType)) + "€.");//df.format(this.cost('6')) + "€.");
+                return ("Γραμμή: " + this.getPhoneNumber() + ". Συνολικός χρόνος κλήσεων προς ΚΙΝΗΤΑ: " + this.callsToKinitoTotalSeconds +
+                    "sec. Συνολικό κόστος κλήσεων προς ΚΙΝΗΤΑ: " + df.format(this.cost(phoneType)) + "€.");
             case 'A':
                 return ("Γραμμή: " + this.getPhoneNumber() + ". Συνολικός χρόνος κλήσεων προς ΟΛΑ: " + this.totalSecondsOnCall +
                     "sec. Συνολικό κόστος κλήσεων προς ΟΛΑ: " + df.format((this.cost('2') + this.cost('6'))) + "€.");// +
@@ -131,6 +126,7 @@ abstract class Tilefono {
         float dummy_totalCost = this.cost('2') + this.cost('6');
         DecimalFormat df = new DecimalFormat(); // Για στρογγυλοποίηση των δεκαδικών ψηφίων του float
         df.setMaximumFractionDigits(2); // Για στρογγυλοποίηση των δεκαδικών ψηφίων του float
-        return ("Γραμμή: " + this.arithmosTilefonou + ". Σύνολο δευτερολέπτων σε κλήση: " + this.totalSecondsOnCall + ". Συνολικό κόστος κλήσεων: " + df.format(this.totalCallsCost) + "€.");
+        return ("Γραμμή: " + this.arithmosTilefonou + ". Σύνολο δευτερολέπτων σε κλήση: " + this.totalSecondsOnCall + ". Συνολικό κόστος κλήσεων: " +
+                df.format(this.totalCallsCost) + "€.");
     }
 }

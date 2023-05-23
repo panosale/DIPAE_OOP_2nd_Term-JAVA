@@ -1,18 +1,24 @@
-public class Photograph {
-    private String perigrafi;
-    private float timi;
+public class Photograph extends ErgoTexnis{
     private boolean egxromi;
 
     // Default constructor
-    public Photograph() {}
+    public Photograph() {
+        super();
+    }
     // Full constructor
     public Photograph(String new_perigrafi, float new_timi, boolean new_egxromi) {
-        this.perigrafi = new_perigrafi;
-        this.timi = new_timi;
+        super(new_perigrafi, new_timi);
         this.egxromi = new_egxromi;
     }
 
+    //    Get-Set egxromi
+    public boolean getTexnotropia() {
+        return this.egxromi;
+    }
+    public void setTexnotropia(boolean new_egxromi) {
+        this.egxromi = new_egxromi;
+    }
     public String toString() {
-        return ("Perigrafi:" + this.perigrafi + ", Timi: " + this.timi + ", Egxromi: " + this.egxromi);
+        return (super.toString() + ", Egxromi: " + this.egxromi);
     }
 }

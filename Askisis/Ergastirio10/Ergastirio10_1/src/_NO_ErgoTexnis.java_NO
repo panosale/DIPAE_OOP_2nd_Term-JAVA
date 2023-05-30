@@ -1,6 +1,4 @@
 public class ErgoTexnis {
-    private String perigrafi;
-    private float timi;
     // Default constructor
     public ErgoTexnis() {
         super();

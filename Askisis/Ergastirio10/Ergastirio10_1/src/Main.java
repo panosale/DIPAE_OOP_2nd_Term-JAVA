@@ -70,20 +70,52 @@ public class Main {
             }
         }
         else {
-            System.out.println("Ο πίνακας γέμισε.");
+            System.out.println("***** Ο πίνακας γέμισε. Δεν επιτρέπονται άλλες καταχωρήσεις. *****");
             tmp_insertedSuccessfully = false;
         }
         if (tmp_insertedSuccessfully)
             System.out.println("Το έργο καταχωρήθηκε στη θέση [" + new_thesi + "] του πίνακα.");
         return tmp_insertedSuccessfully;
     }
-    public static void MetaforaErgou(ProsPolisi[] new_ergaProsPolisi, ProsMetafora[] new_ergaProsMetafora, int max_theseis, int new_thesi) {
+    public static boolean MetaforaErgou(ProsPolisi[] ergaProsPolisi, AgoraParadosi[] ergaProsMetafora, int maxTheseisProsPolisi, int new_thesiProsMetafora) {
         int thesi;
+        boolean tmp_transferedSuccessfully = false;
         do {
-            System.out.print("Δώσε το έργο που θέλεις να μεταφέρεις (από θέση [0] έως θέση [" + new_thesi + "]): ");
+            System.out.print("Δώσε το έργο που θέλεις να μεταφέρεις (από θέση [0] έως θέση [" + (maxTheseisProsPolisi-1) + "]): ");
             thesi = UserInput.getInteger();
-        } while (thesi < max_theseis);
-/*
+            if (ergaProsPolisi[thesi] !=null && ergaProsMetafora[new_thesiProsMetafora] == null) {
+                ergaProsMetafora[new_thesiProsMetafora] = new AgoraParadosi();
+                ergaProsMetafora[new_thesiProsMetafora].setErgoProsPolisi(ergaProsPolisi[thesi]);
+                ergaProsPolisi[thesi] = null;
+                tmp_transferedSuccessfully = true;
+            }
+        } while (thesi > maxTheseisProsPolisi);
+        return tmp_transferedSuccessfully;
+    }
+    public static void ShowAllPhotographs(ProsPolisi[] erga) {
+        for (int i = 0; i < erga.length; i++) {
+            if (erga[i] instanceof Photograph)
+                System.out.println(((Photograph)erga[i]).toString());
+        }
+    }
+    public static void ShowAllPaintings(ProsPolisi[] erga) {
+        for (int i = 0; i < erga.length; i++) {
+            if (erga[i] instanceof Painting)
+                System.out.println(((Painting) erga[i]).toString());
+        }
+    }
+    public static void ShowAllErga(ProsPolisi[] erga) {
+        for (int i = 0; i < erga.length; i++) {
+            if (erga[i] != null)
+                System.out.println(erga[i].toString());
+        }
+    }
+    public static void showAllErgaProsMetafora(AgoraParadosi[] erga) {
+        for (int i = 0; i < erga.length; i++)
+            if (erga[i] != null)
+                System.out.println(erga[i].toString());
+    }
+        /*
         if (new_thesi < new_ergaProsMetafora.length) {
             switch (showMoveErgoTexnisSubMenu()) {
                 case 1: new_ergaProsMetafora[new_thesi] = new AgoraParadosi(new Photograph(new_ergaProsPolisi));
@@ -102,12 +134,11 @@ public class Main {
         if (tmp_insertedSuccessfully)
             System.out.println("Το έργο καταχωρήθηκε στη θέση [" + new_thesi + "] του πίνακα.");
 */
-    }
     public static void main(String[] args) {
-        int n = 10; // Μέγεθος πίνακα. Ζητείται από την άσκηση.
-        int thesiProsPolisi = 0 , thesiProsMetafora = 0;
+        int n = 3; // Μέγεθος πίνακα. Ζητείται από την άσκηση.
+        int maxTheseisProsPolisi = 0 , thesiProsMetafora = 0;
         ProsPolisi ErgaProsPolisi[] = new ProsPolisi[n];
-        ProsMetafora ErgaProsMetafora[] = new ProsMetafora[n];
+        AgoraParadosi ErgaProsMetafora[] = new AgoraParadosi[n];
 
         short menuChoise;
         boolean exitMenu = false;
@@ -115,38 +146,33 @@ public class Main {
             menuChoise = showBasicMenu();
             switch (menuChoise) {
                 case 1: System.out.println("*** Choise: 1. Enter work of art");
-                    if (EisagogiErgou(ErgaProsPolisi, thesiProsPolisi))
-                        thesiProsPolisi++;
+                    if (EisagogiErgou(ErgaProsPolisi, maxTheseisProsPolisi))
+                        maxTheseisProsPolisi++;
                     System.out.println();
                     break;
                 case 2: System.out.println("*** Choise: 2. Prepare work of art for delivery");
-                    MetaforaErgou(ErgaProsPolisi, ErgaProsMetafora,thesiProsPolisi, thesiProsMetafora++);
+                    if (MetaforaErgou(ErgaProsPolisi, ErgaProsMetafora, maxTheseisProsPolisi, thesiProsMetafora)) {
+                        maxTheseisProsPolisi--;
+                        thesiProsMetafora++;
+                    }
                     System.out.println();
                     break;
                 case 3: System.out.println("*** Choise: 3. Deliver work of art");
                     break;
                 case 4: System.out.println("*** Choise: 4. Display all available photographs");
-                    for (int i = 0; i < n; i++) {
-                        if (ErgaProsPolisi[i] instanceof Photograph)
-                            System.out.println(((Photograph)ErgaProsPolisi[i]).toString());
-                    }
+                    ShowAllPhotographs(ErgaProsPolisi);
                     System.out.println();
                     break;
                 case 5: System.out.println("*** Choise: 5. Display all available paintings");
-                    for (int i = 0; i < n; i++) {
-                        if (ErgaProsPolisi[i] instanceof Painting)
-                            System.out.println(((Painting)ErgaProsPolisi[i]).toString());
-                    }
+                    ShowAllPaintings(ErgaProsPolisi);
                     System.out.println();
                     break;
                 case 6: System.out.println("*** Choise: 6. Display all available work of arts");
-                    for (int i = 0; i < n; i++) {
-                        if (ErgaProsPolisi[i] != null)
-                            System.out.println(ErgaProsPolisi[i].toString());
-                    }
+                    ShowAllErga(ErgaProsPolisi);
                     System.out.println();
                     break;
                 case 7: System.out.println("*** Choise: 7. Display all work of arts to be delivered");
+                    showAllErgaProsMetafora(ErgaProsMetafora);
                     System.out.println();
                     break;
                 case 8: exitMenu = true;

@@ -2,13 +2,13 @@
 // ergastirio 10.1
 public class Photograph implements ProsPolisi{
     private String perigrafi;
-    private float timi;
+    private double timi;
     private boolean egxromi;
 
     // Default constructor
     public Photograph() {}
     // Full constructor
-    public Photograph(String new_perigrafi, float new_timi, boolean new_egxromi) {
+    public Photograph(String new_perigrafi, double new_timi, boolean new_egxromi) {
         this.perigrafi = new_perigrafi;
         this.timi = new_timi;
         this.egxromi = new_egxromi;
@@ -21,17 +21,17 @@ public class Photograph implements ProsPolisi{
         return (long)(this.timi * 100);
     }
     public long getChamiloteriApodektiTimi(int posostoEpiTisTimis) {
-        return (long)(this.getTimiKatalogou() * (float)posostoEpiTisTimis / 100);
+        return (long)(this.getTimiKatalogou() * (double)posostoEpiTisTimis / 100);
     }
     //    Get-Set perigrafi
     public void setPerigrafi(String new_perigrafi) {
         this.perigrafi = new_perigrafi;
     }
     //    Get-Set timi
-    public float getTimi() {
+    public double getTimi() {
         return this.timi;
     }
-    public void setTimi(float new_timi) {
+    public void setTimi(double new_timi) {
         this.timi = new_timi;
     }
     //    Get-Set egxromi

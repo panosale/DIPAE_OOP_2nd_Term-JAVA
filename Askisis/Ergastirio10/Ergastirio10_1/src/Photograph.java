@@ -13,7 +13,7 @@ public class Photograph implements ProsPolisi{
         this.timi = new_timi;
         this.egxromi = new_egxromi;
     }
-    // Klaseis tou Interface ProsPolisi
+    // Implementation tou Interface ProsPolisi
     public String getPerigrafi() {
         return this.perigrafi;
     }

@@ -13,7 +13,7 @@ public class Painting implements ProsPolisi{
         this.timi = new_timi;
         this.texnotropia = new_texnotropia;
     }
-    // Klaseis tou Interface ProsPolisi
+    // Implementation tou Interface ProsPolisi
     public String getPerigrafi() {
         return this.perigrafi;
     }

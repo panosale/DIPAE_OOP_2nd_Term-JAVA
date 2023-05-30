@@ -80,7 +80,7 @@ public class Main {
     public static void MetaforaErgou(ProsPolisi[] new_ergaProsPolisi, ProsMetafora[] new_ergaProsMetafora, int max_theseis, int new_thesi) {
         int thesi;
         do {
-            System.out.print("Δώσε το έργο που θέλεις να μεταφέρεις από θέση [0]" + new_thesi + "]");
+            System.out.print("Δώσε το έργο που θέλεις να μεταφέρεις (από θέση [0] έως θέση [" + new_thesi + "]): ");
             thesi = UserInput.getInteger();
         } while (thesi < max_theseis);
 /*

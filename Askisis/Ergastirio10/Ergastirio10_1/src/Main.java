@@ -18,7 +18,7 @@ public class Main {
         System.out.println("Μενού εισαγωγής");
         System.out.println("1. Εισαγωγή Φωτογραφίας");
         System.out.println("2. Εισαγωγή Πίνακα");
-        System.out.print("\nΔώστε επιλογή (1-2): ");
+        System.out.print("\nΔώστε επιλογή (1, 2, άλλο για έξοδο): ");
         return UserInput.getShort();
     }
     public static short showMoveErgoTexnisSubMenu() {
@@ -30,7 +30,7 @@ public class Main {
     }
     public static boolean EisagogiErgou(ProsPolisi[] new_ergaProsPolisi, int new_thesi) {
         boolean tmp_insertedSuccessfully = true;
-        if (new_thesi < new_ergaProsPolisi.length) {
+        if (new_thesi < new_ergaProsPolisi.length && new_ergaProsPolisi[new_thesi] == null) {
             switch (showInsertSubMenu()) {
                 case 1: new_ergaProsPolisi[new_thesi] = new Photograph();
                     System.out.print("Δώσε το όνομα της φωτογραφίας: ");
@@ -77,63 +77,56 @@ public class Main {
             System.out.println("Το έργο καταχωρήθηκε στη θέση [" + new_thesi + "] του πίνακα.");
         return tmp_insertedSuccessfully;
     }
-    public static boolean MetaforaErgou(ProsPolisi[] ergaProsPolisi, AgoraParadosi[] ergaProsMetafora, int maxTheseisProsPolisi, int new_thesiProsMetafora) {
+    public static boolean MetaforaErgou(ProsPolisi[] ergaProsPolisi, AgoraParadosi[] ergaProsMetafora, int new_thesiProsMetafora, int tmp_maxTheseisProsPolisi) {
         int thesi;
         boolean tmp_transferedSuccessfully = false;
-        do {
-            System.out.print("Δώσε το έργο που θέλεις να μεταφέρεις (από θέση [0] έως θέση [" + (maxTheseisProsPolisi-1) + "]): ");
-            thesi = UserInput.getInteger();
-            if (ergaProsPolisi[thesi] !=null && ergaProsMetafora[new_thesiProsMetafora] == null) {
-                ergaProsMetafora[new_thesiProsMetafora] = new AgoraParadosi();
-                ergaProsMetafora[new_thesiProsMetafora].setErgoProsPolisi(ergaProsPolisi[thesi]);
-                ergaProsPolisi[thesi] = null;
-                tmp_transferedSuccessfully = true;
-            }
-        } while (thesi > maxTheseisProsPolisi);
+        System.out.println("Προς μεταφορά-> Θέση: " + new_thesiProsMetafora + ", συνολικό μέγεθος πίνακα: " + ergaProsMetafora.length);
+        System.out.println("Προς πώληση-> Θέση: " + tmp_maxTheseisProsPolisi + ", συνολικό μέγεθος πίνακα: " + ergaProsPolisi.length);
+        if (new_thesiProsMetafora < ergaProsMetafora.length) {
+            if (tmp_maxTheseisProsPolisi > 0) {
+                ShowAllErga(ergaProsPolisi);
+                System.out.print("Δώσε τη θέση του έργου που θέλεις να μεταφέρεις (μεγαλύτερη θέση για επιστροφή): ");
+                thesi = UserInput.getInteger();
+                if (thesi < tmp_maxTheseisProsPolisi)
+                    if (ergaProsPolisi[thesi] != null) {
+                        ergaProsMetafora[new_thesiProsMetafora] = new AgoraParadosi();
+                        ergaProsMetafora[new_thesiProsMetafora].setErgoProsPolisi(ergaProsPolisi[thesi]);
+                        ergaProsPolisi[thesi] = null;
+                        tmp_transferedSuccessfully = true;
+                    } else
+                        System.out.println("*****  Η μεταφορά είναι αδύνατη. Έδωσες λάθος θέση. *****");
+                else
+                    System.out.println("*****  Η μεταφορά ακυρώθηκε. *****");
+            } else System.out.println("***** Ο πίνακας έργων προς πώληση είναι κενός. *****");
+        }
+        else
+            System.out.println("***** Ο πίνακας έργων προς μεταφορά είναι γεμάτος. *****");
+// ΝΑ ΓΙΝΕΙ ΕΛΕΓΧΟΣ ΑΝ ΟΤΑΝ ΜΕΙΝΕΙ Η ΤΕΛΕΥΤΑΊΑ ΓΡΑΜΜΗ ΤΟΥ ΠΙΝΑΚΑ ΜΕΤΑΦΕΡΕΤΑΙ ΣΩΣΤΑ.
         return tmp_transferedSuccessfully;
     }
     public static void ShowAllPhotographs(ProsPolisi[] erga) {
         for (int i = 0; i < erga.length; i++) {
-            if (erga[i] != null && erga[i] instanceof Photograph)  // Added via github site. 4check
-                System.out.println(((Photograph)erga[i]).toString());
+            if (erga[i] != null && erga[i] instanceof Photograph)
+                System.out.println("Θέση [" + i + "]. " + ((Photograph)erga[i]).toString());
         }
     }
     public static void ShowAllPaintings(ProsPolisi[] erga) {
         for (int i = 0; i < erga.length; i++) {
-            if (erga[i] != null && erga[i] instanceof Painting) // Added via github site. 4check
-                System.out.println(((Painting) erga[i]).toString());
+            if (erga[i] != null && erga[i] instanceof Painting)
+                System.out.println("Θέση [" + i + "]. " + ((Painting) erga[i]).toString());
         }
     }
     public static void ShowAllErga(ProsPolisi[] erga) {
         for (int i = 0; i < erga.length; i++) {
             if (erga[i] != null)
-                System.out.println(erga[i].toString());
+                System.out.println("Θέση [" + i + "]. " + erga[i].toString());
         }
     }
     public static void showAllErgaProsMetafora(AgoraParadosi[] erga) {
         for (int i = 0; i < erga.length; i++)
             if (erga[i] != null)
-                System.out.println(erga[i].toString());
+                System.out.println("Θέση [" + i + "]. " + erga[i].toString());
     }
-        /*
-        if (new_thesi < new_ergaProsMetafora.length) {
-            switch (showMoveErgoTexnisSubMenu()) {
-                case 1: new_ergaProsMetafora[new_thesi] = new AgoraParadosi(new Photograph(new_ergaProsPolisi));
-                    break;
-                case 2: new_ergaProsMetafora[new_thesi] = new Painting();
-                    break;
-                default: System.out.println("*** Λάθος είδος έργου τέχνης. ***");
-                    tmp_insertedSuccessfully = false;
-                    break;
-            }
-        }
-        else {
-            System.out.println("Ο πίνακας γέμισε.");
-            tmp_insertedSuccessfully = false;
-        }
-        if (tmp_insertedSuccessfully)
-            System.out.println("Το έργο καταχωρήθηκε στη θέση [" + new_thesi + "] του πίνακα.");
-*/
     public static void main(String[] args) {
         int n = 3; // Μέγεθος πίνακα. Ζητείται από την άσκηση.
         int maxTheseisProsPolisi = 0 , thesiProsMetafora = 0;
@@ -151,10 +144,13 @@ public class Main {
                     System.out.println();
                     break;
                 case 2: System.out.println("*** Choise: 2. Prepare work of art for delivery");
-                    if (MetaforaErgou(ErgaProsPolisi, ErgaProsMetafora, maxTheseisProsPolisi, thesiProsMetafora)) {
+                    if (MetaforaErgou(ErgaProsPolisi, ErgaProsMetafora, thesiProsMetafora, maxTheseisProsPolisi)) {
                         maxTheseisProsPolisi--;
                         thesiProsMetafora++;
+                        System.out.println("*****  Η μεταφορά ολοκληρώθηκε *****");
                     }
+                    else
+                        System.out.println("*****  Η μεταφορά δεν ολοκληρώθηκε *****");
                     System.out.println();
                     break;
                 case 3: System.out.println("*** Choise: 3. Deliver work of art");
@@ -185,16 +181,4 @@ public class Main {
         } while (!exitMenu);
         System.out.println("Goodbye.");
     }
-/*      ΓΙΑ ΔΟΚΙΜΕΣ - ΑΡΧΗ
-        Photograph ph1 = new Photograph("Διακοπές", 10.50f, true);
-        System.out.println(ph1.toString());
-        System.out.println("Τιμή καταλόγου: " + ph1.getTimiKatalogou());
-        System.out.println("Χαμηλότερη αποδεκτή τιμή: " + ph1.getChamiloteriApodektiTimi(50));
-
-        Painting paint1 = new Painting("Τρικυμία", 100.55f, "Ελαιογραφία");
-        System.out.println(paint1.toString());
-        System.out.println("Τιμή καταλόγου: " + paint1.getTimiKatalogou());
-        System.out.println("Χαμηλότερη αποδεκτή τιμή: " + paint1.getChamiloteriApodektiTimi(50));
-        ΓΙΑ ΔΟΚΙΜΕΣ - ΤΕΛΟΣ
-*/
 }

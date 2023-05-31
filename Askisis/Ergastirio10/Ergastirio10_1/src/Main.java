@@ -94,13 +94,13 @@ public class Main {
     }
     public static void ShowAllPhotographs(ProsPolisi[] erga) {
         for (int i = 0; i < erga.length; i++) {
-            if (erga[i] instanceof Photograph)
+            if (erga[i] != null && erga[i] instanceof Photograph)  // Added via github site. 4check
                 System.out.println(((Photograph)erga[i]).toString());
         }
     }
     public static void ShowAllPaintings(ProsPolisi[] erga) {
         for (int i = 0; i < erga.length; i++) {
-            if (erga[i] instanceof Painting)
+            if (erga[i] != null && erga[i] instanceof Painting) // Added via github site. 4check
                 System.out.println(((Painting) erga[i]).toString());
         }
     }

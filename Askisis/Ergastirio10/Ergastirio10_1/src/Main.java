@@ -205,10 +205,10 @@ public class Main {
                     if (ProetoimsiaErgouProsMetafora(ErgaProsPolisi, ErgaProsMetafora, thesiProsMetafora, maxTheseisProsPolisi)) {
                         maxTheseisProsPolisi--;
                         thesiProsMetafora++;
-                        System.out.println("***** Η μεταφορά ολοκληρώθηκε *****");
+                        System.out.println("***** Η προετοιμασία του έργου για μεταφορά ολοκληρώθηκε *****");
                     }
                     else
-                        System.out.println("***** Η μεταφορά δεν ολοκληρώθηκε *****");
+                        System.out.println("***** Η προετοιμασία του έργου για μεταφορά δεν ολοκληρώθηκε *****");
                     System.out.println();
                     break;
                 case 3: System.out.println("*** Choise: 3. Deliver work of art");

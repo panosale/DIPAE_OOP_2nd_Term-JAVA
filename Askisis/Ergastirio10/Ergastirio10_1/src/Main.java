@@ -30,64 +30,69 @@ public class Main {
     }
     public static boolean EisagogiErgou(ProsPolisi[] new_ergaProsPolisi, int new_thesi) {
         boolean tmp_insertedSuccessfully = true;
-        if (new_thesi < new_ergaProsPolisi.length && new_ergaProsPolisi[new_thesi] == null) {
-            switch (showInsertSubMenu()) {
-                case 1: new_ergaProsPolisi[new_thesi] = new Photograph();
-                    System.out.print("Δώσε το όνομα της φωτογραφίας: ");
-                    ((Photograph)new_ergaProsPolisi[new_thesi]).setPerigrafi(UserInput.getString());
-                    System.out.print("Δώσε την τιμή της φωτογραφίας: ");
-                    ((Photograph)new_ergaProsPolisi[new_thesi]).setTimi(UserInput.getFloat());
-                    boolean tmp_exitMenu = false;
-                    do {
-                        System.out.print("Είναι έγχρωμη η φωτογραφία (Y/N); ");
-                        switch (UserInput.getChar()) {
-                            case 'Y':
-                                ((Photograph) new_ergaProsPolisi[new_thesi]).setEgxromi(true);
-                            case 'y':
-                                ((Photograph) new_ergaProsPolisi[new_thesi]).setEgxromi(true);
-                                tmp_exitMenu = true;
-                                break;
-                            case 'N':
-                                ((Photograph) new_ergaProsPolisi[new_thesi]).setEgxromi(false);
-                            case 'n':
-                                ((Photograph) new_ergaProsPolisi[new_thesi]).setEgxromi(false);
-                                tmp_exitMenu = true;
-                                break;
-                        }
-                    } while (!tmp_exitMenu);
-                    break;
-                case 2: new_ergaProsPolisi[new_thesi] = new Painting();
-                    System.out.print("Δώσε το όνομα του πίνακα: ");
-                    ((Painting)new_ergaProsPolisi[new_thesi]).setPerigrafi(UserInput.getString());
-                    System.out.print("Δώσε την τιμή του πίνακα: ");
-                    ((Painting)new_ergaProsPolisi[new_thesi]).setTimi(UserInput.getFloat());
-                    System.out.print("Δώσε την τεχνοτροπία του πίνακα: ");
-                    ((Painting)new_ergaProsPolisi[new_thesi]).setTexnotropia(UserInput.getString());
-                    break;
-                default: System.out.println("*** Λάθος είδος έργου τέχνης. ***");
-                    tmp_insertedSuccessfully = false;
-                    break;
+        if (new_thesi < new_ergaProsPolisi.length) {
+            if (new_ergaProsPolisi[new_thesi] == null) {
+                switch (showInsertSubMenu()) {
+                    case 1:
+                        new_ergaProsPolisi[new_thesi] = new Photograph();
+                        System.out.print("Δώσε το όνομα της φωτογραφίας: ");
+                        ((Photograph) new_ergaProsPolisi[new_thesi]).setPerigrafi(UserInput.getString());
+                        System.out.print("Δώσε την τιμή της φωτογραφίας: ");
+                        ((Photograph) new_ergaProsPolisi[new_thesi]).setTimi(UserInput.getFloat());
+                        boolean tmp_exitMenu = false;
+                        do {
+                            System.out.print("Είναι έγχρωμη η φωτογραφία (Y/N); ");
+                            switch (UserInput.getChar()) {
+                                case 'Y':
+                                    ((Photograph) new_ergaProsPolisi[new_thesi]).setEgxromi(true);
+                                case 'y':
+                                    ((Photograph) new_ergaProsPolisi[new_thesi]).setEgxromi(true);
+                                    tmp_exitMenu = true;
+                                    break;
+                                case 'N':
+                                    ((Photograph) new_ergaProsPolisi[new_thesi]).setEgxromi(false);
+                                case 'n':
+                                    ((Photograph) new_ergaProsPolisi[new_thesi]).setEgxromi(false);
+                                    tmp_exitMenu = true;
+                                    break;
+                            }
+                        } while (!tmp_exitMenu);
+                        break;
+                    case 2:
+                        new_ergaProsPolisi[new_thesi] = new Painting();
+                        System.out.print("Δώσε το όνομα του πίνακα: ");
+                        ((Painting) new_ergaProsPolisi[new_thesi]).setPerigrafi(UserInput.getString());
+                        System.out.print("Δώσε την τιμή του πίνακα: ");
+                        ((Painting) new_ergaProsPolisi[new_thesi]).setTimi(UserInput.getFloat());
+                        System.out.print("Δώσε την τεχνοτροπία του πίνακα: ");
+                        ((Painting) new_ergaProsPolisi[new_thesi]).setTexnotropia(UserInput.getString());
+                        break;
+                    default:
+                        System.out.println("*** Λάθος είδος έργου τέχνης. ***");
+                        tmp_insertedSuccessfully = false;
+                        break;
+                }
+
+            } else {
+                System.out.println("***** Ο πίνακας γέμισε. Δεν επιτρέπονται άλλες καταχωρήσεις. *****");
+                tmp_insertedSuccessfully = false;
             }
+            if (tmp_insertedSuccessfully)
+                System.out.println("Το έργο καταχωρήθηκε στη θέση [" + new_thesi + "] του πίνακα.");
         }
-        else {
-            System.out.println("***** Ο πίνακας γέμισε. Δεν επιτρέπονται άλλες καταχωρήσεις. *****");
-            tmp_insertedSuccessfully = false;
-        }
-        if (tmp_insertedSuccessfully)
-            System.out.println("Το έργο καταχωρήθηκε στη θέση [" + new_thesi + "] του πίνακα.");
         return tmp_insertedSuccessfully;
     }
     public static boolean MetaforaErgou(ProsPolisi[] ergaProsPolisi, AgoraParadosi[] ergaProsMetafora, int new_thesiProsMetafora, int tmp_maxTheseisProsPolisi) {
         int thesi;
         boolean tmp_transferedSuccessfully = false;
-        System.out.println("Προς μεταφορά-> Θέση: " + new_thesiProsMetafora + ", συνολικό μέγεθος πίνακα: " + ergaProsMetafora.length);
-        System.out.println("Προς πώληση-> Θέση: " + tmp_maxTheseisProsPolisi + ", συνολικό μέγεθος πίνακα: " + ergaProsPolisi.length);
+        System.out.println("Προς μεταφορά-> new_thesiProsMetafora: " + new_thesiProsMetafora + ", συνολικό μέγεθος πίνακα: " + ergaProsMetafora.length);
+        System.out.println("Προς πώληση-> tmp_maxTheseisProsPolisi: " + tmp_maxTheseisProsPolisi + ", συνολικό μέγεθος πίνακα: " + ergaProsPolisi.length);
         if (new_thesiProsMetafora < ergaProsMetafora.length) {
             if (tmp_maxTheseisProsPolisi > 0) {
                 ShowAllErga(ergaProsPolisi);
-                System.out.print("Δώσε τη θέση του έργου που θέλεις να μεταφέρεις (μεγαλύτερη θέση για επιστροφή): ");
+                System.out.print("Δώσε τη θέση του έργου που θέλεις να μεταφέρεις (diaforetiki epilogi για επιστροφή): "); // todo diorthosi minimatos
                 thesi = UserInput.getInteger();
-                if (thesi >= 0)// && thesi <= tmp_maxTheseisProsPolisi)
+                if (thesi >= 0 && thesi < ergaProsMetafora.length)// tmp_maxTheseisProsPolisi)
                     if (ergaProsPolisi[thesi] != null) {
                         ergaProsMetafora[new_thesiProsMetafora] = new AgoraParadosi();
                         ergaProsMetafora[new_thesiProsMetafora].setErgoProsPolisi(ergaProsPolisi[thesi]);

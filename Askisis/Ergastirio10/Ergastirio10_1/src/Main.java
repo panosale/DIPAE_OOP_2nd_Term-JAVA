@@ -87,21 +87,24 @@ public class Main {
                 ShowAllErga(ergaProsPolisi);
                 System.out.print("Δώσε τη θέση του έργου που θέλεις να μεταφέρεις (μεγαλύτερη θέση για επιστροφή): ");
                 thesi = UserInput.getInteger();
-                if (thesi < tmp_maxTheseisProsPolisi)
+                if (thesi >= 0)// && thesi <= tmp_maxTheseisProsPolisi)
                     if (ergaProsPolisi[thesi] != null) {
                         ergaProsMetafora[new_thesiProsMetafora] = new AgoraParadosi();
                         ergaProsMetafora[new_thesiProsMetafora].setErgoProsPolisi(ergaProsPolisi[thesi]);
                         ergaProsPolisi[thesi] = null;
                         tmp_transferedSuccessfully = true;
                     } else
-                        System.out.println("*****  Η μεταφορά είναι αδύνατη. Έδωσες λάθος θέση. *****");
-                else
-                    System.out.println("*****  Η μεταφορά ακυρώθηκε. *****");
+                        System.out.println("***** Η μεταφορά είναι αδύνατη. Έδωσες λάθος θέση. *****");
+                else {
+                    System.out.println("***** Η μεταφορά ακυρώθηκε. *****");
+                    System.out.println("thesi = " + thesi);
+                    System.out.println("tmp_maxTheseisProsPolisi = " + tmp_maxTheseisProsPolisi);
+                }
             } else System.out.println("***** Ο πίνακας έργων προς πώληση είναι κενός. *****");
         }
         else
             System.out.println("***** Ο πίνακας έργων προς μεταφορά είναι γεμάτος. *****");
-// ΝΑ ΓΙΝΕΙ ΕΛΕΓΧΟΣ ΑΝ ΟΤΑΝ ΜΕΙΝΕΙ Η ΤΕΛΕΥΤΑΊΑ ΓΡΑΜΜΗ ΤΟΥ ΠΙΝΑΚΑ ΜΕΤΑΦΕΡΕΤΑΙ ΣΩΣΤΑ.
+// todo ΝΑ ΓΙΝΕΙ ΕΛΕΓΧΟΣ ΑΝ ΟΤΑΝ ΜΕΙΝΕΙ Η ΤΕΛΕΥΤΑΊΑ ΓΡΑΜΜΗ ΤΟΥ ΠΙΝΑΚΑ ΜΕΤΑΦΕΡΕΤΑΙ ΣΩΣΤΑ.
         return tmp_transferedSuccessfully;
     }
     public static void ShowAllPhotographs(ProsPolisi[] erga) {
@@ -147,10 +150,10 @@ public class Main {
                     if (MetaforaErgou(ErgaProsPolisi, ErgaProsMetafora, thesiProsMetafora, maxTheseisProsPolisi)) {
                         maxTheseisProsPolisi--;
                         thesiProsMetafora++;
-                        System.out.println("*****  Η μεταφορά ολοκληρώθηκε *****");
+                        System.out.println("***** Η μεταφορά ολοκληρώθηκε *****");
                     }
                     else
-                        System.out.println("*****  Η μεταφορά δεν ολοκληρώθηκε *****");
+                        System.out.println("***** Η μεταφορά δεν ολοκληρώθηκε *****");
                     System.out.println();
                     break;
                 case 3: System.out.println("*** Choise: 3. Deliver work of art");

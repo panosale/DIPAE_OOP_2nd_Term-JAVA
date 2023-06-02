@@ -10,9 +10,16 @@ public class Pegasus extends Horse implements iBird{
         this.weight = new_weight;
 
     }
-    // Class methods
+    // Horse class methods
+    public void whinny() {
+        System.out.println("whinny");
+    }
+    public void gallop() {
+        System.out.println("travel fast");
+    }
+    // iBird interface methods
     public void chirp() {
-        System.out.println("chirp...");
+        System.out.println("Pegasus doesn't chirp.");
     }
     public void fly() {
         System.out.println("fly high");

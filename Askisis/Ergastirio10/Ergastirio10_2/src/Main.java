@@ -30,13 +30,15 @@ public class Main {
             for (i = 0; i < n; i++) {
                 tmp_rnd = rnd.nextInt(2);
                 if (tmp_rnd == 0) {
-                    Aviary[i] = new Bird(2, 200);
-                    System.out.println(((Bird) Aviary[i]).toString());
+                    Aviary[i] = new Bird(2, 200); // Downcasting επειδή το Aviary είναι αρχικά αναφορά στο iBird
+                    System.out.println(((Bird)Aviary[i]).toString()); // Downcasting επειδή το Aviary είναι αρχικά αναφορά στο iBird
+//                    System.out.println(Aviary[i].toString()); // Εκτελείται και έτσι
                     Aviary[i].fly();
                     Aviary[i].chirp();
                 } else {
-                    Aviary[i] = new Pegasus(1200, 555);
-                    System.out.println(((Pegasus) Aviary[i]).toString());
+                    Aviary[i] = new Pegasus(1200, 555); // Downcasting επειδή το Aviary είναι αρχικά αναφορά στο iBird
+                    System.out.println(((Pegasus)Aviary[i]).toString()); // Downcasting επειδή το Aviary είναι αρχικά αναφορά στο iBird
+//                    System.out.println(Aviary[i].toString()); // Εκτελείται και έτσι
                     ((Pegasus) Aviary[i]).whinny();
                     ((Pegasus) Aviary[i]).gallop();
                 }

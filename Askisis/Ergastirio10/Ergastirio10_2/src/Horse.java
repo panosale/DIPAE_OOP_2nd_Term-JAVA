@@ -35,8 +35,7 @@ public class Horse {
     }
     // toString method
 
-    @Override
     public String toString() {
-        return "Bird. Age:" + this.age + ", Weight: " + this.weight;
+        return "Horse. Age:" + this.age + ", Weight: " + this.weight;
     }
 }

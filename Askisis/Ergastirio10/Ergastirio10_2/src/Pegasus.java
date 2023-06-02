@@ -28,4 +28,7 @@ public class Pegasus extends Horse implements iBird{
     public void setAge(int new_age) {
         this.age = new_age;
     }
+    public String toString() {
+        return "Pegasus. Age:" + this.age + ", Weight: " + this.weight;
+    }
 }

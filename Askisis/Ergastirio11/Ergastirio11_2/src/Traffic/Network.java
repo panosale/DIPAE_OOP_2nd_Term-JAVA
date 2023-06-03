@@ -1,4 +1,4 @@
-// Paketa
+// Packages
 // ergastirio 11.2
 package Traffic;
 public class Network {

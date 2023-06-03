@@ -1,4 +1,4 @@
-// Paketa
+// Packages
 // ergastirio 11.2
 public class TestNetwork {
     public static void main(String[] args) {

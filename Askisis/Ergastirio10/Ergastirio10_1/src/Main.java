@@ -126,6 +126,7 @@ public class Main {
             for (int i = 0; i < erga.length; i++)
                 if (erga[i] != null && erga[i] instanceof Photograph)
                     System.out.println("Θέση [" + i + "]. " + ((Photograph) erga[i]).toString());
+//                    System.out.println("Θέση [" + i + "]. " + (erga[i]).toString()); // Εκτελείται και έτσι
         }
         else
             System.out.println("***** Ο πίνακας έργων προς πώληση είναι κενός. *****");
@@ -135,6 +136,7 @@ public class Main {
             for (int i = 0; i < erga.length; i++)
                 if (erga[i] != null && erga[i] instanceof Painting)
                     System.out.println("Θέση [" + i + "]. " + ((Painting) erga[i]).toString());
+//                    System.out.println("Θέση [" + i + "]. " + (erga[i]).toString()); // Εκτελείται και έτσι
         }
         else
             System.out.println("***** Ο πίνακας έργων προς πώληση είναι κενός. *****");
@@ -160,8 +162,8 @@ public class Main {
     public static void main(String[] args) {
         int n = 10; // Μέγεθος πίνακα. Ζητείται από την άσκηση.
         int maxTheseisProsPolisi = 0 , thesiProsMetafora = 0;
-        ProsPolisi ErgaProsPolisi[] = new ProsPolisi[n];
-        AgoraParadosi ErgaProsMetafora[] = new AgoraParadosi[n];
+        ProsPolisi[] ErgaProsPolisi = new ProsPolisi[n];
+        AgoraParadosi[] ErgaProsMetafora = new AgoraParadosi[n];
 
         short menuChoise;
         boolean exitMenu = false;

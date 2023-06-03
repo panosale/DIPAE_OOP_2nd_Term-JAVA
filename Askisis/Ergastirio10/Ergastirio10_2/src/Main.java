@@ -1,7 +1,6 @@
-import java.util.Random;
-
 // Diasindesis - Pollapli klironomikotita
 // ergastirio 10.2
+import java.util.Random;
 public class Main {
     public static void main(String[] args) {
         int n = 4; // Μέγεθος πινάκων

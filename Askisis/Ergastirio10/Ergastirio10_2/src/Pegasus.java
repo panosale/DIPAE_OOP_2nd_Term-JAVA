@@ -1,3 +1,5 @@
+// Diasindesis - Pollapli klironomikotita
+// ergastirio 10.2
 public class Pegasus extends Horse implements iBird{
     private int age;
     private int weight;
@@ -14,9 +16,11 @@ public class Pegasus extends Horse implements iBird{
     public void whinny() {
         System.out.println("whinny");
     }
+/* // Κληρονομείται από την υπερκλάση (Horse)
     public void gallop() {
         System.out.println("travel fast");
     }
+*/
     // iBird interface methods
     public void chirp() {
         System.out.println("Pegasus doesn't chirp.");

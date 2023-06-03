@@ -1,3 +1,5 @@
+// Diasindesis - Pollapli klironomikotita
+// ergastirio 10.2
 public class Bird implements iBird {
     private int age;
     private int weight;

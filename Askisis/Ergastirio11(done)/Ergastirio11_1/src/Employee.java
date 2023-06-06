@@ -11,7 +11,7 @@ public class Employee {
     private double[] overtime;
     // Constructors
     public Employee() {}
-    public Employee(String new_name, String new_birthDate, short new_childNo, double new_hourlyWage) throws InvalidBirthDateException {
+    public Employee(String new_name, String new_birthDate, short new_childNo, double new_hourlyWage) { //throws InvalidBirthDateException {
         this.name = new_name;
         this.setBirthDate(new_birthDate);
         this.setChildNo(new_childNo);
@@ -24,7 +24,7 @@ public class Employee {
         }
     }
     public Employee(String new_name, String new_birthDate, short new_childNo, double new_hourlyWage,
-                    double[] new_workingHours, double[] new_overTime) throws InvalidBirthDateException {
+                    double[] new_workingHours, double[] new_overTime) {// throws InvalidBirthDateException {
         this.name = new_name;
         this.setBirthDate(new_birthDate);
         this.setChildNo(new_childNo);
@@ -32,17 +32,17 @@ public class Employee {
         this.workingHours = new_workingHours;
         this.overtime = new_overTime;
     }
-    public double childBenefitFactor() throws ArithmeticException {
+    public double childBenefitFactor() {// throws ArithmeticException {
         double tmpChildBenefitFactor = 0;
         try {
             tmpChildBenefitFactor = (100 - (double)(50 / this.childNo)) / 200d;
-        } catch (Exception msg) {
+        } catch (ArithmeticException msg) {
             System.out.println("Number of children is 0. Child Benefit Factor set to: 0.");
             tmpChildBenefitFactor = 0;
         }
         return tmpChildBenefitFactor;
     }
-    public double computeMonthlyIncome(short month) throws InvalidOvertimeException {
+    public double computeMonthlyIncome(short month) {// throws InvalidOvertimeException {
         return ((this.workingHours[month - 1] + this.overtime[month - 1]) * this.hourlyWage * (1 + this.childBenefitFactor()));
     }
     // Get-Set methods
@@ -52,7 +52,7 @@ public class Employee {
     public String getName() {
         return this.name;
     }
-    public void setBirthDate(String new_birthDate) throws InvalidBirthDateException {
+    public void setBirthDate(String new_birthDate) {// throws InvalidBirthDateException {
         try {
             int day = Integer.parseInt(new_birthDate.substring(0, 2));
             if (day < 1 || day > 31)
@@ -68,9 +68,9 @@ public class Employee {
     public String getBirthDate() {
         return this.birthDate;
     }
-    public void setChildNo(short new_childNo) {
+    public void setChildNo(short new_childNo) {// throws IllegalArgumentException {
         try {
-            if (new_childNo <0)
+            if (new_childNo < 0)
                 throw new IllegalArgumentException();
             this.childNo = new_childNo;
         } catch (IllegalArgumentException msg) {
@@ -129,11 +129,8 @@ public class Employee {
             return false;
         if (getClass() != obj.getClass())
             return false;
-/*
-        if (!Objects.equals(this.birthDate, obj.birthdate))
+        if (!Objects.equals(this.birthDate, ((Employee) obj).birthDate))
             return false;
-        return true;
-*/
         return true;
     }
 }

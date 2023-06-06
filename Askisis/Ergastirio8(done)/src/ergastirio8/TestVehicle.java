@@ -10,13 +10,13 @@ public class TestVehicle {
         int tmp_thesi, tmp_Cars = 0, tmp_Trucks = 0, tmp_Motorcycles = 0, tmp_undefinedVehicles = 0;
         final float posostoCars = 0.7f;
         final float posostoTrucks = 0.15f;
-        final float posostoMotorcycles = 0.15f; // Den xreiazetai
+        //final float posostoMotorcycles = 0.15f; // Den xreiazetai
         // To megethos tou pinaka zititai apo ton xristi
         System.out.print("Dose to megethos tou pinaka oximaton: ");
         n = UserInput.getInteger();
         // Ypologismos pososton oximaton analoga me to eidos tous. 70%=Cars, 15%=Trucks, 15%=Motorcycles
-        arithmosCars = Math.round(n * posostoCars);
-        arithmosTrucks = Math.round(n * posostoTrucks);
+        arithmosCars = (int)(n * posostoCars);
+        arithmosTrucks = (int)(n * posostoTrucks);
         arithmosMotorcycles = n - arithmosCars - arithmosTrucks; //Math.round(n * posostoMotorcycles); // Den xreiaetai
         // Emfanisi oximaton ana pososto. Einai ektimisi
         System.out.println("***** Cars to calculate: " + arithmosCars + ", Trucks to calculate: " + arithmosTrucks + ", Motorcycles to calculate: " + arithmosMotorcycles + ". *****\n");

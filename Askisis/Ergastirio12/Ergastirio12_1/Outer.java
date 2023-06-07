@@ -1,3 +1,5 @@
+// Nested classes, Inner classes
+// ergastirio 12.1
 public class Outer {
   private String inString = "Outer inString";
   private String outString = "Outer outString";

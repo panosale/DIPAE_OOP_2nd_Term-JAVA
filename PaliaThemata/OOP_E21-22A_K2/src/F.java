@@ -1,2 +1,2 @@
-public class F extends D, E {
+public class F extends D {// , E {
 }

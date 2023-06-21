@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Main {
     // ΘΕΜΑ 1.3
     public static void newLine(String s) {
@@ -134,8 +136,8 @@ public class Main {
         System.out.println(f(4));
 */
 //        System.out.println("ΘΕΜΑ 1.3 (m): " + m(4));
-        // ΘΕΜΑ 2.1
 /*
+        // ΘΕΜΑ 2.1
         System.out.println("ΘΕΜΑ 2.1 (bubbleSort): ");
         int[] pinakas1 = {15, 11, 7, 2, 19, 13, 12};
         System.out.println("Before bubbleSort: ");
@@ -143,8 +145,7 @@ public class Main {
         bubbleSort(pinakas1);
         System.out.println("\nAfter bubbleSort: ");
         showPin(pinakas1);
-*/
-/*
+
         System.out.println("\n\nΘΕΜΑ 2.1 (insertionSort): ");
         int[] pinakas2 = {15, 11, 7, 2, 19, 13, 12};
         System.out.println("Before insertionSort: ");
@@ -153,7 +154,7 @@ public class Main {
         insertionSort(pinakas2);
         System.out.println("\nAfter insertionSort: ");
         showPin(pinakas2);
-*/
+
         System.out.println("\n\nΘΕΜΑ 2.1 (mergeSort): ");
         int[] pinakas3 = {15, 11, 7, 2, 19, 13, 12};
         System.out.println("Before mergeSort: ");
@@ -161,6 +162,7 @@ public class Main {
         mergeSort(pinakas3);
         System.out.println("After mergeSort: ");
         showPin(pinakas3);
+*/
         // ΘΕΜΑ 2.2
 /*
         System.out.println("ΘΕΜΑ 2.2: ");
@@ -170,5 +172,11 @@ public class Main {
         for (int i = 0; i < pin.length; i++)
             System.out.println(pin[i]);
 */
+        // ΘΕΜΑ 3
+        long r;
+        for (int i = 0; i < 25; i++) {
+            r = Math.round(Math.random() * 3);
+            System.out.println(r);
+        }
     }
 }

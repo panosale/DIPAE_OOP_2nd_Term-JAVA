@@ -173,10 +173,11 @@ public class Main {
             System.out.println(pin[i]);
 */
         // ΘΕΜΑ 3
-        long r;
-        for (int i = 0; i < 25; i++) {
-            r = Math.round(Math.random() * 3);
-            System.out.println(r);
-        }
+        Football f = new Football(5);
+        f.setcName("SuperLeague");
+        f.play();
+        f.showResults();
+        f.vathmologia();
+        f.showVathmoi();
     }
 }

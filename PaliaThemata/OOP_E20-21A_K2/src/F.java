@@ -1,2 +1,2 @@
-public class F implements E {
+public class F extends E {
 }

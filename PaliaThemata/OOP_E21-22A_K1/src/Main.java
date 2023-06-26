@@ -1,4 +1,14 @@
+import java.util.Arrays;
+
 public class Main {
+    // Θέμα 2.2
+    public static int chairFeet(int n) {
+        if (n == 0)
+            return 0;
+        if (n % 2 == 0)
+            return chairFeet(n - 1) + 3;
+        return chairFeet(n - 1) + 4;
+    }
     public static void main(String[] args) {
         System.out.println("Hello world!\nΛύσεις θεμάτων OOP_E21-22A_K1");
         TestClass x = new TestClass(454);
@@ -57,8 +67,12 @@ public class Main {
             line = 12;
             Wind w2 = w1;
         } catch (Exception e) {
-            System.out.println("Εξαίρεση στη γραμμή: " + line + ": " + e);
+            System.out.println("Εξαίρεση στη γραμμή: " + line + ": " + e + "\n");
         }
+        // Θέμα 2.2
+        System.out.println("chairFeet(5): " + chairFeet(5));
+        System.out.println("chairFeet(10): " + chairFeet(10) + "\n");
+
         int s = 0;
         A[][] a = new A[Constants.X][Constants.Y];
         for (int i  = 0; i < a.length; i++) {
@@ -71,7 +85,7 @@ public class Main {
         System.out.println("Sum = " + s);
         System.out.println("******************************* Hotel *******************************");
         Hotel h = new Hotel();
-        System.out.println("Hotel.dailyFullRentAmmoun: " +  h.dailyFullRentAmmoun());
+        System.out.println("Hotel.dailyFullRentAmmoun: " +  h.dailyFullRentAmmount());
         System.out.println("Hotel.totalRoomArea: " + h.totalRoomArea());
         System.out.println("Hotel.totalSuiteHallSpace: " + h.totalSuiteHallSpace());
     }

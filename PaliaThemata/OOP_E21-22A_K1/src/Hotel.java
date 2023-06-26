@@ -15,31 +15,31 @@ public class Hotel {
         for (int i = 0; i < Constants.X; i++)
             for (int j = 0; j < Constants.Y; j++) {
                 if (rentblsFound < rentbles) {
-                    System.out.print("Όροφος : " + i + ", Δωμάτιο: " + j + ".... ");
+                    //System.out.print("Όροφος : " + i + ", Δωμάτιο: " + j + ".... \n");
                     if (classicsFound < classics) {
                         rooms[i][j] = new ClassicHotelRoom();
                         rooms[i][j].setSpace(10);
-                        rooms[i][j].setPrice(500);
+                        rooms[i][j].setPrice(100);
                         classicsFound++;
                     } else {
                         rooms[i][j] = new HotelSuite();
-                        rooms[i][j].setPrice(500);
+                        rooms[i][j].setPrice(300);
                         rooms[i][j].setSpaceYpodoxis(5);
                     }
                     rentblsFound++;
                 } else {
                     rooms[i][j] = new HouseRoom();
                     rooms[i][j].setSpace(11);
-                    rooms[i][j].setPrice(22);
+                    rooms[i][j].setPrice(50);
                 }
             }
 
 
     }
-    public double dailyFullRentAmmoun() {
+    public double dailyFullRentAmmount() {
         double sum = 0;
         for (int i = 0; i < rooms.length; i++)
-            for (int j = 0; j <rooms[i].length; j++)
+            for (int j = 0; j < rooms[i].length; j++)
                 sum+=rooms[i][j].getPrice();
         return sum;
     }
@@ -54,7 +54,7 @@ public class Hotel {
     public double totalRoomArea() {
         double sum = 0;
         for (int i = 0; i < rooms.length; i++)
-            for (int j = 0; j <rooms[i].length; j++)
+            for (int j = 0; j < rooms[i].length; j++)
                 sum+=rooms[i][j].getSpace();
         return sum + this.totalSuiteHallSpace();
     }

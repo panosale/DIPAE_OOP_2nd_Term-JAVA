@@ -1,12 +1,14 @@
 public class HotelRoom extends Room implements Rentable {
-    private double price;
+//    private double price;
 
     public double getPrice() {
-        return this.price;
+        return super.getPrice();
+//        return this.price;
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        super.setPrice(price);
+//        this.price = price;
     }
 
     @Override
@@ -21,6 +23,6 @@ public class HotelRoom extends Room implements Rentable {
 
     @Override
     public String toString() {
-        return "HotelRoom.price: " + this.price;
+        return "HotelRoom.price: " + this.getPrice();
     }
 }

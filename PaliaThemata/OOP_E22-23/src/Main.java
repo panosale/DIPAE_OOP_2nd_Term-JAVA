@@ -9,6 +9,8 @@ public class Main {
         for (int i = 0; i < 10; i++) {
             System.out.print("Δώσε το ποσό πληρωμής[" + i + "] : ");
             cust.AddPayment(UserInput.getDouble());
+            System.out.println(cust.getBalance()); // ΓΙΑ ΕΛΕΓΧΟ ΣΩΣΤΗΣ ΛΕΙΤΟΥΡΓΙΑΣ
+            System.out.println(cust.getPayments(i)); // ΓΙΑ ΕΛΕΓΧΟ ΣΩΣΤΗΣ ΛΕΙΤΟΥΡΓΙΑΣ
         }
 
         System.out.println(cust.toString());

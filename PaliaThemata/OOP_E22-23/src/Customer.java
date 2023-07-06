@@ -1,5 +1,5 @@
 public class Customer {
-    private final int MAX_PAYMENTS = 10; // Αν θέλουμε το παραλείπουμε αλλά πρέπει να χρησιμοποιούμε παντού το μέγεθος πίνακα που δίνεται (10)
+    private final int MAX_PAYMENTS = 10; // Αν θέλουμε παραλείπουμε τη σταθερά αλλά πρέπει να χρησιμοποιούμε παντού το μέγεθος πίνακα που δίνεται (10)
     private int id;
     private double balance;
     private Payment[] payments;
@@ -25,14 +25,17 @@ public class Customer {
                 throw new CustomerBalanceException();
             for (int i = 0; i < payments.length; i++)
                 if (payments[i].getAmmountWithVAT() == 0) {
-                    payments[i].setvAT(paymnt * 0.24); // Το ποσοστό του φόρου είναι σταθερό
+                    // 1ος τρόπος
+                    payments[i].setvAT(paymnt * 0.24); // Το ποσοστό του φόρου είναι σταθερό 24%
                     payments[i].setPaidAmount(paymnt - payments[i].getvAT());
+                    // 2ος τρόπος. Εναλλακτικά γίνεται και με την παρακάτω μέθοδο αρκεί να απενεργοποιηθούν οι δυο παραπάνω γραμμές
+                    //this.setPayments(i, paymnt - (paymnt * 0.24), paymnt * 0.24); // Το ποσοστό του φόρου είναι σταθερό 24%
                     this.balance = this.balance - paymnt;
                     return;
                 }
         }
         catch (CustomerBalanceException msg) {
-            System.out.println("Exception! Το ποσό πληρωμής είναι είναι μεγαλύτερο από το υπόλοιπο. Η πληρωμή δεν καταχωρήθηκε.");
+            System.out.println("Exception! Το ποσό πληρωμής είναι μεγαλύτερο από το υπόλοιπο. Η πληρωμή δεν καταχωρήθηκε.");
         }
     }
     public void setId(int id) {
@@ -48,6 +51,14 @@ public class Customer {
 
     public double getBalance() {
         return this.balance;
+    }
+
+    public String getPayments(int i) {
+        return this.payments[i].toString();
+    }
+    public void setPayments(int i, double newPaidAmmount, double newVAT) {
+        this.payments[i].setPaidAmount(newPaidAmmount);
+        this.payments[i].setvAT(newVAT);
     }
 
     public String toString() {

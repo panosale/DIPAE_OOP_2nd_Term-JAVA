@@ -16,4 +16,11 @@ public class Payment extends Transaction {
   public String toString() {
     return "id: " + [TODO_here].getId + ", paidAmount: " + this.paidAmount + ", vAT: " + this.vAT;
   }
+  public class CustomerBalanceException extends Exception {
+    public CustomerBalanceException() {}
+
+    public CustomerBalanceException(String s) {
+      super(s);
+    }
+  }
 }

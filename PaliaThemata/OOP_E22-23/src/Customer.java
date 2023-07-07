@@ -20,6 +20,10 @@ public class Customer {
     }
 
     public void AddPayment(double paymnt) {
+/*
+        Οι παρακάω γραμμές μπορούν να βελτιωθούν ώστε αν το balance είναι 0 (άρα δεν υπάρχει χρωστούμενο ποσό) να μην τις εκτελεί καθόλου.
+        Αυτό μπορεί να γίνει εδώ με το ανάλογο if ή στη main πριν την κλήση της AddPayment.
+*/        
         try {
             if (paymnt > this.balance) // Αν η πληρωμή που δόθηκε με παράμετρο (paymnt) είναι μεγαλύτερη απ' το υπόλοιπο χρωστούμενο πόσο...
                 throw new CustomerBalanceException(); // ... "πετάει" το exception που ζητάει η άσκηση.

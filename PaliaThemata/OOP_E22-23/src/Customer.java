@@ -2,7 +2,7 @@ public class Customer {
     private final int MAX_PAYMENTS = 10; // Αν θέλουμε παραλείπουμε τη σταθερά αλλά πρέπει να χρησιμοποιούμε παντού το μέγεθος πίνακα που δίνεται (10)
     private int id;
     private double balance;
-    private Payment[] payments; // Έχουμε Σύνθεση και όχι κανονική Κληρονομικότητα
+    private Payment[] payments; // Έχουμε Σύνθεση και όχι κανονική Κληρονομικότητα.
 
     // Default Constructor
     public Customer() {
@@ -21,14 +21,14 @@ public class Customer {
 
     public void AddPayment(double paymnt) {
         try {
-            if (paymnt > this.balance)
-                throw new CustomerBalanceException(); // Αν η πληρωμή που δόθηκε με παράμετρο (paymnt) είναι μεγαλύτερη απ' το υπόλοιπο χρωστούμενο πόσο, "ρίχνει" το exception που ζητάει η άσκηση.
+            if (paymnt > this.balance) // Αν η πληρωμή που δόθηκε με παράμετρο (paymnt) είναι μεγαλύτερη απ' το υπόλοιπο χρωστούμενο πόσο...
+                throw new CustomerBalanceException(); // ... "πετάει" το exception που ζητάει η άσκηση.
             for (int i = 0; i < payments.length; i++)
-                if (payments[i].getAmmountWithVAT() == 0) { // Βρίσκει την επόμενη κενή θέση του πίνακα πληρωμών (payments) ώστε να καταχωρήσει τη νέα πληρωμή (παράμετρος paymnt).
+                if (payments[i].getAmmountWithVAT() == 0) { // Βρίσκει την επόμενη κενή θέση του πίνακα πληρωμών (payments) ώστε να καταχωρήσει τη νέα πληρωμή (paymnt).
                     // 1ος τρόπος
                     payments[i].setvAT(paymnt * 0.24); // Το ποσοστό του φόρου είναι σταθερό 24%. *** ΚΑΛΟ ΕΙΝΑΙ ΝΑ ΤΟ ΔΙΕΥΚΡΙΝΗΣΕΙ Ο ΚΑΘΗΓΗΤΗΣ.
                     payments[i].setPaidAmount(paymnt - payments[i].getvAT());
-                    // 2ος τρόπος. Εναλλακτικά μπορεί να γίνει και με την παρακάτω μέθοδο αρκεί να απενεργοποιηθούν οι δυο παραπάνω γραμμές.
+                    // 2ος τρόπος. Εναλλακτικά μπορεί να γίνει και με την παρακάτω μέθοδο αρκεί να απενεργοποιηθούν οι δυο γραμμές του 1ου τρόπου.
                     //this.setPayments(i, paymnt - (paymnt * 0.24), paymnt * 0.24); // Το ποσοστό του φόρου είναι σταθερό 24%. *** ΚΑΛΟ ΕΙΝΑΙ ΝΑ ΤΟ ΔΙΕΥΚΡΙΝΗΣΕΙ Ο ΚΑΘΗΓΗΤΗΣ.
                     this.balance = this.balance - paymnt; // Αφαιρεί από το υπόλοιπο χρωστούμενο, την πληρωμή που δόθηκε με παράμετρο (paymnt).
                     return; // Αφού έχει καταχωρηθεί μια πληρωμή σε κενή θέση του πίνακα, "σπάει" η επανάληψη for.

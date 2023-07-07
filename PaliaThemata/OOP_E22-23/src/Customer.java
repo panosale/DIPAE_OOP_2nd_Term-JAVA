@@ -30,12 +30,13 @@ public class Customer {
             for (int i = 0; i < payments.length; i++)
                 if (payments[i].getAmmountWithVAT() == 0) { // Βρίσκει την επόμενη κενή θέση του πίνακα πληρωμών (payments) ώστε να καταχωρήσει τη νέα πληρωμή (paymnt).
                     // 1ος τρόπος
+                    payments[i].setId(i);
                     payments[i].setvAT(paymnt * 0.24); // Το ποσοστό του φόρου είναι σταθερό 24%. *** ΚΑΛΟ ΕΙΝΑΙ ΝΑ ΤΟ ΔΙΕΥΚΡΙΝΗΣΕΙ Ο ΚΑΘΗΓΗΤΗΣ.
                     payments[i].setPaidAmount(paymnt - payments[i].getvAT());
                     // 2ος τρόπος. Εναλλακτικά μπορεί να γίνει και με την παρακάτω μέθοδο αρκεί να απενεργοποιηθούν οι δυο γραμμές του 1ου τρόπου.
                     //this.setPayments(i, paymnt - (paymnt * 0.24), paymnt * 0.24); // Το ποσοστό του φόρου είναι σταθερό 24%. *** ΚΑΛΟ ΕΙΝΑΙ ΝΑ ΤΟ ΔΙΕΥΚΡΙΝΗΣΕΙ Ο ΚΑΘΗΓΗΤΗΣ.
                     this.balance = this.balance - paymnt; // Αφαιρεί από το υπόλοιπο (balance), την πληρωμή που δόθηκε με παράμετρο (paymnt).
-                    return; // Αφού έχει καταχωρηθεί μια πληρωμή σε κενή θέση του πίνακα, "σπάει" η επανάληψη for.
+                    break; // Αφού έχει καταχωρηθεί μια πληρωμή σε κενή θέση του πίνακα, "σπάει" η επανάληψη for.
                 }
         }
         catch (CustomerBalanceException msg) { // "Πιάνει" το exception που ζητάει η άσκηση.
@@ -58,7 +59,7 @@ public class Customer {
         return this.balance;
     }
 
-    public String getPayments(int i) {
+    public String getPayments(int i) { // GIA ELEGXO KAI DIORTHOSI
         return this.payments[i].toString();
     }
     public void setPayments(int i, double newPaidAmmount, double newVAT) {

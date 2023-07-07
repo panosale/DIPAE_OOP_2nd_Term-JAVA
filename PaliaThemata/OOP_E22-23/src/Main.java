@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        Customer cust = new Customer(1, 1000);
+        Customer cust = new Customer(1, 1000); // Δημιουργία αντικειμένου "πελάτη"
 /*      // ΓΙΑ ΔΟΚΙΜΕΣ
         cust.AddPayment(10);
         cust.AddPayment(100);

@@ -3,10 +3,17 @@ public class Payment extends Transaction implements iFinancialTransaction{
     private double vAT;
 
     // Default constructor
-    public Payment() {
+    public Payment() { // Αρχικοποίηση των χαρακτηριστικών της κλάσης.
         this.vAT = 0;
         this.paidAmount = 0;
     }
+
+    @Override
+    public double getAmmountWithVAT() { // Υλοποίηση της getAmmountWithVAT() που δηλώνεται στο interface iFinancialTransaction. Ζητούμενο της άσκησης.
+        return this.paidAmount + this.vAT;
+    }
+
+    // Μέθοδοι Get & Set
     public void setvAT(double vAT) {
         this.vAT = vAT;
     }
@@ -41,11 +48,6 @@ public class Payment extends Transaction implements iFinancialTransaction{
     @Override
     public void setCode(String code) {
         super.setCode(code);
-    }
-
-    @Override
-    public double getAmmountWithVAT() {
-        return this.paidAmount + this.vAT;
     }
 
     public String toString() {

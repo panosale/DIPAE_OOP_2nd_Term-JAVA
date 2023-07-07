@@ -1,7 +1,11 @@
 abstract class Transaction {
     private int id;
     private String code;
-
+    
+    // Default constructor
+    public Transaction() {}
+    
+    // Μέθοδοι Get & Set
     public int getId() {
         return this.id;
     }

@@ -68,8 +68,8 @@ public class Customer {
 
     public String toString() {
         String tmpStr = ""; // Δήλωση προσωρινού String για την επιστροφή των πληροφοριών που ζητάει η άσκηση.
-        for (int i = 0; i < payments.length; i++)
-            tmpStr = tmpStr + "Payment no[" + i +"]: " + this.payments[i].getAmmountWithVAT() + "\n"; // "Δημιουργία" του String επιστροφής που ζητάει η άσκηση με την πρόσθεση όων των γραμμών του πίνακα.
-        return "id: " + this.id + ", Payments: \n" + tmpStr; // Προσθήκη του id και του προσωρινού String που δημιουργήθηκε παραπάνω.
+        for (int i = 0; i < payments.length; i++) // "Δημιουργία" του String επιστροφής που ζητάει η άσκηση με την πρόσθεση όλων των γραμμών του πίνακα πληρωμών (payments).
+            tmpStr = tmpStr + "Payment no[" + i +"]: " + this.payments[i].getAmmountWithVAT() + "\n"; 
+        return "id: " + this.id + ", Payments: \n" + tmpStr; // Επιστροφή του id και του προσωρινού String που δημιουργήθηκε παραπάνω.
     }
 }

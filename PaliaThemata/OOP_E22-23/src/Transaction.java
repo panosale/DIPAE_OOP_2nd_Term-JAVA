@@ -5,7 +5,7 @@ abstract class Transaction {
     // Default constructor
     public Transaction() {}
     
-    // Μέθοδοι Get & Set
+    // Μέθοδοι get, set & toString
     public int getId() {
         return this.id;
     }

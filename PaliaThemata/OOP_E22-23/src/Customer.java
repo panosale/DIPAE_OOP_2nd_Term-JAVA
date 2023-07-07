@@ -2,7 +2,7 @@ public class Customer {
     private final int MAX_PAYMENTS = 10; // Αν θέλουμε παραλείπουμε τη σταθερά αλλά πρέπει να χρησιμοποιούμε παντού το μέγεθος πίνακα που δίνεται (10)
     private int id;
     private double balance;
-    private Payment[] payments;
+    private Payment[] payments; // Έχουμε Σύνθεση και όχι κανονική Κληρονομικότητα
 
     // Default Constructor
     public Customer() {
@@ -19,10 +19,10 @@ public class Customer {
         }
     }
 
-    public void AddPayment(double paymnt){
+    public void AddPayment(double paymnt) {
         try {
             if (paymnt > this.balance)
-                throw new CustomerBalanceException(); // Αν η πληρωμή που δόθηκε με παράμετρο (paymnt) είναι μεγαλύτερη απ' το υπόλοιπου χρωστούμενο πόσο, "ρίχνει" το exception που ζητάει η άσκηση.
+                throw new CustomerBalanceException(); // Αν η πληρωμή που δόθηκε με παράμετρο (paymnt) είναι μεγαλύτερη απ' το υπόλοιπο χρωστούμενο πόσο, "ρίχνει" το exception που ζητάει η άσκηση.
             for (int i = 0; i < payments.length; i++)
                 if (payments[i].getAmmountWithVAT() == 0) { // Βρίσκει την επόμενη κενή θέση του πίνακα πληρωμών (payments) ώστε να καταχωρήσει τη νέα πληρωμή (παράμετρος paymnt).
                     // 1ος τρόπος
@@ -34,8 +34,8 @@ public class Customer {
                     return; // Αφού έχει καταχωρηθεί μια πληρωμή σε κενή θέση του πίνακα, "σπάει" η επανάληψη for.
                 }
         }
-        catch (CustomerBalanceException msg) {
-            System.out.println("Exception! Το ποσό πληρωμής είναι μεγαλύτερο από το υπόλοιπο. Η πληρωμή δεν καταχωρήθηκε."); // Εμφανίζει το exception που ζητάει η άσκηση.
+        catch (CustomerBalanceException msg) { // "Πιάνει" το exception που ζητάει η άσκηση.
+            System.out.println("Exception! Το ποσό πληρωμής είναι μεγαλύτερο από το υπόλοιπο. Η πληρωμή δεν καταχωρήθηκε."); // Εμφανίζει το μήνυμα του exception που ζητάει η άσκηση.
         }
     }
     // Μέθοδοι get, set & toString

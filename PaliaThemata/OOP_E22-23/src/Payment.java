@@ -13,7 +13,7 @@ public class Payment extends Transaction implements iFinancialTransaction{
         return this.paidAmount + this.vAT;
     }
 
-    // Μέθοδοι Get & Set
+    // Μέθοδοι get, set & toString
     public void setvAT(double vAT) {
         this.vAT = vAT;
     }

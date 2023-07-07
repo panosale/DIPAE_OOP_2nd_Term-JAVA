@@ -2,7 +2,7 @@ public class Customer {
     private final int MAX_PAYMENTS = 10; // Αν θέλουμε παραλείπουμε τη σταθερά αλλά πρέπει να χρησιμοποιούμε παντού το μέγεθος πίνακα που δίνεται (10)
     private int id;
     private double balance;
-    private Payment[] payments; // Έχουμε Σύνθεση και όχι κανονική Κληρονομικότητα.
+    private Payment[] payments; // Έχουμε Σύνθεση και όχι κανονική Κληρονομικότητα. Αφού ο πελάτης "έχει έναν" πίνακα πληρωμών και ΔΕΝ "είναι ένας" πίνακας πληρωμών.
 
     // Default Constructor
     public Customer() {

@@ -21,11 +21,11 @@ public class Customer {
 
     public void AddPayment(double paymnt) {
 /*
-        Οι παρακάω γραμμές μπορούν να βελτιωθούν ώστε αν το balance είναι 0 (άρα δεν υπάρχει χρωστούμενο ποσό) να μην τις εκτελεί καθόλου.
-        Αυτό μπορεί να γίνει εδώ με το ανάλογο if ή στη main πριν την κλήση της AddPayment.
+        Οι παρακάτω γραμμές μπορούν να βελτιωθούν ώστε αν το balance είναι 0 (άρα δεν υπάρχει υπόλοιπο χρωστούμενο ποσό) να μην τις εκτελεί καθόλου.
+        Προς το παρόν υλοποιείται στη main πριν την κλήση της AddPayment.
 */        
         try {
-            if (paymnt > this.balance) // Αν η πληρωμή που δόθηκε με παράμετρο (paymnt) είναι μεγαλύτερη απ' το υπόλοιπο χρωστούμενο πόσο...
+            if (paymnt > this.balance) // Αν η πληρωμή που δόθηκε με παράμετρο (paymnt) είναι μεγαλύτερη απ' το υπόλοιπο πόσο (balance)...
                 throw new CustomerBalanceException(); // ... "πετάει" το exception που ζητάει η άσκηση.
             for (int i = 0; i < payments.length; i++)
                 if (payments[i].getAmmountWithVAT() == 0) { // Βρίσκει την επόμενη κενή θέση του πίνακα πληρωμών (payments) ώστε να καταχωρήσει τη νέα πληρωμή (paymnt).
@@ -34,7 +34,7 @@ public class Customer {
                     payments[i].setPaidAmount(paymnt - payments[i].getvAT());
                     // 2ος τρόπος. Εναλλακτικά μπορεί να γίνει και με την παρακάτω μέθοδο αρκεί να απενεργοποιηθούν οι δυο γραμμές του 1ου τρόπου.
                     //this.setPayments(i, paymnt - (paymnt * 0.24), paymnt * 0.24); // Το ποσοστό του φόρου είναι σταθερό 24%. *** ΚΑΛΟ ΕΙΝΑΙ ΝΑ ΤΟ ΔΙΕΥΚΡΙΝΗΣΕΙ Ο ΚΑΘΗΓΗΤΗΣ.
-                    this.balance = this.balance - paymnt; // Αφαιρεί από το υπόλοιπο χρωστούμενο, την πληρωμή που δόθηκε με παράμετρο (paymnt).
+                    this.balance = this.balance - paymnt; // Αφαιρεί από το υπόλοιπο (balance), την πληρωμή που δόθηκε με παράμετρο (paymnt).
                     return; // Αφού έχει καταχωρηθεί μια πληρωμή σε κενή θέση του πίνακα, "σπάει" η επανάληψη for.
                 }
         }
@@ -67,9 +67,9 @@ public class Customer {
     }
 
     public String toString() {
-        String tmpStr = "";
+        String tmpStr = ""; // Δήλωση προσωρινού String για την επιστροφή των πληροφοριών που ζητάει η άσκηση.
         for (int i = 0; i < payments.length; i++)
-            tmpStr = tmpStr + "Payment no[" + i +"]: " + this.payments[i].getAmmountWithVAT() + "\n";
-        return "id: " + this.id + ", Payments: \n" + tmpStr;
+            tmpStr = tmpStr + "Payment no[" + i +"]: " + this.payments[i].getAmmountWithVAT() + "\n"; // "Δημιουργία" του String επιστροφής που ζητάει η άσκηση με την πρόσθεση όων των γραμμών του πίνακα.
+        return "id: " + this.id + ", Payments: \n" + tmpStr; // Προσθήκη του id και του προσωρινού String που δημιουργήθηκε παραπάνω.
     }
 }

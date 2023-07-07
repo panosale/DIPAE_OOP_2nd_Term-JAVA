@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         Customer cust = new Customer(1, 1000);
-/*      // Για δοκιμές
+/*      // ΓΙΑ ΔΟΚΙΜΕΣ
         cust.AddPayment(10);
         cust.AddPayment(100);
         cust.AddPayment(1000);

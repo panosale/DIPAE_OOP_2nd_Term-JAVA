@@ -22,15 +22,15 @@ public class Customer {
     public void AddPayment(double paymnt){
         try {
             if (paymnt > this.balance)
-                throw new CustomerBalanceException(); // "Ρίχνει" το exception που ζητάει η άσκηση.
+                throw new CustomerBalanceException(); // Αν η πληρωμή που δόθηκε με παράμετρο (paymnt) είναι μεγαλύτερη απ' το υπόλοιπου χρωστούμενο πόσο, "ρίχνει" το exception που ζητάει η άσκηση.
             for (int i = 0; i < payments.length; i++)
                 if (payments[i].getAmmountWithVAT() == 0) { // Βρίσκει την επόμενη κενή θέση του πίνακα πληρωμών (payments) ώστε να καταχωρήσει τη νέα πληρωμή (παράμετρος paymnt).
                     // 1ος τρόπος
-                    payments[i].setvAT(paymnt * 0.24); // Το ποσοστό του φόρου είναι σταθερό 24%. Μπορεί να το διευκρινήσει ο καθηγητής.
+                    payments[i].setvAT(paymnt * 0.24); // Το ποσοστό του φόρου είναι σταθερό 24%. *** ΚΑΛΟ ΕΙΝΑΙ ΝΑ ΤΟ ΔΙΕΥΚΡΙΝΗΣΕΙ Ο ΚΑΘΗΓΗΤΗΣ.
                     payments[i].setPaidAmount(paymnt - payments[i].getvAT());
                     // 2ος τρόπος. Εναλλακτικά μπορεί να γίνει και με την παρακάτω μέθοδο αρκεί να απενεργοποιηθούν οι δυο παραπάνω γραμμές.
-                    //this.setPayments(i, paymnt - (paymnt * 0.24), paymnt * 0.24); // Το ποσοστό του φόρου είναι σταθερό 24%
-                    this.balance = this.balance - paymnt;
+                    //this.setPayments(i, paymnt - (paymnt * 0.24), paymnt * 0.24); // Το ποσοστό του φόρου είναι σταθερό 24%. *** ΚΑΛΟ ΕΙΝΑΙ ΝΑ ΤΟ ΔΙΕΥΚΡΙΝΗΣΕΙ Ο ΚΑΘΗΓΗΤΗΣ.
+                    this.balance = this.balance - paymnt; // Αφαιρεί από το υπόλοιπο χρωστούμενο, την πληρωμή που δόθηκε με παράμετρο (paymnt).
                     return; // Αφού έχει καταχωρηθεί μια πληρωμή σε κενή θέση του πίνακα, "σπάει" η επανάληψη for.
                 }
         }
@@ -38,7 +38,7 @@ public class Customer {
             System.out.println("Exception! Το ποσό πληρωμής είναι μεγαλύτερο από το υπόλοιπο. Η πληρωμή δεν καταχωρήθηκε."); // Εμφανίζει το exception που ζητάει η άσκηση.
         }
     }
-    // Μέθοδοι Get & Set
+    // Μέθοδοι get, set & toString
     public void setId(int id) {
         this.id = id;
     }

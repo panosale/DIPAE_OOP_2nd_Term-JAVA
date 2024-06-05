@@ -3,23 +3,26 @@ package ergastirio5;
 public class MyUtils {
     // Swap foititon
     public static void swapFoitites(Foititis foit1, Foititis foit2) {
-        short tmpAM, tmpEtosEisagogis;
-        String tmpFirstName, tmpLastName;
-
-        tmpAM = foit1.getAM();
-        tmpFirstName = foit1.getFirstName();
-        tmpLastName = foit1.getLastName();
-        tmpEtosEisagogis = foit1.getEtosEisagogis();
-
-        foit1.setAM(foit2.getAM());
-        foit1.setFirstName(foit2.getFirstName());
-        foit1.setLastName(foit2.getLastName());
-        foit1.setEtosEisagogis(foit2.getEtosEisagogis());
-
-        foit2.setAM(tmpAM);
-        foit2.setFirstName(tmpFirstName);
-        foit2.setLastName(tmpLastName);
-        foit2.setEtosEisagogis(tmpEtosEisagogis);
+        Foititis tmpFoit = foit1;
+        foit1 = foit2;
+        foit2 = tmpFoit;
+//        short tmpAM, tmpEtosEisagogis;
+//        String tmpFirstName, tmpLastName;
+//
+//        tmpAM = foit1.getAM();
+//        tmpFirstName = foit1.getFirstName();
+//        tmpLastName = foit1.getLastName();
+//        tmpEtosEisagogis = foit1.getEtosEisagogis();
+//
+//        foit1.setAM(foit2.getAM());
+//        foit1.setFirstName(foit2.getFirstName());
+//        foit1.setLastName(foit2.getLastName());
+//        foit1.setEtosEisagogis(foit2.getEtosEisagogis());
+//
+//        foit2.setAM(tmpAM);
+//        foit2.setFirstName(tmpFirstName);
+//        foit2.setLastName(tmpLastName);
+//        foit2.setEtosEisagogis(tmpEtosEisagogis);
     }
     //1.  Seiriaki anazitisi
     public static int anazitisiMeEpwnymo(Foititis[] foitArray, String foit2Search) {
